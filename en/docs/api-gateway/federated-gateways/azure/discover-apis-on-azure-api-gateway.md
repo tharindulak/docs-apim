@@ -69,7 +69,7 @@ Follow the instructions given below to configure Azure API Gateway as a Federate
 3. Click on the API to view the API details.
 4. From the left menu, click **Lifecycle** and select **Publish** so that API will deploy to the Developer Portal.
 
-## Step 4 : Invoke the API
+## Step 5: Invoke the API
 1. Sign in to the Developer Portal.
 
    `https://<hostname>:9443/devportal`

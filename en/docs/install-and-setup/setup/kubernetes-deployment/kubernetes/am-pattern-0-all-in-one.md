@@ -533,7 +533,7 @@ wso2:
 
 Envoy Gateway is the default routing controller in WSO2 API Manager 4.7.0. It uses the Kubernetes Gateway API, which provides more flexibility than traditional Ingress resources.
 
-**Step 1: Create a TLS secret**
+##### Step 1: Create a TLS secret
 
 ```bash
 kubectl create secret tls apim-tls-secret \
@@ -542,7 +542,9 @@ kubectl create secret tls apim-tls-secret \
   -n apim
 ```
 
-**Step 2: Install Envoy Gateway** (if not already done in Step 4 of the Quick Start)
+##### Step 2: Install Envoy Gateway
+
+Skip this step if you already installed Envoy Gateway in Step 4 of the Quick Start.
 
 ```bash
 helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
@@ -552,7 +554,7 @@ helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
   --create-namespace
 ```
 
-**Step 3: Apply the Gateway manifest**
+##### Step 3: Apply the Gateway manifest
 
 ```bash
 kubectl apply \
@@ -560,7 +562,7 @@ kubectl apply \
   -n apim
 ```
 
-**Step 4: (Optional) Create a CA ConfigMap for backend TLS**
+##### Step 4: (Optional) Create a CA ConfigMap for backend TLS
 
 If you want Envoy Gateway to verify backend TLS certificates, create a ConfigMap with your CA certificate:
 
@@ -570,7 +572,7 @@ kubectl create configmap wso2-ca-cert \
   -n apim
 ```
 
-**Step 5: Configure Envoy Gateway in `values.yaml`**
+##### Step 5: Configure Envoy Gateway in `values.yaml`
 
 ```yaml
 kubernetes:

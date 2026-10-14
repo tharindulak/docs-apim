@@ -102,7 +102,7 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
     | Display Token Endpoint        | `https://localhost:9444/oauth2/token`                                                                                                                                            |
     | Revoke Endpoint               | `https://localhost:9444/oauth2/revoke`                                                                                                                                           |
     | Display Revoke Endpoint       | `https://localhost:9444/oauth2/revoke`                                                                                                                                           |
-    | UserInfo Endpoint             | <ul><li>`https://localhost:9444/scim2/Me` or <li>`https://localhost:9444/keymanager-operations/user-info`. </ul> See [UserInfo Endpoint](#userinfo-endpoint) for more details.   |
+    | UserInfo Endpoint             | <ul><li>`https://localhost:9444/scim2/Me` or</li><li>`https://localhost:9444/keymanager-operations/user-info`.</li></ul> See [UserInfo Endpoint](#userinfo-endpoint) for more details.   |
     | Authorize Endpoint            | `https://localhost:9444/oauth2/authorize`                                                                                                                                        |
     | Scope Management Endpoint     | `https://localhost:9444/api/identity/oauth2/v1.0/scopes`                                                                                                                         |
 

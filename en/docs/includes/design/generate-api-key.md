@@ -25,7 +25,7 @@
 
 Once the API key is generated, the steps to use it depend on whether the API requires a subscription. Follow the relevant section below.
 
-### For subscription-enabled APIs
+#### For subscription-enabled APIs
 
 A valid subscription must exist and the generated API key must be associated with a subscribed application before it can be used to invoke the API.
 
@@ -60,7 +60,7 @@ A valid subscription must exist and the generated API key must be associated wit
 
      [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)
 
-### For subscriptionless APIs
+#### For subscriptionless APIs
 
 The generated API key can be used directly to invoke a subscriptionless API without any subscription or application association.
 

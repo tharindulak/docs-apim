@@ -304,7 +304,7 @@ You have to create and add a certificate for the IP/domain name in order to over
     In the following instructions, assume that you are attempting to add a self-signed certificate for the domain 'foo.com'.
 
 
-**Step 1 - Create a self-signed Java KeyStore file and include your domain as the Common Name (CN)**
+#### Step 1 - Create a self-signed Java KeyStore file and include your domain as the Common Name (CN)
 
 1.  Open a terminal and type the following command to generate a KeyStore.
 
@@ -352,7 +352,7 @@ You have to create and add a certificate for the IP/domain name in order to over
 
     This generates a KeyStore with a private key and a public certificate with CN as `*.foo.com          `
 
-**Step 2 - Configure the SSL KeyStore**
+#### Step 2 - Configure the SSL KeyStore
 
 Follow the instructions to configure the WSO2 product with the generated KeyStore:
 
@@ -371,7 +371,7 @@ Follow the instructions to configure the WSO2 product with the generated KeyStor
         keytool -import -alias test.foo.com -file test.foo.com -keystore client-truststore.jks -storepass wso2carbon
         ```
 
-**Step 3 - Configure the values for the TLS Key Store**
+#### Step 3 - Configure the values for the TLS Key Store
 
 1.  Change the `file_name` and `password` of the `[keystore.tls]` configuration in `<API-M_HOME>/repository/conf/deployment.toml` file.
 

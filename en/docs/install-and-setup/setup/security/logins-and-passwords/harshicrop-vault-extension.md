@@ -121,7 +121,9 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
 
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted:
 
-    ><pre>[Enter KeyStore and Private Key Password :] wso2carbon</pre>
+    ```
+    [Enter KeyStore and Private Key Password :] wso2carbon
+    ```
 
     !!! note "YAJSW wrapper behavior on Windows"
         When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password :]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory, following the same method described in [Start server as a background job]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/#start-server-as-a-background-job).
@@ -135,8 +137,10 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 
 1. Start the HashiCorp Vault server and set the environment variables.
 
-    ><pre>export VAULT_ADDR='https://127.0.0.1:8200'
-    export VAULT_TOKEN='xxxxxxxxxxxxxx'</pre>
+    ```bash
+    export VAULT_ADDR='https://127.0.0.1:8200'
+    export VAULT_TOKEN='xxxxxxxxxxxxxx'
+    ```
 
 2. Include the policy in the `kv-read-write.hcl` file as below.
 
@@ -148,25 +152,34 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 
 3. Upload the kv policy using the command below.
 
-    ><pre>vault policy write kv-read-write kv-read-write.hcl</pre>
+    ```bash
+    vault policy write kv-read-write kv-read-write.hcl
+    ```
 
 4. The following commands can be used to create the AppRole using the created policy.
 
-    ><pre>vault auth enable approle</pre>
-    ><pre>vault write auth/approle/role/my-role \
+    ```bash
+    vault auth enable approle
+    ```
+    ```bash
+    vault write auth/approle/role/my-role \
         token_policies="kv-read-write" \
         token_type="service" \
         token_ttl="24h" \
         token_max_ttl="72h"
-    </pre>
+    ```
 
 5. Get the role-id as below.
 
-    ><pre>vault read auth/approle/role/my-role/role-id</pre>
+    ```bash
+    vault read auth/approle/role/my-role/role-id
+    ```
 
 6. Get the secret-id as below.
 
-    ><pre>vault write -f auth/approle/role/my-role/secret-id</pre>
+    ```bash
+    vault write -f auth/approle/role/my-role/secret-id
+    ```
 
 7. Create the kv engine with a path name (e.g., `wso2apim`).
 
@@ -282,7 +295,9 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted.
 
-    ><pre>[Enter KeyStore and Private Key Password :] wso2carbon  </pre>
+    ```
+    [Enter KeyStore and Private Key Password :] wso2carbon
+    ```
 
     !!! note "YAJSW wrapper behavior on Windows"
         When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password :]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory, following the same method described in [Start server as a background job]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/#start-server-as-a-background-job).
