@@ -1,0 +1,100 @@
+---
+title: Running the Streaming Integrator Runtime
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3b3ebf8fcc128f8687271b950e6fc6c8e8ef23be/en/docs/install-and-setup/install/installing-the-product/running-the-si.md
+---
+
+# Running the Streaming Integrator Runtime
+
+Follow the steps given below to run the WSO2 Streaming Integrator (SI) runtime.
+
+<Prerequisites>
+
+## Before you begin
+
+[Download and install](installing-si.mdx) the Streaming Integrator runtime.
+
+</Prerequisites>
+
+## Starting the SI server
+
+Follow the steps given below to start the Streaming Integrator server.
+
+1.    Open a command prompt as explained below.
+
+      <table><tbody><tr><th>{"On "}<b>{"Linux/macOS"}</b></th><td>{"Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window."}</td></tr><tr><th>{"On "}<b>{"Windows"}</b></th><td>{"Click "}<b>{"Start >Run"}</b>{", type "}<b>{"cmd"}</b>{" at the prompt, and then press "}<b>{"Enter"}</b>{"."}</td></tr></tbody></table>
+
+2.    Navigate to the `<SI_HOME>/bin` folder from your command line.
+3.    Execute one of the commands given below.
+
+      -   To start the server:
+          
+        <Tabs>
+        <TabItem value="tab-0" label="On macOS/Linux">
+
+        ```bash
+        sh server.sh
+        ```
+
+        </TabItem>
+        <TabItem value="tab-1" label="On Windows">
+
+        ```bash
+        server.bat
+        ```
+
+        </TabItem>
+        </Tabs>
+
+      -   To start the server in background mode:
+
+        <Tabs>
+        <TabItem value="tab-0" label="On macOS/Linux">
+
+        ```bash
+        sh server.sh start
+        ```
+
+        </TabItem>
+        <TabItem value="tab-1" label="On Windows">
+
+        ```bash
+        server.bat --start
+        ```
+
+        </TabItem>
+        </Tabs>
+      
+By default, the HTTP listener port is 8290 and the default HTTPS listener port is 8253.
+
+## Stopping the SI server
+
+-     To stop the Streaming Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
+-     To stop the Streaming Integrator in background mode:
+
+    <Tabs>
+    <TabItem value="tab-0" label="On macOS/Linux">
+
+    ```bash
+    sh server.sh stop
+    ```
+
+    </TabItem>
+    <TabItem value="tab-1" label="On Windows">
+
+    ```bash
+    server.bat --stop
+    ```
+
+    </TabItem>
+    </Tabs>
+
+## See Also
+
+<LinkCards>
+
+-   [Running the SI as a Windows Service](installing-si-as-windows-service.mdx)
+-   [Running the SI as a Linux Service](installing-si-as-a-linux-service.mdx)
+
+</LinkCards>

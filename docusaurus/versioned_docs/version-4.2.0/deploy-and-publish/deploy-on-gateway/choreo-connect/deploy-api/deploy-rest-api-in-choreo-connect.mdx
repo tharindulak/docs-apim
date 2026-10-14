@@ -1,0 +1,238 @@
+---
+title: Deploying a REST API in Choreo Connect
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect.md
+---
+
+# Deploying a REST API in Choreo Connect
+
+You can deploy a REST API in the following ways depending on the Choreo Connect **mode** you have chosen.
+
+
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane](../concepts/apim-as-control-plane.mdx)   | [Via WSO2 API Manager Publisher Portal](#via-wso2-api-manager-publisher-portal)  |
+|[Choreo Connect as a Standalone Gateway](../concepts/as-a-standalone-gateway.mdx)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
+
+
+## Via WSO2 API Manager Publisher Portal
+
+Follow the instructions below to deploy a REST API in a Choreo Connect instance run with WSO2 API Manager as the Control Plane.
+
+<Prerequisites title="Before you begin">
+
+This guide assumes that you already have a Choreo Connect instance configured to run with API Manager. If not,
+
+- To start Choreo Connect with an existing API Manager instance, follow the steps mentioned in the [Using Choreo Connect Deployed on Docker with WSO2 API Manager Guide](../getting-started/deploy/cc-on-docker-with-apim-as-control-plane.mdx)
+
+- To start a complete deployment setup that includes a WSO2 API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps in the [Quick Start Guide](../getting-started/quick-start-guide-docker-with-apim.mdx).
+
+</Prerequisites>
+
+<Steps>
+
+### Create an API in API Manager {/* #step-1---create-an-api-in-api-manager */}
+
+Create a REST type API using one of the following methods:
+
+- [Create a REST API via the WSO2 API Manager Publsiher Portal](../../../../design/create-api/create-rest-api/create-a-rest-api.mdx)
+- [Import a REST API to WSO2 API Manager using WSO2 API Controller (apiclt)](../../../../install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.mdx)
+     
+     You need to initially initialize the API project and thereafter import the API project in order to be able to import the API to WSO2 API Manager using the apiclt.
+
+For this example, let's create an API via the WSO2 API Manager Publsiher Portal.
+
+### Deploy the API in API Manager {/* #step-2---deploy-the-api-in-api-manager */}
+
+ The guide [here](../../deploy-api/deploy-an-api.mdx) will explain how you could easily deploy the API you just created.
+
+That's it! To invoke the API follow the steps [here](#step-4-invoke-the-api).
+
+:::info
+
+
+During the startup, Choreo Connect will check the `config.toml` to see if the `controlPlane` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belong to the Gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Policies, information related to Key Managers, etc.
+
+Whenever a new event occurs in API Manager such as an API being deployed, API Manager will notify Choreo Connect via Event Hub. Choreo Connect will then start fetching all the new artifacts related to its environment. 
+
+:::
+
+:::tip
+
+To be able to invoke an API via the Developer Portal TryOut Console, make sure at least one of the certificates used by the enforcer is same as the certificate used by the Key Manager configured in API-M. In Choreo Connect, the certs for enforcer are located at `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore`. In API-M, Key Managers can be configured from the API-M Admin Portal.
+
+:::
+
+
+###  Invoke the API {/* #step-3---invoke-the-api */}
+
+After the APIs are exposed via Choreo Connect, you can invoke an API with a valid access token.
+
+Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
+
+```bash
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+
+```
+
+Execute the following cURL command to Invoke the API using the access token.
+
+<Tabs>
+<TabItem value="tab-0" label="Format">
+
+
+
+</TabItem>
+</Tabs>
+```bash
+    curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept: application/xml" -H "Authorization: Bearer $TOKEN" -k
+```
+ 
+<Tabs>
+<TabItem value="tab-0" label="Example">
+
+
+
+</TabItem>
+</Tabs>
+```bash
+    curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization: Bearer $TOKEN" -k
+```
+
+
+
+Refer to [Generate a Test JWT](../security/generate-a-test-jwt.mdx) for more details.
+
+</Steps>
+
+## Via apictl for Standalone Mode
+
+Follow the instructions below to deploy a REST API via WSO2 API Controller (apictl), which is a CLI Tool used when Choreo Connect is run as a Standalone Gateway.
+
+<Prerequisites title="Before you begin">
+
+This guide assumes that you already have a Choreo Connect instance that is up and running. If not, checkout the [Using Choreo Connect Deployed on Docker with WSO2 API Controller Guide](../getting-started/deploy/cc-as-a-standalone-gateway-on-docker.mdx) on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the [Overview of Choreo Connect](../getting-started/choreo-connect-overview.mdx). 
+
+</Prerequisites>
+
+<Steps>
+
+### Download apictl and Set the Path Variable {/* #step-1---download-apictl-and-set-the-path-variable */} 
+
+First download [apictl](https://github.com/wso2/product-apim-tooling/releases) locally and extract it into a folder of your choice. Then, add its location to your PATH variable.
+
+```
+export PATH=$PATH:<directory-of-the-apictl-executable>
+```
+
+### Create an API Project using apictl {/* #step-2---create-an-api-project-using-apictl */}
+
+Let's create your first project "petstore" using an OpenAPI definition. The following `apictl init` command will generate a project folder containing all the necessary files.
+
+:::warning
+
+
+If you have used a previous version of apictl before, remember to delete the directories `.wso2apictl` and `.wso2apictl.local` that are located in your home directory. Deleting them will make the newer apictl create them again, with content compatible with the current version.
+
+:::
+
+```bash
+apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+```
+
+### Add a Choreo Connect Environment to apictl {/* #step-3---add-a-choreo-connect-environment-to-apictl */}
+
+To use apictl for Choreo Connect, a Choreo Connect environment needs to be added to apictl. This environment will hold the adapter URL for further commands.
+
+```bash
+apictl mg add env dev --adapter https://localhost:9843
+```
+
+:::info
+
+
+Note `mg` in the above command. The apictl commands that starts as `apictl mg` are Choreo Connect specific. If a command does not have `mg` after `apictl` then the command could probably be common to both Choreo Connect and API Manager, but it could also be API Manager specific. 
+
+:::
+
+:::tip
+
+
+The apictl commands here onwards are executed with the -k flag to avoid SSL verification with the Choreo Connect.
+
+To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert in the Choreo Connect truststore into the `<USER_HOME>/.wso2apictl/certs` folder.
+
+:::
+
+### Log in to the Choreo Connect Environment in apictl {/* #step-4---log-in-to-the-choreo-connect-environment-in-apictl */}
+
+You can use the following command to log in to the above Choreo Connect cluster (in other words log in to the Choreo Connect adapter). When you log in, an access token will be retrieved from Choreo Connect and saved in apictl.
+
+```bash
+apictl mg login dev -k
+```
+
+or
+
+```bash
+apictl mg login dev -u admin -p admin -k
+```
+
+### Deploy the API {/* #step-5---deploy-the-api */}
+
+Now let's deploy the API to Choreo Connect by executing the following command.     
+
+```bash
+apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -k
+```  
+
+
+###  Invoke the API {/* #step-6---invoke-the-api */}
+
+After the APIs are exposed via Choreo Connect, you can invoke an API with a valid access token.
+
+Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
+
+```bash
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+
+```
+
+Execute the following cURL command to Invoke the API using the access token.
+
+<Tabs>
+<TabItem value="tab-0" label="Format">
+
+
+
+</TabItem>
+</Tabs>
+```bash
+    curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept: application/xml" -H "Authorization: Bearer $TOKEN" -k
+```
+ 
+<Tabs>
+<TabItem value="tab-0" label="Example">
+
+
+
+</TabItem>
+</Tabs>
+```bash
+    curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization: Bearer $TOKEN" -k
+```
+
+
+:::info
+
+
+Refer to the following content to learn more,
+
+- [Managing Choreo Connect with apictl](../../../../install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.mdx)
+- [Choreo Connect as a Standalone Gateway](../concepts/as-a-standalone-gateway.mdx)
+- [Generate a Test JWT](../security/generate-a-test-jwt.mdx)
+
+:::
+
+</Steps>

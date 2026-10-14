@@ -1,0 +1,269 @@
+---
+title: Setting Up
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-gateway/platform-gateway/setting-up.md
+---
+
+# Setting Up
+
+This guide provides detailed instructions for deploying Platform Gateway in production environments. Choose the infrastructure option that matches your environment.
+
+:::tip[Quick Start]
+
+If you are just getting started, see the [Getting Started](getting-started.mdx) guide for a quick setup.
+
+:::
+
+## Setup Instructions
+
+<Tabs>
+<TabItem value="tab-0" label="Virtual Machine">
+
+
+<Prerequisites>
+
+### Prerequisites
+
+- cURL installed
+- unzip installed
+- A Docker-compatible container runtime such as:
+    - Docker Desktop (Windows / macOS)
+    - Rancher Desktop (Windows / macOS)
+    - Colima (macOS)
+    - Docker Engine + Compose plugin (Linux)
+
+Ensure that `Docker` and `Docker Compose` are installed and available:
+
+```bash
+docker --version
+docker compose version
+```
+
+</Prerequisites>
+
+<Steps>
+
+### Download the Gateway {/* #step-1-download-the-gateway */}
+
+Use the download command from the Admin Portal for your gateway, or run the following after replacing `<gateway-version>` with the release tag shown there (for example, `v1.0.0`):
+
+```bash
+curl -sLO https://github.com/wso2/api-platform/releases/download/gateway/<gateway-version>/wso2apip-api-gateway-<gateway-version>.zip && \
+unzip wso2apip-api-gateway-<gateway-version>.zip
+```
+
+### Configure the Gateway {/* #step-2-configure-the-gateway */}
+
+Run this command to create `wso2apip-api-gateway-<gateway-version>/configs/keys.env` with the required environment variables:
+
+```bash
+cat > wso2apip-api-gateway-<gateway-version>/configs/keys.env << 'ENVFILE'
+GATEWAY_CONTROLPLANE_HOST=<your-control-plane-host>:9443
+GATEWAY_REGISTRATION_TOKEN=<your-gateway-token>
+ENVFILE
+```
+
+### Start the Gateway {/* #step-3-start-the-gateway */}
+
+1. Navigate to the gateway folder:
+
+    ```bash
+    cd wso2apip-api-gateway-<gateway-version>
+    ```
+
+2. Run this command to start the gateway using the `configs/keys.env` file created in Step 2:
+
+    ```bash
+    docker compose --env-file configs/keys.env up
+    ```
+
+To run in detached mode (background):
+
+```bash
+docker compose --env-file configs/keys.env up -d
+```
+
+### Verify the Gateway {/* #step-4-verify-the-gateway */}
+
+Check that the gateway is running:
+
+```bash
+docker compose ps
+```
+
+</Steps>
+
+### Stopping the Gateway
+
+To stop the gateway:
+
+```bash
+docker compose down
+```
+
+</TabItem>
+<TabItem value="tab-1" label="Docker">
+
+
+<Prerequisites>
+
+### Prerequisites
+
+- cURL installed
+- unzip installed
+- Docker installed and running
+- Docker Compose installed
+
+</Prerequisites>
+
+<Steps>
+
+### Download the Gateway {/* #step-1-download-the-gateway-1 */}
+
+Use the download command from the Admin Portal for your gateway, or run the following after replacing `<gateway-version>` with the release tag shown there (for example, `v1.0.0`):
+
+```bash
+curl -sLO https://github.com/wso2/api-platform/releases/download/gateway/<gateway-version>/wso2apip-api-gateway-<gateway-version>.zip && \
+unzip wso2apip-api-gateway-<gateway-version>.zip
+```
+
+### Configure the Gateway {/* #step-2-configure-the-gateway-1 */}
+
+Run this command to create `wso2apip-api-gateway-<gateway-version>/configs/keys.env` with the required environment variables:
+
+```bash
+cat > wso2apip-api-gateway-<gateway-version>/configs/keys.env << 'ENVFILE'
+GATEWAY_CONTROLPLANE_HOST=<your-control-plane-host>:9443
+GATEWAY_REGISTRATION_TOKEN=<your-gateway-token>
+ENVFILE
+```
+
+:::warning[Important]
+
+Replace `<your-gateway-token>` with the Gateway Registration Token from the Admin Portal. This token is shown only once, so ensure you copy it before leaving the page.
+
+:::
+
+### Start the Gateway {/* #step-3-start-the-gateway-1 */}
+
+1. Navigate to the gateway folder:
+
+    ```bash
+    cd wso2apip-api-gateway-<gateway-version>
+    ```
+
+2. Run this command to start the gateway using the `configs/keys.env` file created in Step 2:
+
+    ```bash
+    docker compose --env-file configs/keys.env up
+    ```
+
+To run in detached mode (background):
+
+```bash
+docker compose --env-file configs/keys.env up -d
+```
+
+### Verify the Gateway {/* #step-4-verify-the-gateway-1 */}
+
+Check that the gateway is running:
+
+```bash
+docker compose ps
+```
+
+</Steps>
+
+### Stopping the Gateway
+
+To stop the gateway:
+
+```bash
+docker compose down
+```
+
+</TabItem>
+<TabItem value="tab-2" label="Kubernetes">
+
+
+<Prerequisites>
+
+### Prerequisites
+
+- cURL installed
+- Kubernetes 1.32+ cluster
+- Helm 3.18+ installed
+- Either permissions to install cert-manager in the cluster or an existing cert-manager installation
+
+</Prerequisites>
+
+### Install cert-manager (optional)
+
+If cert-manager is not already installed, run these commands before installing the gateway chart:
+
+```bash
+helm repo add jetstack https://charts.jetstack.io --force-update
+helm repo update
+
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --set crds.enabled=true
+```
+
+### Installing the Chart
+
+Use the Helm install command shown in the Admin Portal for your gateway where possible so chart and image versions stay in sync. Alternatively, run the following after replacing `<gateway-chart-version>` with the chart version recommended there (for example, `1.0.0`):
+
+```bash
+helm install gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway --version <gateway-chart-version> \
+  --set gateway.controller.controlPlane.host="<your-control-plane-host>" \
+  --set gateway.controller.controlPlane.port=9443 \
+  --set gateway.controller.controlPlane.token.value="<your-gateway-token>" \
+  --set gateway.config.analytics.publishers.moesif.application_id="<your-moesif-key>" \
+  --set gateway.config.analytics.enabled=true
+```
+
+:::warning[Important]
+
+Replace `<your-gateway-token>` with the Gateway Registration Token from the Admin Portal. This token is shown only once, so ensure you copy it before leaving the page.
+
+:::
+
+### Verifying the Installation
+
+Check that the gateway pods are running:
+
+```bash
+kubectl get pods
+```
+
+### Upgrading the Gateway
+
+To upgrade to a new version:
+
+```bash
+helm upgrade gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway --version <new-version> \
+  -f values.yaml
+```
+
+### Uninstalling the Gateway
+
+To remove the gateway from your cluster:
+
+```bash
+helm uninstall gateway
+```
+
+</TabItem>
+</Tabs>
+
+## What's Next?
+
+<LinkCards>
+
+- [Adding and Managing Policies](adding-and-managing-policies.mdx)
+- [Gateway Registration and Deployment](gateway-registration-and-deployment.mdx)
+
+</LinkCards>

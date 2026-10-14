@@ -1,0 +1,42 @@
+---
+title: Publisher Portal in Read-only Mode
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/808c7e57d4d9cf8aabc694cf03b1733d7455c149/en/docs/design/api-security/authorization/publisher-portal-in-read-only-mode.md
+---
+
+# Publisher Portal in Read-only Mode
+
+Users who have the view/read only permissions can only view the API, API Product and Service details in the Publisher portal and in addition they can also review all the analytics related details.
+
+The read only user should have the following scopes - `apim:api_view` and `apim:publisher_settings`
+
+WSO2 API-M provides a pre-defined role named **internal/observer**, which is used to group all the read-only users.
+
+## Accessing the Publisher portal in read-only mode 
+
+Let's create a read-only user and experience the Publisher portal in read-only mode.
+
+<Steps>
+
+### Create a read-only user {/* #step-1---create-a-read-only-user */}
+
+Follow the instructions below to create a Read only user:
+
+1. Sign in to the WSO2 Management Console (`https://<APIM_host>:<APIM_port>/carbon`) as the admin (default credentials are `admin`/`admin`).
+
+2. Create a user (Chris) and assign the **observer** default role.
+
+       [![Read-only user creation](../../../../../assets/img/learn/api-security/assign-role-to-user.png)](../../../../../assets/img/learn/api-security/assign-role-to-user.png)
+
+3. Click **Finish**.
+
+### Access the Publisher {/* #step-2---access-the-publisher */}
+
+When the read-only user (Chris) is logged in to the Publisher, Chris can view the Publisher portal as shown below.
+
+Example: API detail view
+
+[![Read-only API details](../../../../../assets/_versions/4.4.0/img/learn/api-security/read-only-api-details.png)](../../../../../assets/_versions/4.4.0/img/learn/api-security/read-only-api-details.png)
+
+</Steps>

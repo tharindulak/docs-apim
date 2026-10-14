@@ -1,0 +1,35 @@
+---
+title: Using the Registry REST API
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3b3ebf8fcc128f8687271b950e6fc6c8e8ef23be/en/docs/reference/using-the-registry-rest-api.md
+---
+
+# Using the Registry REST API
+
+ You can use the registry REST API to perform CRUD operations on registry resources. This is not packed with WSO2 API Manager by default. Follow the instructions below to use the registry REST API with WSO2 API Manager.
+
+1.  Download the [registry REST API webapp](../../../assets/attachments/resource.war).
+2.  Copy the webapp to the `<API-M_HOME>/repository/deployment/server/webapps` directory.
+3.  Invoke the registry REST API. 
+
+     For an example, you can use the following cURL command to get the content of the `app-tiers.xml` file, in the following registry path `_system/governance/apimgt/applicationdata`
+    
+    <Tabs>
+    <TabItem value="tab-0" label="Format">
+
+    ```bash
+    curl -X GET -H "Authorization: Basic <base64_encoded_username:password>=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://<hostname>:<port>/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
+    ```
+
+    </TabItem>
+    <TabItem value="tab-1" label="Sample">
+
+    ```bash
+    curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://localhost:9443/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
+    ```
+
+    </TabItem>
+    </Tabs>
+
+    For a complete reference of the available REST API operations, go to [Resources with REST API](https://docs.wso2.com/display/Governance540/Resources+with+REST+API).

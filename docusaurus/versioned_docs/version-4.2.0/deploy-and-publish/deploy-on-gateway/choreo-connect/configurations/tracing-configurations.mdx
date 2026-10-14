@@ -1,0 +1,309 @@
+---
+title: Choreo Connect Tracing Configuration Catalog
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/tracing-configurations.md
+---
+
+# Choreo Connect Tracing Configuration Catalog
+
+This document describes all the configurations related to tracing that are used in WSO2 Choreo Connect.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+[tracing]
+  enabled = true
+  type = "zipkin"
+
+[tracing.configProperties]
+    host = "zipkin"
+    port = "9411"
+    endpoint = "/api/v2/spans"
+    instrumentationName = "CHOREO-CONNECT"
+    maximumTracesPerSecond = "2"
+
+```
+
+
+
+
+
+
+## Tracing Configurations
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="2" type="checkbox" id="_tab_2" />
+                <label className="tab-selector" for="_tab_2"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+```toml
+[enforcer.tracing]
+  enabled = false
+  type = "jaeger"
+```
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[tracing]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> boolean </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Enable/Disable tracing in Choreo Connect</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>zipkin</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Type of trace exporter (e.g: azure, zipkin). Use `zipkin` for jaeger</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>
+
+
+
+## Tracer Configuration Properties
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="3" type="checkbox" id="_tab_3" />
+                <label className="tab-selector" for="_tab_3"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+```toml
+[enforcer.tracing.configProperties]
+  host = "jaeger"
+  port = "9411"
+  endpoint = "/api/v2/spans"
+  instrumentationName = "CHOREO-CONNECT"
+  maximumTracesPerSecond = "2"
+  maxPathLength = "256"
+  connectionTimeout = "20"
+```
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[tracing.configProperties]</code>
+                            <span className="badge-required">Required</span>
+                            <p>
+                                Configurations specific to each tracer configured in `tracing.type`
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>endpoint</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>/api/v2/spans</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Tracing data receiver&#39;s endpoint path. Applicable only for Jaeger and Zipkin tracers</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>host</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>jaeger</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Tracing data receiver&#39;s host. Applicable only for Jaeger and Zipkin tracers</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>9411</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Tracing data receiver host&#39;s port. Applicable only for Jaeger and Zipkin tracers</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>connectionString</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>&quot;&quot;</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Azure App Insights connection string. Applicable only for Azure Insights</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>instrumentationName</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>CHOREO-CONNECT</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Reference name for the Choreo Connect service in the tracer.</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>maximumTracesPerSecond</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>2</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Number of trace events to publish per second</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>maxPathLength</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>256</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Maximum length of the request path to extract and include in the HttpUrl tag.</p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>connectionTimeout</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Connection timeout for the OTLP service</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>

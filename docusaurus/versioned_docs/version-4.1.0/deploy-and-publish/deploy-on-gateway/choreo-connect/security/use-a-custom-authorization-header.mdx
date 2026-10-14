@@ -1,0 +1,27 @@
+---
+title: Use a Custom Authorization Header
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/78771a76543bbe4a250d6aac69a53851c4950dac/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
+---
+
+# Use a Custom Authorization Header
+
+By default Choreo Connect uses **Authorization** header to receive the authorization token to secure the APIs. However there can be scenarios where this header needs to be reserved for some other purposes. For example if the backend endpoint of an API requires Authorization header to be present in the request to do perform its own authentication step, you can configure it either in per API or globally at Choreo Connect in order to use a different header to receive the authorization token.
+
+## Per API Configuration
+
+Below extension can be used to do above configuration per API. This extension is not supported in resource level.
+
+```java
+x-wso2-auth-header: "XAuth"
+```
+
+## Global configuration
+
+This security configuration is to be added in to the config.toml file and it is global for all API in a specific runtime.
+
+```java
+[security.adapter]
+  authorizationHeader = "XAuth"
+```

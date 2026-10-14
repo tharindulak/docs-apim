@@ -1,0 +1,491 @@
+---
+title: Choreo Connect Analytics Configuration Catalog
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/78771a76543bbe4a250d6aac69a53851c4950dac/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations.md
+---
+
+# Choreo Connect Analytics Configuration Catalog
+
+This document describes all the configurations related to analytics that are used in WSO2 Choreo Connect.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+[analytics]
+  enabled = true
+
+[analytics.enforcer.configProperties]
+  authURL = "$env{analytics_authURL}"
+  authToken = "$env{analytics_authToken}"
+
+```
+
+
+
+
+
+
+## Enable Analytics
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="2" type="checkbox" id="_tab_2" />
+                <label className="tab-selector" for="_tab_2"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+<pre><code className="toml">[analytics]
+  enabled = false</code></pre>
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[analytics]</code>
+                            <span className="badge-required">Required</span>
+                            <p>
+                                Analytics configurations for Choreo Connect.
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> boolean </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p>Enable/Disable Analytics in Choreo Connect.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>
+
+
+
+## Adapter Configurations for Analytics
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="3" type="checkbox" id="_tab_3" />
+                <label className="tab-selector" for="_tab_3"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+<pre><code className="toml">[analytics.adapter]
+  bufferFlushInterval = "1s"
+  bufferSizeBytes = 16384
+  gRPCRequestTimeout = "20s"</code></pre>
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[analytics.adapter]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>bufferFlushInterval</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>1s</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>bufferSizeBytes</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>16384</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>gRPCRequestTimeout</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>20s</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>
+
+
+
+## Enforcer configurations for Analytics
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="4" type="checkbox" id="_tab_4" />
+                <label className="tab-selector" for="_tab_4"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+<pre><code className="toml">[analytics.enforcer.configProperties]
+  authURL = "$env\{analytics_authURL\}"
+  authToken = "$env\{analytics_authToken\}"</code></pre>
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[analytics.enforcer.configProperties]</code>
+                            <span className="badge-required">Required</span>
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>authURL</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>$env\{analytics_authURL\}</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>authToken</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> string </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>$env\{analytics_authToken\}</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>
+
+
+
+## Enforcer Log Receiver Configurations for Analytics
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="5" type="checkbox" id="_tab_5" />
+                <label className="tab-selector" for="_tab_5"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+<pre><code className="toml">[analytics.enforcer.LogReceiver]
+  port = 18090
+  maxMessageSize = 1000000000
+  maxHeaderLimit = 8192
+  keepAliveTime = 600</code></pre>
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[analytics.enforcer.LogReceiver]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>18090</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>maxMessageSize</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>1000000000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>maxHeaderLimit</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>8192</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>keepAliveTime</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>600</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>
+
+
+
+## Enforcer Log Receiver Pool Configurations for Analytics
+
+
+<div className="mb-config-catalog">
+    &lt;section>
+        <div className="mb-config-options">
+            <div className="superfences-tabs">
+            
+            <input name="6" type="checkbox" id="_tab_6" />
+                <label className="tab-selector" for="_tab_6"><i className="icon fa fa-code"></i></label>
+                <div className="superfences-content">
+                    <div className="mb-config-example">
+<pre><code className="toml">[analytics.enforcer.LogReceiver.threadPool]
+    coreSize = 10
+    maxSize = 100
+    #keep alive time of threads in seconds
+    keepAliveTime = 600
+    queueSize = 1000</code></pre>
+                    </div>
+                </div>
+                <div className="doc-wrapper">
+                    <div className="mb-config">
+                        <div className="config-wrap">
+                            <code>[analytics.enforcer.LogReceiver.threadPool]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className="params-wrap">
+                            <div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>coreSize</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>10</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>maxSize</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            <span className="badge-required">Required</span>
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>keepAliveTime</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>600</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><div className="param">
+                                <div className="param-name">
+                                  <span className="param-name-wrap"> <code>queueSize</code> </span>
+                                </div>
+                                <div className="param-info">
+                                    <div>
+                                        <p>
+                                            <span className="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div className="param-default">
+                                            <span className="param-default-value">Default: <code>1000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    &lt;/section>
+</div>

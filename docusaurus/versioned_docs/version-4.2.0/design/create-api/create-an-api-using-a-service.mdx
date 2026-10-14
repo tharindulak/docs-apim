@@ -1,0 +1,103 @@
+---
+title: Create an API Using a Service
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/design/create-api/create-an-api-using-a-service.md
+---
+
+# Create an API Using a Service
+
+The service catalog in WSO2 API Manager contains services that correspond to either the Micro Integrator or the Streaming Integrator. The Micro Integrator services correspond to the REST API backend services, and the Streaming Integrator services correspond to the Streaming API (i.e., WebSocket, WebHook/WebSub or SSE) backend services that are managed by the respective integration layer (Micro Integrator or Streaming Integrator).
+
+Therefore, you can use the respective services to either create REST APIs or Streaming APIs to expose integration services or streaming integration services as managed APIs.
+
+<Steps>
+
+## Create and publish your service to the service catalog {/* #step-1---create-and-publish-your-service-to-the-service-catalog */}
+
+Create and publish your integration service or streaming integration service to the **Service Catalog** of the WSO2 API-M layer via the integration layer.
+
+More information:
+
+- For information on creating and publishing a REST API based on an integration service, see [Exposing an Integration Service as a Managed API](../../integrate/develop/working-with-service-catalog.mdx).
+
+- For information on creating and publishing a Streaming API based on a streaming integration service, see [Exposing a Stream as a Managed API](../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog.mdx).
+
+## Discover the services {/* #step-2---discover-the-services */}
+
+Follow the instructions below to discover the integration services:
+
+1.  
+Sign in to the Publisher.
+
+     `https://<hostname>:9443/publisher`
+     
+     For testing purposes, you can use `https://localhost:9443/publisher` and `admin` as the username and password.
+     
+
+
+
+2.  Click **Services**.
+
+      <a href="/api-platform/api-manager/assets/img/integrate/service-catalog/select-services.png"><img src="/api-platform/api-manager/assets/img/integrate/service-catalog/select-services.png" alt="open service catalog" width="30%" /></a>
+
+      The available integration services appear.
+
+      <a href="/api-platform/api-manager/_versions/4.2.0/assets/img/common/service-catalog/services-catalog-list.png"><img src="/api-platform/api-manager/_versions/4.2.0/assets/img/common/service-catalog/services-catalog-list.png" width="50%" alt="service catalog listings" /></a>
+
+## Optionally, view the details of the service {/* #step-3---optionally-view-the-details-of-the-service */}
+
+1. Click on the service that is in the service catalog to view the service details. 
+
+     You can view the service name, version, description, usages in APIs, and other important metadata.
+
+     <a href="/api-platform/api-manager/assets/img/common/service-catalog/service-overview.png"><img src="/api-platform/api-manager/assets/img/common/service-catalog/service-overview.png" width="80%" alt="service overview" /></a>
+
+2. Optionally, **download a service definition**.
+
+     If required, click **Download** to download the service definition.
+
+3. Optionally, **view the service definition**.
+
+     If you want to see the service definition before creating an API, click **View Definition**.
+
+     <a href="/api-platform/api-manager/assets/img/common/service-catalog/view-api-definition.png"><img src="/api-platform/api-manager/assets/img/common/service-catalog/view-api-definition.png" alt="view api definition" /></a>
+
+## Create an API from the service {/* #step-4---create-an-api-from-the-service */}
+
+1.  Click on the service that is in the service catalog.
+
+2.  Click **Create API**.
+
+     This opens the **Create API** dialog box with the API details that are generated based on the service.
+
+    <a href="/api-platform/api-manager/assets/img/common/service-catalog/create-api-from-service.png"><img src="/api-platform/api-manager/assets/img/common/service-catalog/create-api-from-service.png" alt="create api dialog box" /></a>
+
+3.  Update the API name, context, and version if required, and click **Create API**. 
+
+    The overview page of the API that you just created appears. 
+
+    <a href="/api-platform/api-manager/_versions/4.2.0/assets/img/common/service-catalog/new-api-view.png"><img src="/api-platform/api-manager/_versions/4.2.0/assets/img/common/service-catalog/new-api-view.png" alt="apis list" /></a>
+
+4.  Update the portal configurations and API configurations as required.
+
+     Now, you have successfully created an API using a service.
+
+After you complete configuring the API, [Publish the API](../../deploy-and-publish/publish-on-dev-portal/publish-an-api.mdx).
+
+</Steps>
+
+## See Also
+
+Learn more on the concepts that you need to know when creating an API:
+
+ - [Endpoints](../endpoints/endpoint-types.mdx)
+ -   [API Security](../api-security/api-authentication/secure-apis-using-oauth2-tokens.mdx)
+ -   Rate Limiting:
+     -   [Rate Limiting for REST APIs](../rate-limiting/introducing-throttling-use-cases.mdx)
+     -   [Rate Limiting for Streaming APIs](../rate-limiting/rate-limiting-for-streaming-apis.mdx)
+ -   [Life Cycle Management](../lifecycle-management/api-lifecycle.mdx)
+ -   [API Monetization](../api-monetization/monetizing-an-api.mdx)
+ -   [API Visibility](../advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.mdx)
+ -   [API Documentation](../api-documentation/add-api-documentation.mdx)
+ -   [Custom Properties](adding-custom-properties-to-apis.mdx)

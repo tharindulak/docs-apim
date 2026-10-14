@@ -1,0 +1,26 @@
+---
+slug: /deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication/
+title: API Authentication
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+---
+
+# API Authentication
+
+Choreo Connect provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in Choreo Connect. API security can be divided into two main categories; namely, Application-level security and Transport-level security.
+
+By default, APIs are secured with application security. However, if you want to disable security for the API or only for a specific resource, see [Disabling Security](disabling-security.mdx).
+
+### Application Security
+Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.
+
+- [OAuth 2.0 Authentication](oauth2-access-tokens.mdx) 
+
+- [Publisher Internal Key Authentication](internal-key-authentication.mdx)
+
+- [API Key Authentication](api-key-authentication.mdx)
+
+- [Enforcer Test Key Authentication](../generate-a-test-jwt.mdx)
+
+Once authenticated, end-user attributes can be passed to the backend by enabling [Backend JWT Generation](../../passing-enduser-attributes-to-the-backend-via-choreo-connect.mdx).

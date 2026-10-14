@@ -1,0 +1,141 @@
+---
+title: Configure Multiple Gateways with Choreo Connect
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
+---
+
+# Configure Multiple Gateways with Choreo Connect
+
+Choreo Connect supports the configuration of multiple Gateways with WSO2 API Manager. This can be achieved with the Distributed Adapter pattern.
+
+## Distributed Adapter pattern
+
+Multiple Gateway environments can be registered in the WSO2 API Manager Control Plane. Each environment group includes an Adapter, an Enforcer, and a Router. The environment name used to register in the WSO2 API Manager Control Plane can be specified in the Adapter configurations. When the Adapter is started, it pulls the API artifacts related to the environment.
+
+[![Distributed Adapter Pattern](../../../../../assets/img/deploy/mgw/distributed-adapter-pattern.png)](../../../../../assets/img/deploy/mgw/distributed-adapter-pattern.png)
+
+## Configuration of environments
+
+Let's assume you have two environments called "choreo-connect-1" and "choreo-connect-2".
+
+:::warning
+
+Even though the Adapter has the capability to deploy APIs under multiple environment labels (Gateway labels), it is recommended to apply a single Gateway environment label to maintain a simple deployment architecture.
+
+:::
+
+1. In each of the Adapters, add the relevant environment to `environmentLabels` in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` under `controlPlane`.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Format">
+
+    ```toml
+    [controlPlane]
+      enabled = true
+      serviceURL = "https://apim:9443/"
+      username="admin"
+      password="$env{cp_admin_pwd}"
+      environmentLabels = [<GATEWAY_LABEL>]
+      [controlPlane.brokerConnectionParameters]
+        eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+        reconnectInterval = 5000
+        reconnectRetryCount = 60
+    ```
+
+    </TabItem>
+    <TabItem value="tab-1" label="Environment-1">
+
+    ```toml
+    [controlPlane]
+      enabled = true
+      serviceURL = "https://apim:9443/"
+      username="admin"
+      password="$env{cp_admin_pwd}"
+      environmentLabels = ["choreo-connect-1"]
+      [controlPlane.brokerConnectionParameters]
+        eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+        reconnectInterval = 5000
+        reconnectRetryCount = 60
+    ```
+
+    </TabItem>
+    <TabItem value="tab-2" label="Environment-2">
+
+    ```toml
+    [controlPlane]
+      enabled = true
+      serviceURL = "https://apim:9443/"
+      username="admin"
+      password="$env{cp_admin_pwd}"
+      environmentLabels = ["choreo-connect-2"]
+      [controlPlane.brokerConnectionParameters]
+        eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+        reconnectInterval = 5000
+        reconnectRetryCount = 60
+    ```
+
+    </TabItem>
+    </Tabs>
+
+2.  Next let's configure the Gateway environment label in the Enforcer and Router. To do that, update the following environment variables in each service in the docker-compose file.
+   
+    - Enforcer
+
+        <Tabs>
+        <TabItem value="tab-0" label="Format">
+
+        ```
+        ENFORCER_LABEL=<GATEWAY_LABEL>
+        ```
+
+        </TabItem>
+        <TabItem value="tab-1" label="Environment-1">
+
+        ```
+        ENFORCER_LABEL=choreo-connect-1
+        ```
+
+        </TabItem>
+        <TabItem value="tab-2" label="Environment-2">
+
+        ```
+        ENFORCER_LABEL=choreo-connect-2
+        ```
+
+        </TabItem>
+        </Tabs>
+
+    - Router
+
+        <Tabs>
+        <TabItem value="tab-0" label="Format">
+
+        ```
+        ROUTER_LABEL=<GATEWAY_LABEL>
+        ```
+
+        </TabItem>
+        <TabItem value="tab-1" label="Environment-1">
+
+        ```
+        ROUTER_LABEL=choreo-connect-1
+        ```
+
+        </TabItem>
+        <TabItem value="tab-2" label="Environment-2">
+
+        ```
+        ROUTER_LABEL=choreo-connect-2
+        ```
+
+        </TabItem>
+        </Tabs>
+
+3. Start Choreo Connect deployment from docker-compose.
+
+4. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
+
+    [![Add Gateway Environment](../../../../../assets/img/deploy/mgw/add-gateway-environment.png)](../../../../../assets/img/deploy/mgw/add-gateway-environment.png)
+
+5. Deploy the API on the defined Gateway.

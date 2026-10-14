@@ -1,0 +1,34 @@
+---
+title: AI Gateway
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/44d25ebbffaf209b9319caecabfca0ed9a7ef443/en/docs/ai-gateway/overview.md
+---
+
+# AI Gateway
+
+As AI adoption accelerates, managing AI APIs effectively has become essential for organizations integrating AI into their applications. WSO2 API Manager's **AI Gateway** simplifies this process, providing a seamless way to create, manage, and expose AI APIs with robust security and scalability.
+
+[![AI Gateway](../../../assets/img/learn/ai-gateway/ai-gateway.png)](../../../assets/img/learn/ai-gateway/ai-gateway.png)
+
+WSO2 API Manager offers built-in support for **OpenAI**, **Azure OpenAI**, and **Mistral**, while also allowing the configuration of custom AI vendors, enabling flexible AI API creation.
+
+With a comprehensive set of capabilities, the AI Gateway ensures secure and efficient AI integration. Key features include:
+
+- **AI API Creation**: Create AI APIs by selecting an AI vendor and version.
+
+- **AI Vendor Key Configuration**: Securely authenticate AI APIs by configuring API keys obtained from the AI vendor.
+
+- **Rate Limiting**: Protect AI backends by enforcing token-based rate limits to manage resource consumption.
+
+- **Multi-Model Routing**: Dynamically route AI API requests across multiple models within a vendor for optimized performance.
+
+- **AI Vendor Management**: Manage both default and custom AI vendors to streamline AI API administration.
+
+- **AI API Observability**: Track AI API usage statistics using [Analytics](../monitoring/api-analytics/choreo-analytics/api-analytics-architecture.mdx) solutions.
+
+By leveraging these capabilities, organizations can efficiently integrate, monitor, and scale AI APIs, unlocking the full potential of AI-driven applications.
+
+## Limitations
+
+Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**.

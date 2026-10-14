@@ -1,0 +1,37 @@
+---
+title: Create mtls api
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3b3ebf8fcc128f8687271b950e6fc6c8e8ef23be/en/docs/includes/design/create-mtls-api.md
+---
+
+## Create an API secured with Mutual SSL
+
+1.  [Create an API](https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/create-a-rest-api/).
+2.  Click **Develop -> API Configurations -> Runtime**.
+3.  Select **Mutual SSL**.
+    
+     [![Enable mutual SSL](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/enable-mutual-ssl.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/enable-mutual-ssl.png)
+
+    :::note
+
+      HTTP transport will be disabled for an API if it has Mutual SSL enabled.
+
+    :::
+
+4.  Click **Add Certificate** to upload a new client certificate.
+    
+    :::note
+
+    This feature currently supports `.crt` and `.cer` formats for certificates.
+
+    If you need to use a certificate in any other format, you can convert it using a standard tool before uploading it.
+
+    :::
+
+
+5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload**.
+    
+     [![Upload Certificate](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/upload-certificate.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/upload-certificate.png)
+    
+6.  **Save and Deploy** the API.

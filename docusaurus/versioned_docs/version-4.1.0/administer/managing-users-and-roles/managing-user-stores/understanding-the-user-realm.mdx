@@ -1,0 +1,19 @@
+---
+title: Understanding the User Realm
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/78771a76543bbe4a250d6aac69a53851c4950dac/en/docs/administer/managing-users-and-roles/managing-user-stores/understanding-the-user-realm.md
+---
+
+# Understanding the User Realm
+
+User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the 
+`deployment.toml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. The following documentation explains 
+the configurations that should be done in WSO2 products in order to set up the User Management module.
+
+The complete functionality and contents of the User Management module is called a **user realm** . The realm includes the user management classes, configurations and repositories that store information. Therefore, configuring the User Management functionality in a WSO2 product involves setting up the relevant repositories and updating the relevant configuration files.
+
+The following diagram illustrates the required configurations and repositories:
+![](/api-platform/api-manager/4.1.0/assets/attachments/126562314/126562315.png)
+
+The following sections include instructions on the above required configurations and repositories:

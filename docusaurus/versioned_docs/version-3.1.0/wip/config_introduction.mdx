@@ -1,0 +1,31 @@
+---
+title: Configuration Catalog
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/f110c268108df26f08fbaee8eb1cf5ac20d2a5b4/en/docs/wip/config_introduction.md
+---
+
+# Configuration Catalog
+This document describes all the configuration parameters that are used in WSO2 API Manager in a all-in-one deployment. 
+
+## Instructions for use
+
+> Select the configuration sections, parameters, and values that are required for your use and add them to the deployment.toml file. See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+
+[server]
+pattern="value"                         
+enable_port_forward=true
+
+[key_mgr_node]
+endpoints="value"
+
+[gateway]
+gateway_environments=["dev","test"]
+
+[[database]]
+pool_options.maxActiv=5
+
+```

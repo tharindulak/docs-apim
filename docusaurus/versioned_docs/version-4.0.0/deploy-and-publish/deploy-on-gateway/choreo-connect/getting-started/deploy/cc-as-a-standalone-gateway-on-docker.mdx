@@ -1,0 +1,204 @@
+---
+title: Deploying Choreo Connect as a Standalone Gateway on Docker Compose
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/5a85a65d8d6da92251f9da0c21568a9ea5509ed8/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
+---
+
+# Deploying Choreo Connect as a Standalone Gateway on Docker Compose
+
+Let's deploy an API, using WSO2 API Controller (apictl), on Choreo Connect, which running on Docker Compose as a Standalone Gateway.
+
+## Before you begin...
+
+Install and set up [Docker](https://www.docker.com).
+
+<Steps>
+
+## Download and setup Choreo Connect distribution zip and APICTL (Command Line Tool) {/* #step-1---download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool */}
+
+<Steps>
+
+### Download and install APICTL {/* #step-11---download-and-install-apictl */}
+
+APICTL is a CLI tool which can be used to deploy undeploy APIs into Choreo Connect clusters.
+Refer [Download and initialize the CTL Tool](../../../../../install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.mdx#download-and-initialize-the-ctl-tool)
+to setup the APICTL in your development environment.
+
+### Download and extract Choreo Connect distribution .zip file {/* #step-12---download-and-extract-choreo-connect-distribution-zip-file */}
+
+Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/).
+Extract the Choreo Connect distribution zip. Extracted folder will be called as `<CHOREO-CONNECT_HOME>` hereafter.
+
+</Steps>
+
+## Initialize an API project {/* #step-2---initialize-an-api-project */}
+
+Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Choreo Connect project.
+Run the following command to create a project named "petstore".  This will create the folder structure for the artifacts to be included. Use the -oas option to include the API definition to the project as follows.
+
+```shell
+apictl init petstore --oas <api definition path>
+```
+
+Let's use the [Petstore sample OpenAPI definition](https://petstore.swagger.io/)
+
+```shell
+apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+```
+
+The project is now initialized. A directory with the name "petstore" has been created.
+
+:::note
+
+    The folder structure is similar to the following.
+
+```java
+petstore
+├── Client-certificates
+├── Definitions
+│   └── swagger.yaml
+├── Docs
+├── Endpoint-certificates
+├── Image
+├── Interceptors
+├── README.md
+├── Sequences
+│   ├── fault-sequence
+│   ├── in-sequence
+│   └── out-sequence
+├── api.yaml
+├── api_meta.yaml
+└── libs
+```
+
+:::
+
+:::info
+
+-   For more information on the API project directory that gets created, see [APICTL Getting Started](../../../../../install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.mdx).
+
+:::
+
+## Start Choreo Connect {/* #step-3---start-choreo-connect */}
+
+Start Choreo Connect on Docker Compose by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME`. Navigate to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/` and execute the following command.
+
+
+<details>
+<summary>Click here if you are using an ARM64 based machine (e.g., Apple M1)</summary>
+
+If you are trying this out in an **ARM64** based machine (e.g., Apple M1), update the Docker image names with the following:
+
+- docker-compose.yaml files
+    - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml`
+    - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/docker-compose.yaml`
+
+| Existing (Default) image name      | Image name for tryout in ARM64 (e.g.: Apple M1) |
+|------------------------------------|-------------------------------------------------|
+| wso2/choreo-connect-adapter:1.0.0  | wso2/choreo-connect-adapter:1.0.0-ubuntu        |
+| wso2/choreo-connect-enforcer:1.0.0 | wso2/choreo-connect-enforcer:1.0.0-ubuntu       |
+| wso2/choreo-connect-router:1.0.0   | wso2/choreo-connect-router:1.0.0-ubuntu         |
+| wso2/wso2am:4.0.0-alpine           | wso2am/wso2am:4.0.0-ubuntu                      |
+
+**Note:**
+Note that the above Ubuntu based (`*-ubuntu`) images are for **tryout purpose only**, **not recommended for a production deployment**.
+
+</details>
+
+
+```java
+docker-compose up -d
+```
+
+Once containers are up and running, we can monitor the status of the containers using the following command
+    ```java
+    docker ps | grep choreo-connect-
+    ```
+
+## Deploy the API Project {/* #step-4---deploy-the-api-project */}
+
+<Steps>
+
+### Add Choreo Connect Cluster as Environment to APICTL {/* #step-41---add-choreo-connect-cluster-as-environment-to-apictl */}
+
+To use APICTL with Choreo Connect, we need to add the Choreo Connect cluster as an environment in the APICTL.
+Basically the adapter URL will be added as the gateway environment, and the added environment can be used in the subsequent commands.
+
+```shell
+apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
+```
+
+```shell
+apictl mg add env dev --adapter https://localhost:9843
+```
+
+### Login to Choreo Connect Cluster {/* #step-42---login-to-choreo-connect-cluster */}
+
+Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
+
+```shell
+apictl mg login dev -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
+```
+
+```shell
+apictl mg login dev -u admin -p admin -k
+```
+
+:::info
+
+Following apictl commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
+To communicate via https without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
+
+:::
+
+### Deploy the API in Choreo Connect {/* #step-43---deploy-the-api-in-choreo-connect */}
+
+Now let's deploy our first API to Choreo Connect using the project created in the step 3.
+   Navigate to the location where the petstore project was initialized. Execute the following command to deploy the API in the Choreo Connect.
+
+```shell
+apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
+```
+
+```shell
+apictl mg deploy api -f petstore -e dev -k
+```
+
+</Steps>
+
+## Invoke the sample API {/* #step-5---invoke-the-sample-api */}
+
+<Steps>
+
+### Obtain a token {/* #step-51---obtain-a-token */}
+
+After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
+Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT](../../security/generate-a-test-jwt.mdx) for more details.
+
+```shell
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+```
+
+:::info
+
+More information
+-   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
+
+:::
+
+### Invoke the API {/* #step-52---invoke-the-api */}
+
+Execute the following command to Invoke the API using the test key: You can now invoke the API running on the WSO2 Choreo Connect using the following cURL command.
+
+```shell
+curl -X GET "<Docker-hostname>:<Docker-port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
+```
+
+```shell
+curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```
+
+</Steps>
+
+</Steps>

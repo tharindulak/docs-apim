@@ -1,0 +1,79 @@
+---
+title: Enabling CORS
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/5a85a65d8d6da92251f9da0c21568a9ea5509ed8/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
+---
+
+# Enabling CORS
+
+### Enable CORS configuration for API resources (API level)
+
+If you are following the developer first approach, ([deploy the API via the CLI tool](../deploy-api/deploy-api-via-apictl.mdx)). You can add CrossOrigin Resource Sharing (**CORS**) configurations for each API (at API level) using the OpenAPI vendor extension **x-wso2-cors** in the API definition. The following code snippet depicts the usage of the `x-wso2-cors` extension. For more information, see the [detailed sample OpenAPI definition with CORS level configuration](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/cors_sample.yaml).
+
+```java
+x-wso2-basePath: /petstore/v1
+x-wso2-production-endpoints:
+  urls:
+  - https://petstore.swagger.io/v2
+x-wso2-cors:
+  accessControlAllowOrigins:
+    - test.com
+    - example.com
+  accessControlAllowHeaders:
+    - Authorization
+    - Content-Type
+  accessControlAllowMethods:
+    - GET
+    - PUT
+    - POST
+  accessControlAllowCredentials: true
+```
+
+If you are following the [Deploy API via API-M](../deploy-api/deploy-rest-api-in-choreo-connect.mdx) approach, you can add **CORS** configurations for each API using the [WSO2 API-M](../../../../design/advanced-topics/enabling-cors-for-apis.mdx#EnablingCORSPerAPI).
+
+### Enable CORS configurations globally
+
+Follow the instructions below to enable CORS globally. Once this is enabled, it will apply this configurations through all endpoints and APIs deployed in Choreo Connect.
+
+1. 
+Open the Choreo Connect configuration file according to the deployment type you are using.
+
+    <details>
+    <summary>Click here to see the configuration file location for your Choreo Connect deployment.</summary>
+
+    Navigate to the correct folder path and open the `config.toml` or `config-toml-configmap.yaml` file based on your Choreo Connect deployment.
+
+    | **Deployment** | **Mode**| **File name** | **Directory** |
+    |----------------|---------|---------------|---------------|
+    | Docker Compose |[Choreo Connect as a Standalone Gateway](../concepts/as-a-standalone-gateway.mdx)| `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+    | Docker Compose |[Choreo Connect with WSO2 API Manager as a Control Plane](../concepts/apim-as-control-plane.mdx) | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+    | Kubernetes |[Choreo Connect as a Standalone Gateway](../concepts/as-a-standalone-gateway.mdx)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+    | Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane](../concepts/apim-as-control-plane.mdx)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+
+    </details>
+
+  
+2. Locate the following configuration set and make the `enabled` attribute to `true` with the required CORS attributes there.
+
+     ```yml
+     [router.cors]
+         enabled = true
+         allowOrigins = ["*"]
+         allowMethods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
+         allowHeaders = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey", "testKey", "Internal-Key"]
+         exposeHeaders = []
+         allowCredentials = false
+     ```
+
+:::info
+
+Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above.
+
+:::
+
+:::note
+
+If CORS for a certain API is disabled from API Level Configurations, the default global Configurations will apply.
+
+:::

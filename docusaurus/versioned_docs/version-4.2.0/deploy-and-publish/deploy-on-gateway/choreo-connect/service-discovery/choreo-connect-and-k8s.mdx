@@ -1,0 +1,59 @@
+---
+title: Configuring Choreo Connect with Consul Service Mesh Deployed on Kubernetes
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-k8s.md
+---
+
+# Configuring Choreo Connect with Consul Service Mesh Deployed on Kubernetes
+
+Consul service mesh supports first-class integrations between Consul and Kubernetes.
+You can also [sync Kubernetes services](https://www.consul.io/docs/k8s/service-sync) with non-Kubernetes services using Consul.
+For more information on how how Consul works with Kubernetes, go to the [Consul official documentation](https://www.consul.io/docs/k8s).
+
+Follow the instructions below to set up Choreo Connect with Consul service mesh in Kubernetes:
+
+Example:
+
+[![service discovery](../../../../../../assets/img/deploy/consul-reference-k8s.png)](../../../../../../assets/img/deploy/consul-reference-k8s.png)
+
+<Steps>
+
+## Deploy Consul on K8s {/* #step-1---deploy-consul-on-k8s */}
+
+Deploy Consul using the [official Helm Chart](https://helm.releases.hashicorp.com/).
+
+For instructions, see the [Consul official documentation](https://www.consul.io/docs/k8s).
+
+## Configure Choreo Connect {/* #step-2---configure-choreo-connect */}
+
+1. Navigate to the `config-toml-configmap.yaml` file.
+2. Go to the `[adapter.consul]` section and update the configurations.
+
+    ```
+    [adapter.consul]
+     enabled = true
+     url = "http://consul-server:8500"
+     pollInterval = 5
+     ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+     mgwServiceName = "choreo-connect"
+     serviceMeshEnabled = true
+     caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
+     certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
+     keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
+    ```
+
+     1. Change the `url` to the URL of the Consul agent that you want to connect to.
+     2. Change the `ACLToken` to the token you generated from the previous step.
+     3. Set `serviceMeshEnabled` to `true`.
+     4. Configure `mgwServiceName` as `choreo-connect`.
+     5. Add the `caCertFile`, `certFile`, and `keyFile` files that you generated from the previous step.
+     6. [Apply the K8s artifacts for Choreo Connect](../getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes.mdx#step-1-setup-choreo-connect-in-kubernetes).
+
+## Deploy the API {/* #step-3---deploy-the-api */}
+
+Deploy WSO2 API Manger on Kubernetes.
+
+Use WSO2 API Manager to deploy your API as described in the [defining the endpoints](service-discovery-overview.mdx#defining-the-endpoints) guide.
+
+</Steps>

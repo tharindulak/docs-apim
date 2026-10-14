@@ -1,0 +1,37 @@
+---
+title: Third-Party Key Manager Integration
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/d74917be62837707817e85d20a315265f19b8fc7/en/docs/api-security/key-management/third-party-key-managers/overview.md
+---
+
+# Third-Party Key Manager Integration
+
+WSO2 API Manager supports integration with external authorization servers as Key Managers, enabling organizations to leverage existing enterprise identity providers alongside the built-in Key Manager.
+
+## Multiple Key Manager Support
+
+Organizations can configure multiple Key Managers within a single tenant, allowing different APIs and applications to use different authorization servers based on business requirements. Administrators configure these through the Admin Portal, making them available for developers and API creators.
+
+[![Add new Key Manager](../../../../../assets/img/key-manager/add-km-overview.png)](../../../../../assets/img/key-manager/add-km-overview.png)
+
+## Supported Third-Party Key Managers
+
+### Enterprise Identity Providers
+- **[WSO2 Identity Server](configure-wso2is-connector.mdx)**: Full-featured identity and access management platform
+- **[WSO2 Identity Server 7.x](configure-wso2is7-connector.mdx)**: Latest identity server with enhanced capabilities  
+- **[Keycloak](configure-keycloak-connector.mdx)**: Open-source identity and access management solution
+
+### Cloud Identity Services
+- **[Okta](configure-okta-connector.mdx)**: Cloud-based identity service integration
+- **[Auth0](configure-auth0-connector.mdx)**: Developer-focused identity platform
+- **[Azure AD](configure-azure-ad-key-manager.mdx)**: Microsoft Azure Active Directory integration
+
+### Enterprise Platforms
+- **[PingFederate](configure-pingfederate-connector.mdx)**: Enterprise federation and single sign-on
+- **[ForgeRock](configure-forgerock-connector.mdx)**: ForgeRock Identity Platform integration
+
+### Custom Integration
+- **[Custom Key Manager](configure-custom-connector.mdx)**: Build connectors for proprietary authorization servers
+- **[Custom Key Manager (Out-of-Band Provisioning)](configure-custom-km-out-of-band.mdx)**: Integrate any external authorization server using Out-of-Band provisioning mode
+- **[Global Key Manager](configure-global-key-manager.mdx)**: Cross-tenant key manager configuration

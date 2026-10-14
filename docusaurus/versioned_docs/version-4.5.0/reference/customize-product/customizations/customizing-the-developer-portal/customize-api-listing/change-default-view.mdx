@@ -1,0 +1,30 @@
+---
+title: Change Default View
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/44d25ebbffaf209b9319caecabfca0ed9a7ef443/en/docs/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+---
+
+# Change Default View
+
+By default the API Listing view is a grid view. You can follow the steps below to change the default API listing to a table view by configuring `userTheme.json`.
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here](../overriding-developer-portal-theme.mdx#global-theming).
+
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor.
+
+    You can add the following configuration to the `userTheme.json` to change the default API listing to a table view.
+
+    ```js
+    {
+        "custom": {
+            "defaultApiView" : "list"
+        }
+    }
+    ```
+
+    Changes done in the `defaultTheme.js` will be reflected directly in the developer portal. (It is not required to restart the server or rebuild the source code) 
+
+2. Refresh the Developer Portal to view the changes.
+
+    ![/api-platform/api-manager/4.5.0/assets/img/learn/change-default-view.png](../../../../../../../assets/_versions/4.5.0/img/learn/change-default-view.png)

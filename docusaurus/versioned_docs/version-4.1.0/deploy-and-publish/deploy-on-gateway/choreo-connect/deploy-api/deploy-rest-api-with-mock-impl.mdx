@@ -1,0 +1,332 @@
+---
+title: Deploying a REST API with a Mock Implementation
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/78771a76543bbe4a250d6aac69a53851c4950dac/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
+---
+
+# Deploying a REST API with a Mock Implementation
+
+In addition to exposing an existing backend implementation as an API, Choreo Connect is also capable of responding to HTTP requests even without a backend. By changing the endpoint type to **Mock Implementation**, you can make Choreo Connect read the examples you have provided in the OpenAPI definition and respond to each HTTP request accordingly. While it supports default responses, you can also request specific responses using the HTTP headers `Prefer` and `Accept`.
+
+Pick a method given below to start creating an API with a Mock Implementation.
+
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane](../concepts/apim-as-control-plane.mdx)   | [Via WSO2 API Manager Publisher Portal](#via-wso2-api-manager-publisher-portal)  |
+|[Choreo Connect as a Standalone Gateway](../concepts/as-a-standalone-gateway.mdx)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
+
+### Mock Implementation with OpenAPI examples
+
+::::note
+
+    With OpenAPI 3.0 you can provide the expected payloads and headers in the following formats. 
+
+**Single Example for an Operation**
+
+```yaml
+<resource path>:
+  <operation>:
+    responses:
+      <response code>:
+        description: <description>
+        headers:
+          <header>:
+            example: <header example value>
+        content:
+          <media type>:
+            example: <example>
+```
+
+```yaml
+/pet/findByStatus:
+  get:
+    responses:
+      '200':
+        description: OK
+        headers:
+          x-wso2-example:
+            example: example header value
+        content:
+          application/json:
+            example:
+              mock response: hello world
+```
+
+**Multiple Examples for an Operation**
+
+```yaml
+<resource path>:
+  <operation>:
+    responses:
+      <response code>:
+        description: <description>
+        headers:
+          <header>:
+            example: <header example value>
+        content:
+          <media type>:
+            examples: 
+              <example reference>
+                value: <example>
+```
+
+```yaml
+/pet/findByStatus:
+  get:
+    responses:
+      50X:
+        description: Service Unavailable
+        headers:
+          x-wso2-example:
+            example: example header value
+        content:
+          application/json:
+            examples:
+              ref1:
+                value:
+                  mock response: hello world
+              ref2:
+                value:
+                  mock response: Welcome
+      default:
+        description: default response
+        headers:
+          x-wso2-example:
+            example: default header value
+        content:
+          application/json:
+            examples:
+              ref1:
+                value:
+                  mock response: default hello world
+              ref2:
+                value:
+                  mock response: default Welcome
+```
+
+| **Place Holder** | **Usage** |
+|-----------------|--------------------|
+| `response code` | Can be 3 digit status code or a wildcard format like 2XX. `default` can be also provided instead of a particular status code. |   
+| `header` | Header name. You can provide multiple headers similarly under `headers`. |   
+| `media type` | Mock response content type. Provide allowed content types for the resource. When accept header is presented in a request, Choreo Connect will return the content which suited to accepted media type among them. |   
+| `example` | Provide the content body as a simple string or as an object. If an object is given as the `example`, it will be parsed to JSON format. |   
+
+
+
+For more information on OpenAPI response body example specifications, visit [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
+
+:::note
+
+You can find a complete OpenAPI example for Mock Implementation here: [OpenAPI for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml)
+
+If you take the example in **Multiple Examples for an Operation** mentioned previously and update the OpenAPI definition with it, you can use `Prefer` header and `Accept` header to get different examples for same resource operation.
+Using `Prefer` header you can specify which `code` and/or `example` should be returned as the response.
+
+Invoking `GET` for `/pet/findByStatus` will return the default example as given below.
+
+```bash
+curl -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+```
+
+```bash
+< HTTP/1.1 200 OK
+< content-type: application/json
+< x-wso2-example: "default header value"
+< 
+{"mock response":"default hello world"}
+```
+
+Invoking `GET` for `/pet/findByStatus` with the header `Prefer` will return the matched example for the particular code and the example reference.
+
+```bash
+curl -H 'Prefer: code=503, example=ref2' -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+```
+
+```bash
+< HTTP/1.1 503 Service Unavailable
+< content-type: application/json
+< x-wso2-example: "example header value"
+< 
+{"mock response":"Welcome"}
+```
+
+:::
+
+
+
+:::tip[Behavioral Characteristics]
+
+
+The following are the behavioral characteristics of Mock Implementation with Choreo Connect.
+
+**Preferred Status Code in the Prefer Header**   
+
+- If the request has a valid integer value as the **code** preference, 
+  Choreo Connect picks the most matched response example from the OpenAPI specification by checking the exact codes and
+  wild cards matches. Status code of the response will be same as the code preference given in the request. 
+  
+- If the request does not have a code preference,
+  Choreo Connect will check for examples under `default` responses. If no default responses are defined, 
+  then picks a one out of the response examples. 
+  
+**Accept Type in the Accept Header** 
+  
+- If the request has accept-types,
+  Choreo connect will pick examples defined under a matching media type. 
+  
+- If the request does not have accept-types, 
+  Choreo connect will check for examples with 'application/json' as the media type. If there are no examples for 'application/json', then picks one out of available media-type examples.
+
+**Preference not found** or **Example not provided**
+    
+- If the request has an example preference provided with the `Prefer` or `Accept` header, but does not match any of the cases above or has no matching examples, then `501, Not Implemented` status code would be returned with `900871` error code. The same error response will be returned if the invoked resource does not contain any mock response examples in the OpenAPI definition.
+
+:::
+
+::::
+
+
+    
+## Via WSO2 API Manager Publisher Portal
+<Steps>
+
+### Create a REST API {/* #step-1---create-a-rest-api */}
+
+1. Start the WSO2 API Manager server with Choreo Connect as the Gateway.
+
+2. Open API Publisher in the browser and create a REST API with the following values. 
+
+    | **Field**    | **Value**                        |
+    |----------|-------------------------------------|
+    | Name     | SwaggerPetstore                     |
+    | Context  | /v3                                 |
+    | Version  | 1.0.6                               |
+    | Endpoint | Leave the endpoint field empty. |
+
+### Implement the API {/* #step-2---implement-the-api */}
+
+<Steps>
+
+#### Update the OpenAPI Specification {/* #step-21---update-the-openapi-specification */}
+
+1. Navigate to **API Definition** under **API Configurations** to view the OpenAPI specification.
+
+2. Click **edit** to add mock examples to required resources.
+
+    [![Edit api definition](../../../../../../assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)](../../../../../../assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)
+
+    Replace the default resources with the resource definitions given below.
+
+3. Add response examples to OpenAPI Specification.    
+
+    Update the OpenAPI definition referring to the examples given in [Mock Implementation with OpenAPI examples](#mock-implementation-with-openapi-examples). You could also directly copy paste the sample for [OpenAPI definition for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml).
+
+4. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
+
+#### Change the Endpoint Type {/* #step-22---change-the-endpoint-type */}
+
+1. Navigate to **Endpoints** under **API Configurations**.
+
+2. Select **Mock Implementation** as the endpoint type by clicking **Add**. 
+
+3. Select Choreo Connect as the gateway type. 
+
+4. Click **proceed** if a dialog box appears to disregard "mock endpoint implementation scripts". 
+
+5. View the mock examples that would be returned for each resource. If you need to modify the examples, you have to edit the API definition as mentioned before.
+
+6. Click **Save** to enable mock implementation with OAS examples.
+
+</Steps>
+
+### Deploy the API {/* #step-3---deploy-the-api */}
+
+Deploy the API from the **Deployments** tab from the left menu.
+
+### Invoke the API {/* #step-4---invoke-the-api */}
+
+Invoke the API the using the commands given in the [Invoke the API](#invoke-the-api) section.
+
+</Steps>
+
+## Via apictl for Standalone Mode
+
+1. Initialize an API Project.
+
+    Use the following command to initialize an API. This is a sample OpenAPI definition containing example responses that will be referred by Choreo Connect to respond to API calls. Refer to [Updating the OpenAPI definition to generate a Mock Implementation](#updating-the-openapi-definition-to-generate-a-mock-implementation) for more information.
+
+    ```bash
+    apictl init petstore --oas https://raw.githubusercontent.com/wso2/product-microgateway/main/samples/openAPI-definitions/mock-impl-sample.yaml
+    ```
+
+2. Update the API Project.
+
+    Open the **api.yaml** file inside the API project and update `endpointImplementationType` to `MOCKED_OAS`.
+
+    ```
+    endpointImplementationType: MOCKED_OAS
+    ```
+
+3. Deploy the API using the commands given in [Deploy REST API - Standalone Mode](deploy-rest-api-in-choreo-connect.mdx#via-apictl-for-standalone-mode)
+
+4. Invoke the API using the commands given below. 
+
+## Invoke the API
+
+After the APIs are exposed via Choreo Connect, you can invoke an API with a valid access token.
+
+Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
+
+```
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+
+```
+
+
+Use the command given below to get the default response for the resource `/pet/findByStatus`.
+
+```
+curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k 
+```
+
+:::note
+
+
+Execute the following commands to get different responses based on the examples you provided.
+
+**Default response** for `/pet/findByTag`
+
+```
+curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```
+
+Response based on **example Reference 1** for `/pet/findByTag`
+
+```
+curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```
+
+Response based on **example for response code 50X** for `/pet/findByTag`
+
+```
+curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```
+
+Response based on **example reference 1** of **response codes 50X**  for `/pet/findByTag`
+
+```
+curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503, example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```
+
+:::
+
+## See Also
+
+<LinkCards>
+
+- [Mock Implementation with Choreo Connect](../../../../design/prototype-api/create-mocked-oas-api.mdx)
+- [Prototyped APIs (Pre-Released APIs)](../../../../design/prototype-api/overview.mdx)
+- [Enforcer Test Key (JWT)](../security/generate-a-test-jwt.mdx)
+
+</LinkCards>

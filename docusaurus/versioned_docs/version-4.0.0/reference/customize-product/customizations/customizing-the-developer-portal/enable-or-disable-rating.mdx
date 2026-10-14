@@ -1,0 +1,26 @@
+---
+title: Enable or Disable Rating
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/5a85a65d8d6da92251f9da0c21568a9ea5509ed8/en/docs/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+---
+
+# Enable or Disable Rating
+
+The star rating is enabled by default. You can disable the star rating by configuring the `defaultTheme.js` file.
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here](overriding-developer-portal-theme.mdx#global-theming).
+
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.social.showRating` attribute to `false` if you want to disable the star rating.
+
+    ```js
+    const Configurations = {
+        custom: {
+            social: {
+                showRating: false,
+            },
+        },
+    };
+    ```
+
+2. Refresh the Developer Portal to view the changes.

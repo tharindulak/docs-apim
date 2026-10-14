@@ -1,0 +1,22 @@
+---
+title: Cc configuration file
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/3dd871cfa2b6f90c75cac9da5bcc2dc1ab510b58/en/docs/includes/deploy/cc-configuration-file.md
+---
+
+Open the Choreo Connect configuration file according to the deployment type you are using.
+
+<details>
+<summary>Click here to see the configuration file location for your Choreo Connect deployment.</summary>
+
+Navigate to the correct folder path and open the `config.toml` or `config-toml-configmap.yaml` file based on your Choreo Connect deployment.
+
+| **Deployment** | **Mode**| **File name** | **Directory** |
+|----------------|---------|---------------|---------------|
+| Docker Compose |[Choreo Connect as a Standalone Gateway](../../deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.mdx)| `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+| Docker Compose |[Choreo Connect with WSO2 API Manager as a Control Plane](../../deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.mdx) | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+| Kubernetes |[Choreo Connect as a Standalone Gateway](../../deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.mdx)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+| Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane](../../deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.mdx)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+
+</details>

@@ -1,0 +1,103 @@
+---
+title: Deploying Choreo Connect on Kubernetes With WSO2 API Manager as a Control Plane
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/5a85a65d8d6da92251f9da0c21568a9ea5509ed8/en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane.md
+---
+
+# Deploying Choreo Connect on Kubernetes With WSO2 API Manager as a Control Plane
+
+Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane.
+
+<Prerequisites>
+
+## Before you begin
+
+1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.20 or above.
+      - Minimum CPU : 4vCPU
+      - Minimum Memory : 3GB
+3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
+
+
+:::note
+
+
+If you are using [Rancher Desktop](https://rancherdesktop.io/), disable the default Traefik ingress controller in order to deploy the Nginx ingress controller.
+
+Refer [Rancher Docs](https://docs.rancherdesktop.io/faq/#q-how-can-i-disable-traefik-and-will-doing-so-remove-traefik-resources) for more information.
+
+:::
+
+</Prerequisites>
+
+## Objectives
+
+1.  Create and deploy an API project.
+2.  Invoke the API using a generated key.
+
+Let's get started...
+
+<Steps>
+
+## Setup Choreo Connect in Kubernetes {/* #step-1---setup-choreo-connect-in-kubernetes */}
+
+1.  Download and extract Choreo Connect distribution .zip file
+
+    Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
+
+2.  Add the Kubernetes configurations for Choreo Connect and API Manager using the kubectl tool.
+
+    
+    <details>
+    <summary>Click here if you are using an ARM64 based machine (e.g., Apple M1)</summary>
+
+    If you are trying out in **ARM64** based machine (e.g., Apple M1) update the Docker image names with the following in
+
+    - Kubernetes deployment.yaml files
+        - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/adapter-deployment.yaml`
+        - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/choreo-connect-deployment.yaml`
+        - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/apim/apim-deployment.yaml`
+        - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect/adapter-deployment.yaml`
+        - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect/choreo-connect-deployment.yaml`
+
+    | Existing (Default) image name      | Image name for tryout in ARM64 (e.g.: Apple M1) |
+    |------------------------------------|-------------------------------------------------|
+    | wso2/choreo-connect-adapter:1.0.0  | wso2/choreo-connect-adapter:1.0.0-ubuntu        |
+    | wso2/choreo-connect-enforcer:1.0.0 | wso2/choreo-connect-enforcer:1.0.0-ubuntu       |
+    | wso2/choreo-connect-router:1.0.0   | wso2/choreo-connect-router:1.0.0-ubuntu         |
+    | wso2/wso2am:4.0.0-alpine           | wso2am/wso2am:4.0.0-ubuntu                      |
+
+    **Note:**
+    Note that the above Ubuntu based (`*-ubuntu`) images are for **tryout purpose only**, **not recommended for a production deployment**.
+
+    </details>
+
+
+    ```bash
+    kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/apim
+    ```
+    
+    Apply Kubernetes configurations for Choreo Connect after successfully started the API Manager instance.
+    ```bash
+    kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect
+    ```
+    
+3.  Add the host entry to the `/etc/hosts` file. 
+    
+    Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router, API Manager publisher and Developer Portal.
+
+    ```sh
+    <ingress_address>    gw.wso2.com    apim.wso2.com
+    ```
+
+
+## Deploy Sample API from API Manager {/* #step-2---deploy-sample-api-from-api-manager */}
+
+ - Publisher Portal:  [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/)
+ - Developer Portal:  [https://apim.wso2.com/devportal/](https://apim.wso2.com/devportal/)
+
+
+    Follow the instructions in [create and publish an API via API Manager](../quick-start-guide-docker-with-apim.mdx#step-3-create-and-publish-an-api-from-api-manager).
+
+</Steps>

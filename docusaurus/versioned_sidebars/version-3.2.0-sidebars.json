@@ -1,0 +1,2542 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "id": "index",
+      "label": "Welcome to WSO2 API Manager Documentation"
+    },
+    {
+      "type": "category",
+      "label": "Get Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "getting-started/overview",
+          "label": "Overview"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/basic-architecture",
+          "label": "Basic Architecture"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/key-concepts",
+          "label": "Key Concepts"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/quick-start-guide",
+          "label": "Quick Start Guide"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/about-this-release",
+          "label": "About this Release"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Learn",
+      "items": [
+        {
+          "type": "category",
+          "label": "Design APIs",
+          "items": [
+            {
+              "type": "category",
+              "label": "Create APIs",
+              "items": [
+                {
+                  "type": "category",
+                  "label": "Create a New API",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/create-a-rest-api",
+                      "label": "Create a REST API"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition",
+                      "label": "Create a REST API from an OpenAPI Definition"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/create-a-graphql-api",
+                      "label": "Create a GraphQL API"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/create-a-websocket-api",
+                      "label": "Create a WebSocket API"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/expose-a-soap-service-as-a-rest-api",
+                      "label": "Expose a SOAP Service as a REST API"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/generate-rest-api-from-soap-backend",
+                      "label": "Generate REST API from SOAP Backend"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/create-api/test-a-rest-api",
+                      "label": "Test a REST API"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/create-api/adding-custom-properties-to-apis",
+                  "label": "Adding Custom Properties to APIs"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/create-api/change-api-thumbnail",
+                  "label": "Change the Thumbnail of an API"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Publish APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/publish-api/publish-an-api",
+                  "label": "Publish an API"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/publish-api/publish-through-multiple-api-gateways",
+                  "label": "Publish through Multiple API Gateways"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode",
+                  "label": "Publish an API to a Cloud Cluster in PrivateJet Mode"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/publish-api/publish-to-multiple-external-api-stores",
+                  "label": "Publish to Multiple External API Developer Portals"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Prototype APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/mock-api/create-a-mock-api-with-an-inline-script",
+                  "label": "Create a Prototype API with an Inline Script"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/mock-api/deploy-and-test-mock-apis",
+                  "label": "Deploy and Test Prototype APIs"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Create API Product",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/create-api-product/api-product-overview",
+                  "label": "API Product Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/create-api-product/create-api-product",
+                  "label": "Create an API Product"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Endpoints",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/endpoints/endpoint-types",
+                  "label": "Endpoint Types"
+                },
+                {
+                  "type": "category",
+                  "label": "Security",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/endpoint-security/basic-auth",
+                      "label": "Secure Endpoint with Basic Auth"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/endpoint-security/digest-auth",
+                      "label": "Secure Endpoint with Digest Auth"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/endpoint-security/oauth-2.0",
+                      "label": "Secure Endpoint with OAuth 2.0"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/endpoints/high-availability-for-endpoints",
+                  "label": "High Availability for Endpoints"
+                },
+                {
+                  "type": "category",
+                  "label": "Resiliency",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/resiliency/endpoint-timeouts",
+                      "label": "Endpoint Timeouts"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/resiliency/endpoint-suspension",
+                      "label": "Endpoint Suspension"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/endpoints/resiliency/prevent-api-suspension",
+                      "label": "Prevent API Suspension"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/endpoints/certificates",
+                  "label": "Manage Certificates"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Lifecycle Managament",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/lifecycle-management/api-lifecycle",
+                  "label": "API Lifecycle"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/lifecycle-management/customize-api-life-cycle",
+                  "label": "Customize API Life Cycle"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/lifecycle-management/extending-the-api-life-cycle",
+                  "label": "Extending the API Life Cycle"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "API Versioning",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/api-versioning/create-a-new-api-version",
+                  "label": "Create a New API Version"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/api-versioning/deprecate-the-old-version",
+                  "label": "Deprecate the Old Version"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/api-versioning/backward-compatibility",
+                  "label": "Backward Compatibility"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/api-versioning/enabling-notifications",
+                  "label": "Enabling Notifications"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "API Documentation",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/api-documentation/add-api-documentation",
+                  "label": "Add API Documentation"
+                },
+                {
+                  "type": "category",
+                  "label": "Search Documentation",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/design-api/api-documentation/search-documentation/add-new-search-keyword",
+                      "label": "Add a New Search Keyword"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Advanced Topics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/advanced-topics/enable-publisher-access-control-in-api-publisher-portal",
+                  "label": "Enable Publisher Access Control"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal",
+                  "label": "Control API Visibility and Subscription Availability in the Developer Portal"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/advanced-topics/enabling-cors-for-apis",
+                  "label": "Enabling CORS for APIs"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/advanced-topics/adding-an-api-state-change-workflow",
+                  "label": "Adding an API State Change Workflow"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/design-api/advanced-topics/block-subscription-to-an-api",
+                  "label": "Block Subscription to an API"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Consume APIs",
+          "items": [
+            {
+              "type": "category",
+              "label": "Discover APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/discover-apis/search",
+                  "label": "Search"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Manage Applications",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/manage-application/create-application",
+                  "label": "Create Application"
+                },
+                {
+                  "type": "category",
+                  "label": "Generate Keys",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/generate-keys/generate-api-keys",
+                      "label": "Application Keys"
+                    },
+                    {
+                      "type": "category",
+                      "label": "Grant Types",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/password-grant",
+                          "label": "Password Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/client-credentials-grant",
+                          "label": "Client Credentials Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/jwt-grant",
+                          "label": "JWT Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/kerberos-oauth2-grant",
+                          "label": "Kerberos OAuth2 Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/refresh-token-grant",
+                          "label": "Refresh Token Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/authorization-code-grant",
+                          "label": "Authorization Code Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/saml-extension-grant",
+                          "label": "SAML Extension Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/implicit-grant",
+                          "label": "Implicit Grant"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "learn/api-security/oauth2/grant-types/ntlm-grant",
+                          "label": "NTLM Grant"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "Obtain Access Token",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens",
+                      "label": "Overview of Access Tokens"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/generate-keys/obtain-access-token/access-tokens-per-device",
+                      "label": "Access Tokens Per Device"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time",
+                      "label": "Changing the Default Token Expiration Time"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/generate-keys/revoke-oauth2-application",
+                      "label": "Revoke OAuth2 Application"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/manage-application/sharing-applications/sharing-applications",
+                  "label": "Sharing Applications"
+                },
+                {
+                  "type": "category",
+                  "label": "Advanced Topics",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications",
+                      "label": "Add Custom Attributes to Applications"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application",
+                      "label": "Changing the Owner of an Application"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow",
+                      "label": "Adding an Application Creation Workflow"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow",
+                      "label": "Adding an Application Key Generation Workflow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Manage Subscriptions",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/manage-subscription/subscribe-to-an-api",
+                  "label": "Subscribe to an API"
+                },
+                {
+                  "type": "category",
+                  "label": "Advanced Topics",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow",
+                      "label": "Adding an API Subscription Workflow"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow",
+                      "label": "Adding an API Subscription Tier Update Workflow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Invoke APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console",
+                  "label": "Invoke an API Using the Integrated API Console"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console",
+                  "label": "Invoke an GraphQL API using the Integrated GraphQL Console"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console",
+                  "label": "Include Additional Headers in the API Console"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client",
+                  "label": "Invoke an API Using a SOAP Client"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Collaborations",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/collaboration/use-the-community-features",
+                  "label": "Use the Community Features"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Generating SDKs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/generating-sdks/generate-sdks-in-dev-portal",
+                  "label": "Generate SDKs in Developer Portal"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk",
+                  "label": "Write a Client Application Using the SDK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API Gateway",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/api-gateway/overview-of-the-api-gateway",
+              "label": "Overview of the WSO2 API Gateway"
+            },
+            {
+              "type": "category",
+              "label": "Message Mediation",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests",
+                  "label": "Changing the Default Mediation Flow of API Requests"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio",
+                  "label": "Creating and Uploading using Integration Studio"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/adding-dynamic-endpoints",
+                  "label": "Adding Dynamic Endpoints"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/removing-specific-request-headers-from-response",
+                  "label": "Removing Specific Request Headers From Response"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend",
+                  "label": "Passing a Custom Authorization Token to the Backend"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls",
+                  "label": "URL Mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/disabling-message-chunking",
+                  "label": "Disabling Message Chunking"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/transforming-api-message-payload",
+                  "label": "Transforming API Message Payload"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation",
+                  "label": "Adding a Non-Blocking Send Operation"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/adding-a-class-mediator",
+                  "label": "Adding a Class Mediator"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/message-mediation/configuring-message-builders-formatters",
+                  "label": "Configuring message builders and formatters"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-gateway/response-caching",
+              "label": "Response Caching"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-gateway/message-tracing",
+              "label": "Message Tracing"
+            },
+            {
+              "type": "category",
+              "label": "Threat Protectors",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway",
+                  "label": "Regular Expression Threat Protection"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway",
+                  "label": "JSON Threat Protection"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway",
+                  "label": "XML Threat Protection"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Passing Enduser Attributes to the Backend",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt",
+                  "label": "Passing Enduser Attributes to the Backend Using JWT"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-gateway/maintaining-separate-production-and-sandbox-gateways",
+              "label": "Gateway Environments"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-gateway/scaling-the-gateway",
+              "label": "Scaling the Gateway"
+            },
+            {
+              "type": "category",
+              "label": "Advanced Topics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/api-gateways-with-dedicated-backends",
+                  "label": "API Gateways with Dedicated Backends"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/mutual-ssl-between-api-gateway-and-backend",
+                  "label": "Mutual SSL Between API Gateway and Backend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API Microgateway",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/api-microgateway/grouping-apis-with-labels",
+              "label": "Grouping APIs with Labels"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API Security",
+          "items": [
+            {
+              "type": "category",
+              "label": "Authentication",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/api-authentication-overview",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/secure-apis-using-oauth2-tokens",
+                  "label": "Secure APIs using OAuth2 Access Tokens"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/secure-apis-using-api-keys",
+                  "label": "Secure APIs using API Keys"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/secure-apis-using-mutual-ssl",
+                  "label": "Secure APIs using Mutual SSL"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/secure-apis-using-basic-authentication",
+                  "label": "Secure APIs using Basic Authentication"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters",
+                  "label": "Securing APIs Deployed in Cloud Clusters"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-authentication/advanced-topics/federating-oauth-applications",
+                  "label": "Federating OAuth Applications"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Authorization",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/authorization/api-authorization",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes",
+                  "label": "Role-Based Access Control using Scopes"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/authorization/role-based-access-control-using-xacml",
+                  "label": "Role-Based Access Control using XACML"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-security/configuring-api-security-audit",
+              "label": "Securing APIs by Auditing API Definitions"
+            },
+            {
+              "type": "category",
+              "label": "Request-Response Schema Validation",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/api-request-response-schema-validation/json-schema-validator",
+                  "label": "JSON Schema Validator"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "OAuth2",
+              "items": [
+                {
+                  "type": "category",
+                  "label": "Token types",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/access-token-types/jwt-tokens",
+                      "label": "JWT Access Tokens"
+                    }
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "OAuth2 Scopes",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes",
+                      "label": "Role-Based Access Control with OAuth Scopes"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/oauth2-scopes/scope-allowlisting",
+                      "label": "Scope Allowlisting"
+                    }
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "Grant Types",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/overview",
+                      "label": "Overview"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/password-grant",
+                      "label": "Password Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/client-credentials-grant",
+                      "label": "Client Credentials Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/authorization-code-grant",
+                      "label": "Authorization Code Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/implicit-grant",
+                      "label": "Implicit Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/refresh-token-grant",
+                      "label": "Refresh Token Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/jwt-grant",
+                      "label": "JWT Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/saml-extension-grant",
+                      "label": "SAML Extension Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/kerberos-oauth2-grant",
+                      "label": "Kerberos OAuth2 Grant"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "learn/api-security/oauth2/grant-types/ntlm-grant",
+                      "label": "NTLM Grant"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/token-revocation",
+                  "label": "Token Revocation"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/token-expiration",
+                  "label": "Token Expiration"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/token-persistence",
+                  "label": "Token Persistence"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/multiple-active-access-tokens",
+                  "label": "Multiple Active Access Tokens"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/encrypting-oauth2-tokens",
+                  "label": "Encrypting OAuth2 Tokens"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/hashing-oauth-keys",
+                  "label": "Hashing OAuth Keys"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/provisioning-out-of-band-oauth-clients",
+                  "label": "Provisioning Out-of-Band OAuth Clients"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/oauth2/securing-oauth-token-with-hmac-validation",
+                  "label": "Securing OAuth Token with HMAC Validation"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Threat Protection",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/threat-protection/bot-detection",
+                  "label": "Bot Detection"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager",
+                  "label": "Gateway Threat Protectors"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway",
+                  "label": "Regular Expression Threat Protection"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway",
+                  "label": "JSON Threat Protection"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway",
+                  "label": "XML Threat Protection"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "OpenID Connect",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect",
+                  "label": "Obtaining User Profile Information with OpenID Connect"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-security/openid-connect/open-id-discovery-endpoint",
+                  "label": "OpenID Discovery Endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "User Account Management",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/user-account-management/recover-password",
+              "label": "Recover Password"
+            },
+            {
+              "type": "doc",
+              "id": "learn/user-account-management/change-dev-portal-password",
+              "label": "Change Password"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Rate Limiting",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/introducing-throttling-use-cases",
+              "label": "Throttling Use-Cases"
+            },
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/adding-new-throttling-policies",
+              "label": "Adding New Throttling Policies"
+            },
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/setting-throttling-limits",
+              "label": "Setting Throttling Limits"
+            },
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/access-control",
+              "label": "Access Control"
+            },
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/enforce-throttling-and-resource-access-policies",
+              "label": "Enforce Throttling and Resource Access Policies"
+            },
+            {
+              "type": "doc",
+              "id": "learn/rate-limiting/setting-maximum-backend-throughput-limits",
+              "label": "Setting Maximum Backend Throughput Limits"
+            },
+            {
+              "type": "category",
+              "label": "Query Limits for GraphQL",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/rate-limiting/graphql-api/overview-query-limits-for-graphql",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/rate-limiting/graphql-api/query-depth-limitation",
+                  "label": "Query Depth Limit"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/rate-limiting/graphql-api/query-complexity-limitation",
+                  "label": "Query Complexity Limit"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Advanced Topics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/rate-limiting/advanced-topics/custom-throttling",
+                  "label": "Custom Throttling"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API Monetization",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/api-monetization/monetizing-an-api",
+              "label": "Monetizing an API"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Analytics",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/analytics/overview-of-api-analytics",
+              "label": "Overview of API Analytics"
+            },
+            {
+              "type": "category",
+              "label": "Viewing API Statistics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/viewing-api-statistics/monitoring-dashboard",
+                  "label": "Monitoring dashboard"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/viewing-api-statistics/business-analytics-dashboard",
+                  "label": "Business analytics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/viewing-api-statistics/api-analytics-dashboard",
+                  "label": "API analytics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/viewing-api-statistics/application-analytics-dashboard",
+                  "label": "Application analytics"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/analytics/monthly-api-usage-report",
+              "label": "Monthly API Usage Report"
+            },
+            {
+              "type": "category",
+              "label": "Using Geolocation Based Statistics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set",
+                  "label": "Creating the Geo Location Data Set"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics",
+                  "label": "Configuring Geo Location Based Statistics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider",
+                  "label": "Writing a Custom Geo Location Provider"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/analytics/alert-types",
+              "label": "Alert Types"
+            },
+            {
+              "type": "category",
+              "label": "Setup & Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/configuring-apim-analytics",
+                  "label": "Configuring APIM Analytics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/encrypting-sensitive-data-in-apim-analytics",
+                  "label": "Encrypting Sensitive Data in the API-M Analytics Server"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/configuring-keystores-in-apim-analytics",
+                  "label": "Configuring Keystores in APIM Analytics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/managing-dashboard-permissions",
+                  "label": "Managing Analytics Dashboard Permissions"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/configuring-alerts",
+                  "label": "Configuring Alerts"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/subscribing-for-alerts",
+                  "label": "Subscribing for Alerts"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/integrating-with-google-analytics",
+                  "label": "Integrating with Google Analytics"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/purging-analytics-data",
+                  "label": "Purging Analytics Data"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/default-ports-of-wso2-api-m-analytics",
+                  "label": "Default Ports of WSO2 API-M Analytics"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Development",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/creating-custom-widgets-in-analytics-dashboards",
+                  "label": "Creating Custom Widgets"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/customizing-analytics-dashboards",
+                  "label": "Customizing Analytics Dashboards"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/white-labeling-tenants",
+                  "label": "White Labeling for Tenants"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/adding-third-party-non-osgi-libraries",
+                  "label": "Adding Third Party Non OSGi Libraries"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/publishing-custom-data",
+                  "label": "Publishing Custom Attributes"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics",
+                  "label": "General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/analytics/analytics-event-streams-and-aggregations",
+              "label": "Analytics Event Streams and Aggregations"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "API Controller",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/api-controller/getting-started-with-wso2-api-controller",
+              "label": "Getting Started with WSO2 API Controller"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/importing-apis-via-dev-first-approach",
+              "label": "Importing APIs Via Dev First Approach"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/migrating-apis-to-different-environments",
+              "label": "Migrating APIs to Different Environments"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/migrating-api-products-to-different-environments",
+              "label": "Migrating API Products (with or without dependent APIs) to Different Environments"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/migrating-applications-to-different-environments",
+              "label": "Migrating Apps to Different Environments"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/ci-cd-with-wso2-api-management",
+              "label": "CI/CD with WSO2 API Manager"
+            },
+            {
+              "type": "doc",
+              "id": "learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach",
+              "label": "Building a Jenkins CI/CD Pipeline for Dev First Approach"
+            },
+            {
+              "type": "category",
+              "label": "Advanced Topics",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations",
+                  "label": "Creating Custom Users to Perform API Controller Operations"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/configuring-environment-specific-parameters",
+                  "label": "Configuring Environment Specific Parameters"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects",
+                  "label": "Using Dynamic Data in API Controller Projects"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/configuring-different-endpoint-types",
+                  "label": "Configuring Different Endpoint Types"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/configuring-different-endpoint-security-types",
+                  "label": "Configuring Different Endpoint Security Types"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/api-controller/advanced-topics/configuring-git-integration",
+                  "label": "Configuring Git Integration"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Kubernetes Operators",
+          "items": [
+            {
+              "type": "category",
+              "label": "K8s API Operator",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "learn/kubernetes-operators/k8s-api-operator/k8s-api-operator",
+                  "label": "K8s API Operator Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis",
+                  "label": "Enabling PrivateJet Mode to Deploy APIs"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "learn/kubernetes-operators/k8s-wso2am-operator",
+              "label": "K8s WSO2 API Manager Operator"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Tutorials",
+          "items": [
+            {
+              "type": "doc",
+              "id": "learn/tutorials/create-and-publish-a-graphql-api",
+              "label": "Create and Publish a GraphQL API"
+            },
+            {
+              "type": "doc",
+              "id": "learn/tutorials/create-and-publish-awslambda-api",
+              "label": "Create and Publish an AWS Lambda API"
+            },
+            {
+              "type": "doc",
+              "id": "learn/tutorials/expose-a-soap-service-as-a-rest-api",
+              "label": "Expose a SOAP Service as a REST API"
+            },
+            {
+              "type": "doc",
+              "id": "learn/tutorials/create-and-publish-websocket-api",
+              "label": "Create and Publish WebSocket API"
+            },
+            {
+              "type": "doc",
+              "id": "learn/tutorials/edit-an-api-by-modifyng-the-api-definition",
+              "label": "Edit an API by Modifying the API Definition"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Develop",
+      "items": [
+        {
+          "type": "category",
+          "label": "Product REST APIs",
+          "items": [
+            {
+              "type": "doc",
+              "id": "develop/product-apis/overview",
+              "label": "RESTful APIs"
+            },
+            {
+              "type": "category",
+              "label": "Publisher APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/product-apis/publisher-apis/publisher-v1/publisher-v1",
+                  "label": "Publisher v1"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Developer Portal APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/product-apis/devportal-apis/devportal-v1/devportal-v1",
+                  "label": "Developer Portal API v1"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Admin APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/product-apis/admin-apis/admin-v1/admin-v1",
+                  "label": "Admin APIs v1"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/product-apis/admin-apis/admin-v0.17/admin-v0.17",
+                  "label": "Admin APIs v0.17"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Gateway APIs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/product-apis/gateway-apis/gateway-v1/gateway-v1",
+                  "label": "Gateway v1"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "develop/product-apis/advanced-configurations",
+              "label": "Advanced Configurations"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Extending WSO2 API Manager",
+          "items": [
+            {
+              "type": "category",
+              "label": "Extending Key Management",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-key-management/extending-key-validation",
+                  "label": "Extending Key Validation"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-key-management/extending-scope-validation",
+                  "label": "Extending Scope Validation"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface",
+                  "label": "Extending Key Manager"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-key-management/writing-custom-grant-types",
+                  "label": "Writing Custom Grant Types"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Extending API Gateway",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway",
+                  "label": "Customizing API Template"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-gateway/writing-custom-handlers",
+                  "label": "Writing Custom Handlers"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Extending Workflows",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine",
+                  "label": "Invoking the API Manager from the BPEL Engine"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension",
+                  "label": "Customizing a Workflow Extension"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows",
+                  "label": "Configuring HTTP Redirection for Workflows"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants",
+                  "label": "Configuring Workflows for Tenants"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster",
+                  "label": "Configuring Workflows in a Cluster"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows",
+                  "label": "Changing the Default User Role in Workflows"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks",
+                  "label": "Cleaning Up Workflow Tasks"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "SAML2 SSO",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2",
+                  "label": "Configuring Single Sign On with SAML2"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso",
+                  "label": "Configuring External IDP Through Identity Server for SSO"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso",
+                  "label": "Configuring Identity Server as IDP for SSO"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals",
+                  "label": "Multi Factor Authentication for Publisher and Developer Portals"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Customizations",
+          "items": [
+            {
+              "type": "category",
+              "label": "Customizing the Developer Portal",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme",
+                  "label": "Overriding Developer Portal Theme"
+                },
+                {
+                  "type": "category",
+                  "label": "Customize API Listing",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping",
+                      "label": "API Category based Grouping"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view",
+                      "label": "Change Default View"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs",
+                  "label": "Enabling or Disabling API Detail Tabs"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api",
+                  "label": "Override API Overview Page per API"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enable-or-disable-rating",
+                  "label": "Enable or Disable Rating"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page",
+                  "label": "Enable or Disable Home Page"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud",
+                  "label": "Enable or Disable Tag Cloud"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enable-or-disable-footer",
+                  "label": "Enable or Disable Footer"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enable-or-disable-banner",
+                  "label": "Enable or Disable Banner"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu",
+                  "label": "Styling API Details Left Menu"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/styling-api-details-info-section",
+                  "label": "Styling API Details Info Section"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header",
+                  "label": "Styling the Logo and Header"
+                },
+                {
+                  "type": "doc",
+                  "id": "develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup",
+                  "label": "Enabling or Disabling Self Signup"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/overriding-the-publisher-portal-theme",
+              "label": "Overriding the Publisher Portal Theme"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/log-in-to-the-dev-portal-using-social-media",
+              "label": "Log in to the Developer Portal using Social Media"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/directing-the-root-context-to-the-developer-portal",
+              "label": "Directing the Root Context to the Developer Portal"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/customizing-user-signup-in-developer-portal",
+              "label": "Customizing User Signup in Developer Portal"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants",
+              "label": "Customizing the Developer Portal and Gateway URLs for Tenants"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/customizing-login-pages-for-dev-portal-and-publisher",
+              "label": "Customizing Login Pages for Developer Portal and Publisher"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/adding-a-user-signup-workflow",
+              "label": "Adding a User Signup Workflow"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/adding-internationalization",
+              "label": "Adding internationalization"
+            },
+            {
+              "type": "doc",
+              "id": "develop/customizations/advanced-ui-customization",
+              "label": "Advanced UI Customization"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "develop/wso2-admin-services",
+          "label": "Admin Services"
+        },
+        {
+          "type": "doc",
+          "id": "develop/working-with-the-source-code",
+          "label": "Working with the Source Code"
+        },
+        {
+          "type": "doc",
+          "id": "develop/java-documentation",
+          "label": "Java Documentation"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Install and Setup",
+      "items": [
+        {
+          "type": "category",
+          "label": "Install",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/install/installation-prerequisites",
+              "label": "Installation Prerequisites"
+            },
+            {
+              "type": "category",
+              "label": "Installing the Product",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/install/installing-the-product/installing-the-product",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/install/installing-the-product/installing-via-the-installer",
+                  "label": "Installing via the Installer"
+                },
+                {
+                  "type": "category",
+                  "label": "Installing the Binary",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x",
+                      "label": "Installing on Linux or OS X"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris",
+                      "label": "Installing on Solaris"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows",
+                      "label": "Installing on Windows"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service",
+                      "label": "Installing as a Linux Service"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service",
+                      "label": "Installing as a Windows Service"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources",
+                      "label": "Deploying on Kubernetes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/install/running-the-product",
+              "label": "Running the Product"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Setup",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-patterns",
+              "label": "Deployment Patterns Overview"
+            },
+            {
+              "type": "category",
+              "label": "All-In-One Deployment",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/single-node/all-in-one-deployment-overview",
+                  "label": "All-in-One Deployment Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/single-node/configuring-a-single-node",
+                  "label": "Configuring a Single Node"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/single-node/configuring-an-active-active-deployment",
+                  "label": "Configuring an Active-Active Deployment"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Distributed Deployment",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m",
+                  "label": "Distributed Deployment Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup",
+                  "label": "Deploying WSO2 API-M in a Distributed Setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/product-profiles",
+                  "label": "Product Profiles"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster",
+                  "label": "Synchronizing Artifacts in a Gateway Cluster"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Configure a Key Manager",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager",
+                  "label": "Configure a Third-party Key Manager"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager",
+                  "label": "Configure WSO2 Identity Server as a Key Manager"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Configure Analytics for High Availability",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active",
+                  "label": "Active-Active Deployment"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive",
+                  "label": "Active-Passive Deployment"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence",
+                  "label": "Configuring Database and File System State Persistence"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Setting up Databases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/setting-up-databases/overview",
+                  "label": "Overview"
+                },
+                {
+                  "type": "category",
+                  "label": "Changing Default Databases",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql",
+                      "label": "Changing to MySQL"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql",
+                      "label": "Changing to MSSQL"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql",
+                      "label": "Changing to PostgreSQL"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle",
+                      "label": "Changing to Oracle"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb",
+                      "label": "Changing to MariaDB"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2",
+                      "label": "Changing to IBM DB2"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac",
+                      "label": "Changing to Oracle RAC"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance",
+                  "label": "Managing Data Growth and Improving Performance"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Setting up Proxy Server and the Load Balancer",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer",
+                  "label": "Configuring the Proxy Server and the Load Balancer"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path",
+                  "label": "Adding a custom Proxy Path"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Security",
+              "items": [
+                {
+                  "type": "category",
+                  "label": "Logins and Passwords",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords",
+                      "label": "Maintaining Logins and Passwords"
+                    },
+                    {
+                      "type": "category",
+                      "label": "Securing Passwords",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation",
+                          "label": "Customizing Secure Vault"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props",
+                          "label": "Set Passwords using Environment Variables or System Properties"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords",
+                          "label": "Working with Encrypted Passwords"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "Configuring Keystores",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager",
+                      "label": "Configuring Keystores in API Manager"
+                    },
+                    {
+                      "type": "category",
+                      "label": "Keystore Basics",
+                      "items": [
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores",
+                          "label": "Creating a New Keystore"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore",
+                          "label": "Renewing a CA Signed Certificate"
+                        },
+                        {
+                          "type": "doc",
+                          "id": "install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography",
+                          "label": "About Asymetric Cryptography"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/security/enabling-hostname-verification",
+                  "label": "Enabling HostName Verification"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/security/enabling-java-security-manager",
+                  "label": "Enabling Java Security Manager"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager",
+                  "label": "General Data Protection Regulation (GDPR) for WSO2 API Manager"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/security/configuring-transport-level-security",
+                  "label": "Configuring Transport Level Security"
+                },
+                {
+                  "type": "doc",
+                  "id": "install-and-setup/setup/security/user-account-management",
+                  "label": "User Account Management"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Deployment Best Practices",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/basic-health-checks",
+              "label": "Basic Health Checks"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/changing-the-hostname",
+              "label": "Changing the Hostname"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset",
+              "label": "Changing the Default Ports with Offset"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/production-deployment-guidelines",
+              "label": "Production Deployment Guidelines"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment",
+              "label": "Security Guidelines for Production Deployment"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/tuning-performance",
+              "label": "Tuning Performance"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/deployment-best-practices/performance-test-results",
+              "label": "Performance Test Results"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "SSO",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc",
+              "label": "Configuring Identity Server As External IDP with OIDC"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml",
+              "label": "Configuring Identity Server As External IDP with SAML"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc",
+              "label": "Using OKTA As An External IDP With OIDC"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/sso/okta-as-an-external-idp-using-saml",
+              "label": "Using OKTA As An External IDP With SAML"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Advanced Configuration",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/advance-configurations/changing-the-default-transport",
+              "label": "Changing the Default Transport"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/advance-configurations/configuring-caching",
+              "label": "Configuring Caching"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/advance-configurations/customizing-the-management-console",
+              "label": "Customizing the Management Console"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Reference",
+          "items": [
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/reference/common-runtime-and-configuration-artifacts",
+              "label": "Common Runtime and Configuration Artifacts"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/reference/default-product-ports",
+              "label": "Default Product Ports"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/reference/product-compatibility",
+              "label": "Product Compatibility"
+            },
+            {
+              "type": "doc",
+              "id": "install-and-setup/setup/reference/supported-cipher-suites",
+              "label": "Supported Cipher Suites"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager",
+          "label": "Upgrade"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Administer",
+      "items": [
+        {
+          "type": "doc",
+          "id": "administer/updating-wso2-api-manager",
+          "label": "Updating WSO2 API Manager"
+        },
+        {
+          "type": "category",
+          "label": "Managing Users and Roles",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/introduction-to-user-management",
+              "label": "Introduction to User Management"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-user-roles",
+              "label": "Managing User Roles"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-users",
+              "label": "Managing Users"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-permissions",
+              "label": "Managing Role Permissions"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-users-for-admin-portal",
+              "label": "Managing Users for Admin Portal"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Managing User Stores",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores",
+              "label": "Introduction to User Stores"
+            },
+            {
+              "type": "category",
+              "label": "Configuring Primary User Stores",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store",
+                  "label": "Configuring Primary User Stores"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store",
+                  "label": "Configuring a JDBC User Store"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store",
+                  "label": "Configuring a Read-Write LDAP User Store"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store",
+                  "label": "Configuring a Read-Only LDAP User Store"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store",
+                  "label": "Configuring a Read-Write Active Directory User Store"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores",
+              "label": "Configuring Secondary User Store"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager",
+              "label": "Writing a custom User Store Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager",
+              "label": "Configuring the Authorization Manager"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Multitenancy",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administer/multitenancy/introduction-to-multitenancy",
+              "label": "Introduction to Multitenancy"
+            },
+            {
+              "type": "doc",
+              "id": "administer/multitenancy/managing-tenants",
+              "label": "Managing Tenants"
+            },
+            {
+              "type": "doc",
+              "id": "administer/multitenancy/configuring-the-tenant-loading-policy",
+              "label": "Configuring the Tenant Loading Policy"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring",
+          "items": [
+            {
+              "type": "category",
+              "label": "Monitoring Logs",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/setting-up-logging",
+                  "label": "Setting up logging"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/setting-up-logging-per-api",
+                  "label": "Setting up logging per API"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/monitoring-http-access-logs",
+                  "label": "Monitoring HTTP access logs"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/monitoring-audit-logs",
+                  "label": "Monitoring audit Logs"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/managing-log-growth",
+                  "label": "Managing log growth"
+                },
+                {
+                  "type": "doc",
+                  "id": "administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs",
+                  "label": "Masking sensitive information in logs"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "administer/logging-and-monitoring/monitoring/working-with-observability",
+              "label": "Working with Observability"
+            },
+            {
+              "type": "doc",
+              "id": "administer/logging-and-monitoring/monitoring/monitoring-with-opentracing",
+              "label": "Enabling Tracing with OpenTracing"
+            },
+            {
+              "type": "doc",
+              "id": "administer/logging-and-monitoring/monitoring/jmx-based-monitoring",
+              "label": "JMX-Based Monitoring"
+            },
+            {
+              "type": "doc",
+              "id": "administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages",
+              "label": "Monitoring TCP-Based Messages"
+            },
+            {
+              "type": "doc",
+              "id": "administer/logging-and-monitoring/monitoring/monitoring-server-health",
+              "label": "Monitoring Server Health"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Key Managers",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administer/key-managers/overview",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-wso2is-connector",
+              "label": "Configure WSO2 IS as a Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-keycloak-connector",
+              "label": "Configure Keycloak as a Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-okta-connector",
+              "label": "Configure Okta as a Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-auth0-connector",
+              "label": "Configure Auth0 as a Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-pingfederate-connector",
+              "label": "Configure PingFederate as A Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-forgerock-connector",
+              "label": "Configure ForgeRock as a Key Manager"
+            },
+            {
+              "type": "doc",
+              "id": "administer/key-managers/configure-custom-connector",
+              "label": "Configure a Custom Key Manager"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Product Security",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administer/product-security/mitigating-cross-site-request-forgery-attackes",
+              "label": "Mitigating Cross Site Request Forgery Attacks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Reference",
+      "items": [
+        {
+          "type": "doc",
+          "id": "reference/config-catalog",
+          "label": "Configuration Catalog"
+        },
+        {
+          "type": "doc",
+          "id": "reference/understanding-the-new-configuration-model",
+          "label": "Understanding the New Configuration Model"
+        },
+        {
+          "type": "doc",
+          "id": "reference/vendor-extensions-catalog",
+          "label": "Vendor Specific Extensions"
+        },
+        {
+          "type": "doc",
+          "id": "reference/wso2-api-manager-best-practices",
+          "label": "WSO2 API Manager Best Practices"
+        },
+        {
+          "type": "doc",
+          "id": "reference/accessibility-compliance",
+          "label": "Accessibility Compliance"
+        },
+        {
+          "type": "doc",
+          "id": "reference/faq",
+          "label": "FAQ"
+        },
+        {
+          "type": "category",
+          "label": "Guides",
+          "items": [
+            {
+              "type": "doc",
+              "id": "reference/guides/message-flow-in-the-api-manager-gateway",
+              "label": "Message Flow in the API Manager Gateway"
+            },
+            {
+              "type": "doc",
+              "id": "reference/guides/accessing-api-manager-by-multiple-devices-simultaneously",
+              "label": "Accessing API Manager by Multiple Devices Simultaneously"
+            },
+            {
+              "type": "doc",
+              "id": "reference/guides/directory-structure-of-wso2-products",
+              "label": "admin_Directory Structure of WSO2 Products"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Samples",
+          "items": [
+            {
+              "type": "category",
+              "label": "API Development Sample",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "reference/samples/api-development-sample/managing-apis-sample",
+                  "label": "Managing APIs Sample"
+                },
+                {
+                  "type": "doc",
+                  "id": "reference/samples/api-development-sample/collaborative-api-development-sample",
+                  "label": "Collaborative API Development Sample"
+                },
+                {
+                  "type": "doc",
+                  "id": "reference/samples/api-development-sample/development-of-developer-optimized-apis-sample",
+                  "label": "Development of Developer Optimized APIs Sample"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-governance-sample",
+              "label": "API Governance Sample"
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-lifecycle-management-sample",
+              "label": "API Lifecycle Management Sample"
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-rate-limiting-sample",
+              "label": "API Rate Limiting Sample"
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-rate-monetization-sample",
+              "label": "API Rate Monetization Sample"
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-security-sample",
+              "label": "API Security Sample"
+            },
+            {
+              "type": "doc",
+              "id": "reference/samples/api-versioning-sample",
+              "label": "API Versioning Sample"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Troubleshooting",
+      "items": [
+        {
+          "type": "doc",
+          "id": "troubleshooting/error-handling",
+          "label": "Error Handling"
+        },
+        {
+          "type": "doc",
+          "id": "troubleshooting/capturing-system-data-in-error-situations",
+          "label": "Capturing System Data in Error Situations"
+        },
+        {
+          "type": "doc",
+          "id": "troubleshooting/admin-troubleshooting-in-production-environments",
+          "label": "Troubleshooting in Production Environments"
+        },
+        {
+          "type": "doc",
+          "id": "troubleshooting/configuring-xslt-mediation-with-xalan",
+          "label": "Configuring XSLT Mediation with Xalan"
+        },
+        {
+          "type": "doc",
+          "id": "troubleshooting/cleaning-up-partially-created-keys",
+          "label": "Cleaning Up Partially Created Keys"
+        },
+        {
+          "type": "doc",
+          "id": "troubleshooting/troubleshooting-invalid-callback-error",
+          "label": "Troubleshooting 'Registered callback does not match with the provided url' error"
+        }
+      ]
+    }
+  ]
+}

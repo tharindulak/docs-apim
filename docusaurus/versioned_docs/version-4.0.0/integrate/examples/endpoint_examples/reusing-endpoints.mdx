@@ -1,0 +1,41 @@
+---
+title: Reusing Endpoints
+deployment_options:
+  - Self-hosted
+custom_edit_url: https://github.com/wso2/docs-apim/blob/5a85a65d8d6da92251f9da0c21568a9ea5509ed8/en/docs/integrate/examples/endpoint_examples/reusing-endpoints.md
+---
+
+# Reusing Endpoints
+
+## Using Indirect Endpoints
+
+In the following [Send
+mediator](../../../reference/mediators/send-mediator.mdx)
+configuration, the `         PersonInfoEpr        ` key refers to a
+specific endpoint configured.
+
+```
+<send>
+   <endpoint key="PersonInfoEpr"/>
+</send>
+```
+
+## Using Resolving Endpoints
+
+:::info
+
+
+
+:::
+	The XPath expression specified in a Resolving endpoint configuration derives an existing endpoint rather than the URL of the endpoint to which the message is sent. To derive the endpoint URL to which the message is sent via an XPath expression, use the **Header** mediator.
+
+In the following [Send
+mediator](../../../reference/mediators/send-mediator.mdx)
+configuration, the endpoint to which the message is sent is determined
+by the `         get-property('Mail')        ` expression.
+
+```
+<send>
+  <endpoint key-expression="get-property('Mail')"/>
+</send>
+```
