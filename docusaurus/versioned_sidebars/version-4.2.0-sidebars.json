@@ -5395,11 +5395,6 @@
                 },
                 {
                   "type": "doc",
-                  "id": "includes/reference/connectors/salesforce-connectors/sf-access-token-generation",
-                  "label": "Salesforce Access Token Generation"
-                },
-                {
-                  "type": "doc",
                   "id": "reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration",
                   "label": "Set up the PushTopic in Salesforce"
                 },
