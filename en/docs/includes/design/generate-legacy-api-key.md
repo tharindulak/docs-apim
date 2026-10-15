@@ -11,18 +11,18 @@
 
 5. Click **Subscribe**.
 
-     [![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)](../../../../assets/img/learn/subscribe-to-api.png)
+     [![Subscribe to the API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
 6. Click **MANAGE APP**, corresponding to the application that you used to subscribe to the API.
 
-     [![View list of credentials](../../../../assets/img/learn/view-credentials-manage-app.png)](../../../../assets/img/learn/view-credentials-manage-app.png)
+     [![View list of credentials]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)
 
 7. Go to Legacy API Keys. 
-     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
+     [![Generate Legacy API Key Option]({{base_path}}/assets/img/learn/api-keys/legacy-api-key-option.png)]({{base_path}}/assets/img/learn/api-keys/legacy-api-key-option.png)
 
 8. Click **Generate Legacy API Key** to open the key generation form.
 
-     [![Generate Legacy API key](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png)
+     [![Generate Legacy API key]({{base_path}}/assets/img/learn/api-keys/generate-legacy-api-key.png){: style="width:80%"}]({{base_path}}/assets/img/learn/api-keys/generate-legacy-api-key.png)
 
 9. Optionally, configure the validity period before generating the key.
 
@@ -37,5 +37,5 @@
      </div>
      </html>
 
-     [![Copy Legacy API Key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
+     [![Copy Legacy API Key]({{base_path}}/assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:80%"}]({{base_path}}/assets/img/learn/api-keys/legacy-api-key-response.png)
      
