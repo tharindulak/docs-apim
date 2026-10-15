@@ -2,8 +2,11 @@
 title: Exposing APIs via Custom Hostnames
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
 ---
+
+import AssignCustomHostname from '../../../../_partials/deploy/assign-custom-hostname.mdx';
+import ViewCustomHostname from '../../../../_partials/deploy/view-custom-hostname.mdx';
 
 # Exposing APIs via Custom Hostnames
 
@@ -75,61 +78,14 @@ Each Gateway environment definition contains details related to a specific Gatew
 
 ### Assign the custom hostname to an API {/* #step-2---assign-the-custom-hostname-to-an-api */}
 
-
-&lt;html>
-<div className="admonition note">
-<p className="admonition-title">Note</p>
-<p>Repeat this step if you wish to add multiple APIs to the API group.</p>
-</div> 
-&lt;/html>
-
-1.  Sign in to the API Publisher using `admin` as the username and password.
-
-     `https://<hostname>:9443/publisher` 
-   
-     Example: `https://localhost:9443/publisher`
-
-2.  Create a new API or skip this step if you wish to use an existing API.
-     
-     Let's deploy the sample Pizzashack API by clicking **Deploy Sample API** (If you have not done so already).
-
-3.  Click on the API to edit its configurations.
-
-4.  Click **Deployments**.
-
-5.  Select the newly created Gateway environment, Virtual Host (foods.com), and a Revision.
-
-     [Create a new revision](../../../../design/create-api/create-api-revisions/) if no revisions exist.
-
-6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
-   
-    :::info
-
-    Similarly, you can assign the same Virtual Host to other APIs as well.
-
-    :::
-
+<AssignCustomHostname />
 
 [![Deploy API with Virtual Host in the Publisher](../../../../../assets/img/deploy/deploy-api-with-vhost.png)](../../../../../assets/img/deploy/deploy-api-with-vhost.png)
 
 
 ### View the custom hostnames {/* #step-3---view-the-custom-hostnames */}
 
-
-Follow the instructions below to view the custom endpoint URLs of the API, which consists of the custom hostnames:
-
-1. Sign in to the Developer Portal using `admin` as the username and password.
-
-     `https://<hostname>:9443/devportal` 
-   
-     Example: `https://localhost:9443/devportal`
-
-2. Click on the specific API.
-
-3. Click **Overview**.
-
-     The custom endpoint URLs of the API, which include the custom hostnames, appear.
-
+<ViewCustomHostname />
 
 [![Virtual host in the Developer Portal](../../../../../assets/img/deploy/virtual-host-in-devportal.png)](../../../../../assets/img/deploy/virtual-host-in-devportal.png)
 
@@ -298,60 +254,13 @@ Extract WSO2 API Manager to a new directory. Let's refer to this directory as `A
 
 ### Assign the custom hostname to an API {/* #step-3---assign-the-custom-hostname-to-an-api */}
 
-
-&lt;html>
-<div className="admonition note">
-<p className="admonition-title">Note</p>
-<p>Repeat this step if you wish to add multiple APIs to the API group.</p>
-</div> 
-&lt;/html>
-
-1.  Sign in to the API Publisher using `admin` as the username and password.
-
-     `https://<hostname>:9443/publisher` 
-   
-     Example: `https://localhost:9443/publisher`
-
-2.  Create a new API or skip this step if you wish to use an existing API.
-     
-     Let's deploy the sample Pizzashack API by clicking **Deploy Sample API** (If you have not done so already).
-
-3.  Click on the API to edit its configurations.
-
-4.  Click **Deployments**.
-
-5.  Select the newly created Gateway environment, Virtual Host (foods.com), and a Revision.
-
-     [Create a new revision](../../../../design/create-api/create-api-revisions/) if no revisions exist.
-
-6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
-   
-    :::info
-
-    Similarly, you can assign the same Virtual Host to other APIs as well.
-
-    :::
-
+<AssignCustomHostname />
 
 [![Deploy API with Virtual Host in the Publisher](../../../../../assets/img/deploy/deploy-api-with-vhost.png)](../../../../../assets/img/deploy/deploy-api-with-vhost.png)
 
 ### View the custom hostnames {/* #step-4---view-the-custom-hostnames */}
 
-
-Follow the instructions below to view the custom endpoint URLs of the API, which consists of the custom hostnames:
-
-1. Sign in to the Developer Portal using `admin` as the username and password.
-
-     `https://<hostname>:9443/devportal` 
-   
-     Example: `https://localhost:9443/devportal`
-
-2. Click on the specific API.
-
-3. Click **Overview**.
-
-     The custom endpoint URLs of the API, which include the custom hostnames, appear.
-
+<ViewCustomHostname />
 
 [![Virtual host in the Developer Portal](../../../../../assets/img/deploy/virtual-host-in-devportal.png)](../../../../../assets/img/deploy/virtual-host-in-devportal.png)
 

@@ -2,7 +2,7 @@
 title: API-M Deployment with Simple Scalable Setup with Key Manager Separated
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/808c7e57d4d9cf8aabc694cf03b1733d7455c149/en/docs/install-and-setup/setup/kubernetes-deployment/am-pattern-5-all-in-one-gw-km.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.4.0/en/docs/install-and-setup/setup/kubernetes-deployment/am-pattern-5-all-in-one-gw-km.md
 ---
 
 # API-M Deployment with Simple Scalable Setup with Key Manager Separated
@@ -150,7 +150,9 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
 </Steps>
 
-## Step 3 - Configure Database
+<Steps start={3}>
+
+## Configure Database {/* #step-3---configure-database */}
 
 - Before running the API Manager, you must configure the databases and populate them with the initial data. All required database scripts are available in the `dbscripts` directory of the product pack. Locate the appropriate scripts for your chosen database engine and execute them accordingly. It is recommended to use two separate database users with limited permissions for enhanced security.
 
@@ -168,6 +170,8 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
   mysql -h <DB_HOST> -P 3306 -u sharedadmin -p -Dshared_db < './dbscripts/mysql.sql';
   mysql -h <DB_HOST> -P 3306 -u apimadmin -p -Dapim_db < './dbscripts/apimgt/mysql.sql';
   ```
+
+</Steps>
 
 ## Minimal Configuration
 

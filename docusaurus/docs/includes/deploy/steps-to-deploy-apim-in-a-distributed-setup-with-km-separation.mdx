@@ -2,8 +2,10 @@
 title: Steps to deploy apim in a distributed setup with km separation
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-km-separation.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-km-separation.md
 ---
+
+import EnableJmsSslForEventhub from '../../_partials/deploy/enable-jms-ssl-for-eventhub.mdx';
 
 <Steps>
 
@@ -17,17 +19,17 @@ To install and set up the API-M servers:
 
 You can create the required databases for the API-M deployment in a separate server and point to the databases from the respective nodes. 
 
-For information, see [Installing and Configuring the Databases](../../../../install-and-setup/setup/setting-up-databases/overview/).
+For information, see [Installing and Configuring the Databases](../../install-and-setup/setup/setting-up-databases/overview.mdx).
 
 ### Configure your deployment with production hardening {/* #step-3---configure-your-deployment-with-production-hardening */}
 
 Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying WSO2 API-M. 
 
-For more information, see [Production Deployment Guidelines](../../../../install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information, see [Production Deployment Guidelines](../../install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.mdx).
 
 :::note
 
-Configure the same encryption key on all API Manager instances before starting any node for the first time so they can decrypt shared registry resources consistently. For more information, see [Configuring Encryption Key](../../../../install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+Configure the same encryption key on all API Manager instances before starting any node for the first time so they can decrypt shared registry resources consistently. For more information, see [Configuring Encryption Key](../../install-and-setup/setup/security/encryption/symmetric-encryption.mdx#generate-a-secret-key).
 
 :::
 
@@ -35,13 +37,13 @@ Configure the same encryption key on all API Manager instances before starting a
 
 Create an SSL certificate for each of the WSO2 API-M nodes and import them to the keystore and the truststore. This ensures that hostname mismatch issues in the certificates will not occur. 
 
-For more information, see [Creating SSL Certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
+For more information, see [Creating SSL Certificates](../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.mdx).
 
 ### Configure API-M Analytics {/* #step-5---configure-api-m-analytics */}
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the Classic Gateway to publish analytics data to the cloud.
 
-See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
+See the instructions on [configuring the Gateway](../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide.mdx) with the cloud-based analytics solution.
 
 ### Configure and start the component nodes {/* #step-6---configure-and-start-the-component-nodes */}
 
@@ -139,13 +141,13 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
     </TabItem>
     </Tabs>
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../api-security/key-management/tokens/encrypting-oauth2-tokens.mdx).
 
 4. Follow the steps given below to configure High Availability (HA) for the Key Manager nodes:
 
     1. Create a copy of the Key Manager node that you just configured. This is the second node of the Key Manager cluster.
 
-    2. Configure a load balancer fronting the two Key Manager nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two Key Manager nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.mdx).
 
 ###### Sample configuration for the Key Manager
 
@@ -438,13 +440,13 @@ Follow the instructions given below to configure the Gateway node so that it can
 
     :::info
 
-    To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-gateway-notification-configurations).
+    To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../reference/config-catalog.mdx#api-m-gateway-notification-configurations).
 
     :::
 
-5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.mdx).
 
-6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
+6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.mdx).
 
     :::note
 
@@ -456,7 +458,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
     1. Create a copy of the WSO2 Classic Gateway node that you just configured. This is the second node of the Gateway cluster.
 
-    2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.mdx).
 
         :::note
 
@@ -728,7 +730,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     :::info
 
-    This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
+    This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.mdx#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
 
     Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
 
@@ -738,38 +740,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     :::info
 
-        **Enabling TLS/SSL for event hub JMS communications**
-
-    If required, you can enable TLS/SSL for the JMS communications of event hub. Update your event hub configurations to include the following for this purpose.
-
-    ```
-    [apim.event_hub]
-    enable = true
-    jms.username = "<username>"
-    jms.password = "<password>"
-    jms.ssl = "true'&amp;ssl_cert_alias='<certificate_alias_in_truststore>'&amp;trust_store='<path_to_trust_store>'&amp;trust_store_password='<truststore_password>'&amp;key_store='<path_to_key_store>'&amp;key_store_password='<keystore_password>"
-    ssl = "true'&amp;ssl_cert_alias='<certificate_alias_in_truststore>'&amp;trust_store='<path_to_trust_store>'&amp;trust_store_password='<truststore_password>'&amp;key_store='<path_to_key_store>'&amp;key_store_password='<keystore_password>"
-    event_listening_endpoints = ["tcp://control-plane-host:8672"]
-    ```
-    To enable secure broker connections add the following configuration to the Control Plane node.
-
-    ```
-    [broker.transport.amqp.ssl_connection]
-    enabled = true
-    port = 8672
-    ssl_enabled_protocols = "TLSv1,TLSv1.2"
-    ciphers = "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
-
-    [broker.transport.amqp.ssl_connection.keystore]
-    location = "repository/resources/security/wso2carbon.jks"
-    password = "wso2carbon"
-    cert_type = "SunX509"
-
-    [broker.transport.amqp.ssl_connection.truststore]
-    location = "repository/resources/security/client-truststore.jks"
-    password = "wso2carbon"
-    cert_type = "SunX509"
-    ``` 
+        <EnableJmsSslForEventhub />
 
     :::
 
@@ -823,7 +794,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     :::
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../api-security/key-management/tokens/encrypting-oauth2-tokens.mdx).
 
 4. Optionally, add the following configuration to enable distributed cache invalidation within the API Control Plane nodes.
 
@@ -838,7 +809,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     1. Create a copy of the API Control Plane node that you just configured. This is the second node of the API Control Plane cluster.
 
-    2. Configure a load balancer fronting the two API Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two API Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.mdx).
 
 ###### Sample configuration for the API Control Plane
 

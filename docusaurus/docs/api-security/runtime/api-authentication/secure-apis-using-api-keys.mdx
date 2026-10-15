@@ -2,8 +2,11 @@
 title: Secure APIs with API Keys
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/api-security/runtime/api-authentication/secure-apis-using-api-keys.md
 ---
+
+import CreatePublishApi from '../../../_partials/design/create-publish-api.mdx';
+import GenerateApiKey from '../../../_partials/design/generate-api-key.mdx';
 
 # Secure APIs with API Keys
 
@@ -35,93 +38,11 @@ Follow the instructions below to use API key Authentication in WSO2 API Manager.
 
 Create, publish and deploy an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
 
-
-1. Sign in to the Publisher.  
-    
-     `https://<hostname>:9443/publisher`
-
-2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
-
-3. Click **Develop -> API Configurations -> Runtime** and select **Application Level Security**.
-
-4. Select **API Key**. Note that `APIKey` is used as the default header. This value can be changed using the `APIKey Header` field.
-
-     [![Configure API key authentication](../../../../assets/img/learn/api-key-option.png)](../../../../assets/img/learn/api-key-option.png)
-     
-5. Click **Save and Deploy** to save the changes made within the **Runtime Configurations** page. Upon redirection to the **Deployments** page, select the relevant Gateway and click on **Deploy**.
-
+<CreatePublishApi />
 
 ### Generate the API Key {/* #step-2---generate-the-api-key */}
 
-
-1. Sign in to the Developer Portal.
-
-     `https://<hostname>:9443/devportal`
-
-2. Click **APIs** and click on the respective API (e.g., `PizzaShackAPI`).
-
-3. Click **API Keys** from the left menu of the API.
-
-     [![Generate API Key Left Menu](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)
-
-4. Click **Generate API Key** and provide a Key Name.
-
-     [![Generate API key](../../../../assets/img/learn/api-keys/generate-api-api-key.png)](../../../../assets/img/learn/api-keys/generate-api-api-key.png)
-
-5. Optionally, configure the validity period before generating the key.
-
-     By default, the API Key does not expire. To set an expiry, select the required validity period option from the drop-down. For a custom validity period, enter the expiry time in **days**.
-
-6. Click **GENERATE API KEY**.
-
-7. Copy the generated API key.
-
-     [![Copy API key](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)
-
-Once the API key is generated, the steps to use it depend on whether the API requires a subscription. Follow the relevant section below.
-
-#### For subscription-enabled APIs
-
-A valid subscription must exist and the generated API key must be associated with a subscribed application before it can be used to invoke the API.
-
-1. Click **Subscriptions** from the left menu of the API.
-
-2. Select an application and a throttling policy.
-
-     &lt;html>
-     <div className="admonition note">
-     <p className="admonition-title">Note</p>
-     <p>API Keys can be associated with any application type — JWT or OAuth.</p>
-     </div>
-     &lt;/html>
-
-3. Click **Subscribe**.
-
-     [![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)](../../../../assets/img/learn/subscribe-to-api.png)
-
-4. Click **Associate** on the API key to link it to the subscribed application.
-
-     [![Associate API key button](../../../../assets/img/learn/api-keys/associate-api-key-button.png)](../../../../assets/img/learn/api-keys/associate-api-key-button.png)
-
-5. Select the application from the drop-down and click **ASSOCIATE**.
-
-     [![Associate API key](../../../../assets/img/learn/api-keys/associate-api-key.png)](../../../../assets/img/learn/api-keys/associate-api-key.png)
-
-     Alternatively, you can associate the API key from the subscribed application's **API Keys** page.
-
-     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
-
-     Select the API and the generated API key from the drop-down and associate.
-
-     [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)
-
-#### For subscriptionless APIs
-
-The generated API key can be used directly to invoke a subscriptionless API without any subscription or application association.
-
-Optionally, you can associate the API key with an application to gain usage insights and analytics. To do so, follow steps 4–5 above.
-
-
+<GenerateApiKey />
 
 ### Invoke the API {/* #step-3---invoke-the-api */}
 

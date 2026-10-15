@@ -2,8 +2,11 @@
 title: Create and Publish a WebSub/WebHook API
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/tutorials/streaming-api/create-and-publish-websub-api.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/tutorials/streaming-api/create-and-publish-websub-api.md
 ---
+
+import SignInPublisher from '../../_partials/sign-in-publisher.mdx';
+import SignInDevportal from '../../_partials/sign-in-devportal.mdx';
 
 # Create and Publish a WebSub/WebHook API
 
@@ -17,15 +20,7 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
 ### Design a WebSub/WebHook API {/* #step-1---design-a-websubwebhook-api */}
 
-1.  
-Sign in to the Publisher.
-
-     `https://<hostname>:9443/publisher`
-     
-     For testing purposes, you can use `https://localhost:9443/publisher` and `admin` as the username and password.
-     
-
-
+1.  <SignInPublisher />
 
 2.  Click **CREATE API**, go to **Streaming API**, and Click **WebHook API**.
 
@@ -171,13 +166,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 ### Invoke the WebSub/WebHook API {/* #step-6---invoke-the-websubwebhook-api */}
 
-1. 
-Sign in to the Developer Portal.
-
-     `https://<hostname>:9443/devportal`
-     
-     For testing purposes, you can use `https://localhost:9443/devportal` and `admin` as the username and password.
-
+1. <SignInDevportal />
 
 2. Click on the WebSub/WebHook API. 
 

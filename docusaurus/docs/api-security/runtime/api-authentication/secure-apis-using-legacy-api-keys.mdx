@@ -2,8 +2,11 @@
 title: Secure APIs with Legacy API Keys
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
 ---
+
+import CreatePublishApi from '../../../_partials/design/create-publish-api.mdx';
+import GenerateLegacyApiKey from '../../../_partials/design/generate-legacy-api-key.mdx';
 
 # Secure APIs with Legacy API Keys
 
@@ -49,65 +52,11 @@ enable_legacy_api_keys = true
 
 Create, publish and deploy an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
 
-
-1. Sign in to the Publisher.  
-    
-     `https://<hostname>:9443/publisher`
-
-2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
-
-3. Click **Develop -> API Configurations -> Runtime** and select **Application Level Security**.
-
-4. Select **API Key**. Note that `APIKey` is used as the default header. This value can be changed using the `APIKey Header` field.
-
-     [![Configure API key authentication](../../../../assets/img/learn/api-key-option.png)](../../../../assets/img/learn/api-key-option.png)
-     
-5. Click **Save and Deploy** to save the changes made within the **Runtime Configurations** page. Upon redirection to the **Deployments** page, select the relevant Gateway and click on **Deploy**.
-
+<CreatePublishApi />
 
 ### Generate the Legacy API key {/* #step-2---generate-the-legacy-api-key */}
 
-
-1. Sign in to the Developer Portal.  
-    
-     `https://<hostname>:9443/devportal`
-
-2. Click **APIs** and click on the respective API (e.g., `PizzaShackAPI`).
-
-3. Click **Subscriptions**.
-
-4. Select an application and select a throttling policy.
-
-5. Click **Subscribe**.
-
-     [![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)](../../../../assets/img/learn/subscribe-to-api.png)
-
-6. Click **MANAGE APP**, corresponding to the application that you used to subscribe to the API.
-
-     [![View list of credentials](../../../../assets/img/learn/view-credentials-manage-app.png)](../../../../assets/img/learn/view-credentials-manage-app.png)
-
-7. Go to Legacy API Keys. 
-     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
-
-8. Click **Generate Legacy API Key** to open the key generation form.
-
-     [![Generate Legacy API key](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png)](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png)
-
-9. Optionally, configure the validity period before generating the key.
-
-     By default, the Legacy API Key does not expire. To set an expiry, select the required validity period option from the drop-down. For a custom validity period, enter the expiry time in **days**.
-     
-10. Generate and copy the Legacy API Key.
-
-     &lt;html>
-     <div className="admonition note">
-     <p className="admonition-title">Note</p>
-     <p>From WSO2 API Manager 4.7.0 onwards, only opaque-based Legacy API Keys are generated.</p>
-     </div>
-     &lt;/html>
-
-     [![Copy Legacy API Key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
-     
+<GenerateLegacyApiKey />
 
 ### Invoke the API {/* #step-3---invoke-the-api */}
 

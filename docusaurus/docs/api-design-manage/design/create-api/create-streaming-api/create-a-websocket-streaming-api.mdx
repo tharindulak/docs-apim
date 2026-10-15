@@ -2,8 +2,11 @@
 title: Create a WebSocket API
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-design-manage/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/api-design-manage/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
 ---
+
+import SignInPublisher from '../../../../_partials/sign-in-publisher.mdx';
+import StreamMoreLinks from '../../../../_partials/design/stream-more-links.mdx';
 
 # Create a WebSocket API
 
@@ -58,15 +61,7 @@ If you apply a port offset to WSO2 API Manager, the Developer Portal UI **will n
 
 :::
 
-1.  
-Sign in to the Publisher.
-
-     `https://<hostname>:9443/publisher`
-     
-     For testing purposes, you can use `https://localhost:9443/publisher` and `admin` as the username and password.
-     
-
-
+1.  <SignInPublisher />
 
 2.  Click **Create API**, go to **Streaming API**, and Click **WebSocket API**.
 
@@ -238,20 +233,6 @@ Once you create and publish a WebSocket API, you can also <a href="/api-platform
 
 ## See Also
 
-- Learn more on the concepts that you need to know when creating a Streaming API:
-
-    - [Endpoints](../../../../design/endpoints/endpoint-types/)
-    - [API Security](../../../../../api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens)
-    - [Rate Limiting](../../../../design/rate-limiting/set-streaming-api-limits/)
-    - [Life Cycle Management](../../../../design/lifecycle-management/api-lifecycle/)
-    - [API Monetization](../../../../../monitoring/api-monetization/monetizing-an-api)
-    - [API Visibility](../../../../design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-    - [API Documentation](../../../../design/api-documentation/add-api-documentation/)
-    - [Custom Properties](../../../../design/create-api/adding-custom-properties-to-apis/)
-
-- Learn how to test a Streaming API. For an example, see [Test a WebSub/WebHook API](../../../../design/create-api/create-streaming-api/test-a-websub-api).
-
-- [Learn how to expose a stream as a managed API](../../../../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
-
+<StreamMoreLinks />
 
 - If your WebSocket backend is only reachable through an HTTP CONNECT proxy, see [Configure WebSocket Proxy Profiles](../../../../api-gateway/websocket-proxy-profiles.mdx).

@@ -2,8 +2,10 @@
 title: 'Pattern 1: All-in-One HA Setup'
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
 ---
+
+import RedisCounterNote from '../../../_partials/design/redis-counter-note.mdx';
 
 # Pattern 1: All-in-One HA Setup
 
@@ -269,14 +271,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     2. Save your changes.
 
-
-:::note
-
-- **[Configure Rate Limiting for the API Gateway Cluster](https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/)** so that the request counters will be replicated across the API Gateway cluster when working with multiple API Gateway nodes. 
-- Configuring Rate Limiting for the API Gateway cluster is not applicable if you have a clustered setup.
-
-:::
- 
+<RedisCounterNote />
 
 ## Optionally, enable distributed cache invalidation {/* #step-10---optionally-enable-distributed-cache-invalidation */}
 

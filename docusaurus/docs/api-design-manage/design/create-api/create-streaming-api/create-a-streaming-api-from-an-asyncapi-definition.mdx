@@ -2,8 +2,11 @@
 title: Create a Streaming API from an AsyncAPI Definition
 deployment_options:
   - Self-hosted
-custom_edit_url: https://github.com/wso2/docs-apim/blob/3d44795787e0221259528c66567f59202f624459/en/docs/api-design-manage/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+custom_edit_url: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/api-design-manage/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
 ---
+
+import SignInPublisher from '../../../../_partials/sign-in-publisher.mdx';
+import StreamMoreLinks from '../../../../_partials/design/stream-more-links.mdx';
 
 # Create a Streaming API from an AsyncAPI Definition
 
@@ -21,15 +24,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
 
 ## Design a Streaming API {/* #step-1---design-a-streaming-api */}
 
-1. 
-Sign in to the Publisher.
-
-     `https://<hostname>:9443/publisher`
-     
-     For testing purposes, you can use `https://localhost:9443/publisher` and `admin` as the username and password.
-     
-
-
+1. <SignInPublisher />
 
 2. Click **CREATE API** and then click **Import AsyncAPI Definition**.
 
@@ -105,17 +100,4 @@ Next, publish the API, for more information, see [Publish an API](/api-platform/
 
 ## See Also
 
-- Learn more on the concepts that you need to know when creating a Streaming API:
-
-    - [Endpoints](../../../../design/endpoints/endpoint-types/)
-    - [API Security](../../../../../api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens)
-    - [Rate Limiting](../../../../design/rate-limiting/set-streaming-api-limits/)
-    - [Life Cycle Management](../../../../design/lifecycle-management/api-lifecycle/)
-    - [API Monetization](../../../../../monitoring/api-monetization/monetizing-an-api)
-    - [API Visibility](../../../../design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-    - [API Documentation](../../../../design/api-documentation/add-api-documentation/)
-    - [Custom Properties](../../../../design/create-api/adding-custom-properties-to-apis/)
-
-- Learn how to test a Streaming API. For an example, see [Test a WebSub/WebHook API](../../../../design/create-api/create-streaming-api/test-a-websub-api).
-
-- [Learn how to expose a stream as a managed API](../../../../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
+<StreamMoreLinks />
