@@ -91,7 +91,7 @@ Replace `YOUR_MOESIF_API_KEY_HERE` with the actual API key you copied from Step 
 | send_headers | Whether to send request and response headers to Moesif. See [Capturing Request and Response Headers](#capturing-request-and-response-headers). | false | Boolean | Yes |
 | send_payloads | Whether to send request and response bodies to Moesif. See [Capturing Request and Response Bodies](#capturing-request-and-response-bodies). | false | Boolean | Yes |
 | payload_size_limit | Maximum size, in bytes, of a single request or response body captured for analytics. Applies only when `send_payloads` is `true`. | 100000 | Integer | Yes |
-| capture_payloads_&lt;wbr>without_&lt;wbr>content_length | Whether to capture bodies that do not declare a `Content-Length` header, such as chunked responses. Applies only when `send_payloads` is `true`. | false | Boolean | Yes |
+| capture_payloads_<wbr />without_<wbr />content_length | Whether to capture bodies that do not declare a `Content-Length` header, such as chunked responses. Applies only when `send_payloads` is `true`. | false | Boolean | Yes |
 
 All of these properties are node-level: they apply to every API deployed on the gateway, and
 changing any of them requires a restart. There is no per-API or per-resource override.
@@ -190,7 +190,7 @@ Body capture also requires analytics itself to be enabled (`[apim.analytics] ena
 |----------|-----------------|-------------------|-------------------------|--------------|
 | send_payloads | Enables request and response body capture. | false | Boolean | Yes |
 | payload_size_limit | Maximum size, in bytes, of a single captured body. A body larger than this is dropped from analytics; it is not truncated. The limit is applied separately to both the request body and the response body. | 100000 | Integer | Yes |
-| capture_payloads_&lt;wbr>without_&lt;wbr>content_length | Whether to capture a body that does not declare a `Content-Length` header, for example a chunked response. | false | Boolean | Yes |
+| capture_payloads_<wbr />without_<wbr />content_length | Whether to capture a body that does not declare a `Content-Length` header, for example a chunked response. | false | Boolean | Yes |
 
 If `payload_size_limit` is set to a value that is not a positive integer, the default of `100000` is
 used instead and a warning is logged once.

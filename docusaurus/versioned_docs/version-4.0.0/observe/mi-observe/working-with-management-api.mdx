@@ -68,9 +68,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Retrieves a list of all users stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves a list of all users stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
   	```bash
   	curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
@@ -90,9 +90,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users/{user_id}`
 
-	**Description**: Retrieves information related to a specified user stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves information related to a specified user stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
   	```bash
   	curl -X GET "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
@@ -112,9 +112,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
-	**Description**: Retrieves information related to user names (stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx) that match a specific pattern and user role.
+    **Description**: Retrieves information related to user names (stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx) that match a specific pattern and user role.
 
-	**Example**:
+    **Example**:
 
   	```bash
   	curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
@@ -136,9 +136,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Adds a user to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can create other users with admin access.
+    **Description**: Adds a user to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can create other users with admin access.
 
-	**Example**:
+    **Example**:
 
     First create the following JSON file with user details as shown below. Note that this new user is granted the admin role.
 
@@ -167,9 +167,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can remove other users with admin access.
+    **Description**: Removes a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can remove other users with admin access.
 
-	**Example**:
+    **Example**:
 
     The following request deletes the `user1` from the user store:
 
@@ -188,11 +188,11 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Update the password of a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
+    **Description**: Update the password of a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
 
-	**Example**:
+    **Example**:
 
-	First create the following JSON file with user details as shown below. Here we are changing the password of user1.
+    First create the following JSON file with user details as shown below. Here we are changing the password of user1.
 
     ```json
     {
@@ -219,9 +219,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Retrieves a list of all deployed proxy services.
+    **Description**: Retrieves a list of all deployed proxy services.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/proxy-services" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -243,9 +243,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services?proxyServiceName={proxyName}`
 
-	**Description**: Retrieves information related to a specified proxy.
+    **Description**: Retrieves information related to a specified proxy.
 
-	**Example**:
+    **Example**:
 	```bash
 	curl -X GET "https://localhost:9164/management/proxy-services?proxyServiceName=helloProxy" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
@@ -254,9 +254,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Activate and Deactivate a specified proxy service.
+    **Description**: Activate and Deactivate a specified proxy service.
 
-	**Example**:
+    **Example**:
 
 	```bash
 		curl -X POST \
@@ -273,14 +273,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"Message":"Proxy service HelloWorld stopped successfully"}
 	```
-	
+    
 ### ENABLE/DISABLE MESSAGE TRACING for PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Enable or disable message tracing for a specified proxy service.
+    **Description**: Enable or disable message tracing for a specified proxy service.
 
-	**Example**:
+    **Example**:
 
 	```bash
 		curl -X POST \
@@ -301,9 +301,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: This operation provides you a list of available Applications.
+    **Description**: This operation provides you a list of available Applications.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/applications" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -323,9 +323,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications?carbonAppName={appname}`
 
-	**Description**: Retrieves information related to a specified carbon application.
+    **Description**: Retrieves information related to a specified carbon application.
 
-	**Example**:
+    **Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
@@ -334,9 +334,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints`
 
-	**Description**:  Retrieves a list of available endpoints.
+    **Description**:  Retrieves a list of available endpoints.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -360,16 +360,16 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints?endpointName={endpointname}`
 
-	**Description**: Retrieves information related to a specified endpoint.
+    **Description**: Retrieves information related to a specified endpoint.
 
 
 ### ACTIVATE/DEACTIVATE ENDPOINTS
 
 -	**Resource**: `/endpoints`
 
-	**Description**: Activate or deactivate a specified endpoint.
+    **Description**: Activate or deactivate a specified endpoint.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X POST \https://localhost:9164/management/endpoints \ -H 'authorization: Bearer TOKEN -H 'content-type: application/json' \ -d '{"name": "HTTPEP", "status": "inactive"} -k -i
@@ -383,10 +383,10 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints`
 
-	**Description**: Enable or disable message tracing for a specified endpoint.
+    **Description**: Enable or disable message tracing for a specified endpoint.
 
-	**Example**:
-	
+    **Example**:
+    
     ```bash
 		curl -X POST \
     	  https://localhost:9164/management/endpoints \
@@ -401,14 +401,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"message":"Enabled tracing for ('HTTPEP')"}
 	```
-	
+    
 ### GET APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Retrieves a list of available APIs.
+    **Description**: Retrieves a list of available APIs.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/apis" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -432,15 +432,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis?apiName={api}`
 
-	**Description**: Retrieves information related to a specified API.
+    **Description**: Retrieves information related to a specified API.
 
 ### ENABLE/DISABLE MESSAGING TRACING for APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Enable or disable message tracing for a specified API.
+    **Description**: Enable or disable message tracing for a specified API.
 
-	**Example**:
+    **Example**:
 
     ```bash
 		curl -X POST \
@@ -456,14 +456,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"message":"Enabled tracing for ('helloApi')"}
 	```
-	
+    
 ### GET SEQUENCES
 
 -	**Resource**: `/sequences`
 
-	**Description**: Retrieves a list of available sequences.
+    **Description**: Retrieves a list of available sequences.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/sequences" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -495,16 +495,16 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/sequences?sequenceName={sequence}`
 
-	**Description**: Retrieves information related to a specified sequence.
+    **Description**: Retrieves information related to a specified sequence.
 
 
 ### ENABLE/DISABLE MESSAGE TRACING for SEQUENCES
 
 -	**Resource**: `/sequences`
 
-	**Description**: Enable or disable message tracing for a specified sequence.
+    **Description**: Enable or disable message tracing for a specified sequence.
 
-	**Example**:
+    **Example**:
 
     ```bash
 		curl -X POST \
@@ -520,14 +520,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"message":"Enabled tracing for ('helloSequence')"}
 	```
-	
+    
 ### GET LOCAL ENTRIES
 
 -	**Resource**: `/local-entries`
 
-	**Description**: Retrieves a list of available local entries.
+    **Description**: Retrieves a list of available local entries.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/local-entries" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -551,15 +551,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/local-entries?name={entryName}`
 
-	**Description**: Retrieves information related to a specified entry.
+    **Description**: Retrieves information related to a specified entry.
 
 ### GET TASKS
 
 -	**Resource**: `/tasks`
 
-	**Description**: Retrieves a list of available tasks.
+    **Description**: Retrieves a list of available tasks.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/tasks" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -578,15 +578,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/tasks?taskName={taskName}`
 
-	**Description**: Retrieves information related to a specified task.
+    **Description**: Retrieves information related to a specified task.
 
 ### GET MESSAGE STORES
 
 -	**Resource**: `/message-stores`
 
-	**Description**: Retrieves a list of available message stores.
+    **Description**: Retrieves a list of available message stores.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/message-stores" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -612,15 +612,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/message-stores?name={messageStore}`
 
-	**Description**: Retrieves information related to a specified message store.
+    **Description**: Retrieves information related to a specified message store.
 
 ### GET MESSAGE PROCESSORS   
 
 -	**Resource**: `/message-processors`
 
-	**Description**: Retrieves a list of available message processors.
+    **Description**: Retrieves a list of available message processors.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/message-processors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -646,15 +646,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/message-processors?name={messageProcessors}`
 
-	**Description**: Retrieves information related to a specified message processor.
+    **Description**: Retrieves information related to a specified message processor.
 
 ### ACTIVATE/DEACTIVATE MESSAGE PROCESSORS
 
 -	**Resource**: `/message-processors`
 
-	**Description**: Used to activate or deactivate a specific message processor.
+    **Description**: Used to activate or deactivate a specific message processor.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X POST \
@@ -671,9 +671,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/inbound-endpoints`
 
-	**Description**: Retrieves a list of available inbound endpoints.
+    **Description**: Retrieves a list of available inbound endpoints.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -693,15 +693,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/inbound-endpoints?inboundEndpointName={inboundEndpoint}`
 
-	**Description**: Retrieves information related to a specified inbound endpoint.
+    **Description**: Retrieves information related to a specified inbound endpoint.
 
 ### ENABLE/DISABLE MESSAGE TRACING for INBOUND ENDPOINTS
 
 -	**Resource**: `/inbound-endpoints`
 
-	**Description**: Enable or disable message tracing for a specified inbound-endpoint.
+    **Description**: Enable or disable message tracing for a specified inbound-endpoint.
 
-	**Example**:
+    **Example**:
 
     ```bash
 		curl -X POST \
@@ -717,14 +717,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"message":"Enabled tracing for ('HTTPIEP')"}
 	```
-	
+    
 ### GET CONNECTORS
 
 -	**Resource**: `/connectors`
 
-	**Description**: Retrieves a list of available connectors.
+    **Description**: Retrieves a list of available connectors.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/connectors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -754,9 +754,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates`
 
-	**Description**: Retrieves a list of available templates.
+    **Description**: Retrieves a list of available templates.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/templates" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -779,11 +779,11 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates?type=TYPE`
 
-	**Description**: Retrieves a list of available templates of a given type. Supported template types are as follows.
-	1. endpoint
-	2. sequence
+    **Description**: Retrieves a list of available templates of a given type. Supported template types are as follows.
+    1. endpoint
+    2. sequence
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/templates?type=sequence" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -802,10 +802,10 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates?type={type}&name={template}`
 
-	**Description**: Retrieves information related to a specific template. However this requires the template type to be included in the
-	request as a query parameter in addition to the template name.
+    **Description**: Retrieves information related to a specific template. However this requires the template type to be included in the
+    request as a query parameter in addition to the template name.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/templates?type=sequence&name=testSequenceTemplate" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -823,9 +823,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates`
 
-	**Description**: Enable or disable message tracing for a specified sequence template.
+    **Description**: Enable or disable message tracing for a specified sequence template.
 
-	**Example**:
+    **Example**:
 
     ```bash
 		curl -X POST \
@@ -842,14 +842,14 @@ The management API has multiple resources to provide information regarding the d
 	```bash
     {"message":"Enabled tracing for ('testSequenceTemplate')"}
 	```
-	
+    
 ### GET SERVER INFORMATION
 
 -	**Resource**: `/server`
 
-	**Description**: Retrieves information related to the micro integrator server instance.
+    **Description**: Retrieves information related to the micro integrator server instance.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/server" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -874,9 +874,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-services`
 
-	**Description**: Retrieves a list of all data services deployed.
+    **Description**: Retrieves a list of all data services deployed.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/data-services" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
@@ -897,9 +897,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-services?dataServiceName={dataservice}`
 
-	**Description**: Retrieves information related to a specific data service.
+    **Description**: Retrieves information related to a specific data service.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/data-services?dataServiceName=StudentDataService" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -908,14 +908,14 @@ The management API has multiple resources to provide information regarding the d
 ### GET DATA SOURCES
 -	**Resource**: `/data-sources`
 
-	**Description**: Retrieves a list of all data sources deployed.
+    **Description**: Retrieves a list of all data sources deployed.
 
-	**Example**:
-	
+    **Example**:
+    
 	```bash
 	curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
 	```
-	
+    
 	```bash
 	{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
 	```
@@ -923,14 +923,14 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-sources?name={datasource}`
 
-	**Description**: Retrieves information related to a specific data source.
+    **Description**: Retrieves information related to a specific data source.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
-	
+    
 	```bash
     {
 	"configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
@@ -947,9 +947,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging?loggerName={logger}`
 
-	**Description**: Retrieves information related to a specific logger.
+    **Description**: Retrieves information related to a specific logger.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/logging?loggerName=org-apache-coyote" -H "accept: application/json" -H 	      "Authorization: Bearer Token" -k
@@ -968,9 +968,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging`
 
-	**Description**: Updates the log level of root logger.
+    **Description**: Updates the log level of root logger.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X PATCH \
@@ -993,9 +993,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging`
 
-	**Description**: Updates the log level of a specific logger.
+    **Description**: Updates the log level of a specific logger.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X PATCH \
@@ -1013,14 +1013,14 @@ The management API has multiple resources to provide information regarding the d
         "message": "Successfully updated logger.org-apache-hadoop-hive.level to DEBUG"
     }
 	```
-	
+    
 ### ADD NEW LOGGER
 
 -	**Resource**: `/logging`
 
-	**Description**: Add a new logger.
+    **Description**: Add a new logger.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X PATCH \
@@ -1044,9 +1044,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/count`
 
-	**Description**: Retrieves the transaction count for the current month.
+    **Description**: Retrieves the transaction count for the current month.
 
-	**Example**:
+    **Example**:
 
   	```bash
   	curl -X GET "https://localhost:9164/management/transactions/count" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -1062,7 +1062,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/count?year={year}&month={month}`
 
-	**Description**: Retrieves the transaction count for the specified year and month.
+    **Description**: Retrieves the transaction count for the specified year and month.
 
     **Example**:
 
@@ -1082,9 +1082,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/report?start={start}&end={end}`
 
-	**Description**: Retrieves the transaction report for the specified period. Generates the transaction report at the `<MI_HOME>/tmp` directory.
+    **Description**: Retrieves the transaction report for the specified period. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
-	**Example**:
+    **Example**:
 
   	```bash
   	curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01&end=2020-05" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -1098,9 +1098,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/report?start={start}`
 
-	**Description**: Retrieves the transaction report for data starting from the specified date. Generates the transaction report at the `<MI_HOME>/tmp` directory.
+    **Description**: Retrieves the transaction report for data starting from the specified date. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
-	**Example**:
+    **Example**:
 
     ```bash
   	 curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i

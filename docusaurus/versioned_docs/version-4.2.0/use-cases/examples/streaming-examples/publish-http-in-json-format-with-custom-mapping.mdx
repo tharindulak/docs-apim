@@ -36,9 +36,9 @@ This application demonstrates how to configure the Streaming Integrator to send 
 
         a. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 
-	    b. In the **Single Simulation** tab of the panel, specify the values as follows.
+        b. In the **Single Simulation** tab of the panel, specify the values as follows.
 
-	        - Siddhi App Name`: `PublishHttpInJsonFormatWithCustomMapping
+            - Siddhi App Name`: `PublishHttpInJsonFormatWithCustomMapping
             - Stream Name`: `SweetProductionStream
 
         c. In the **id** and **amount** fields, enter `toffees` and `123.5` respectively and then click **Send** to send the event.
@@ -54,7 +54,7 @@ This application demonstrates how to configure the Streaming Integrator to send 
         b. If there is no error, the following message appears in the terminal.
 
             \{"status":"OK","message":"Single Event simulation started successfully"\}
-	    
+        
     * **Publish events with Postman:**
 
         a. Install the 'Postman' application from Chrome web store.
@@ -63,7 +63,7 @@ This application demonstrates how to configure the Streaming Integrator to send 
 
         c. Make a 'Post' request to the 'http://localhost:9390/simulation/single' endpoint. Set the Content-Type to 'text/plain' and set the request body in text as follows.
 
-	        \{"streamName": "SweetProductionStream", "siddhiAppName": "PublishHTTPInJsonFormatWithCustomMapping","data": ['toffees', 75.6]\}
+            \{"streamName": "SweetProductionStream", "siddhiAppName": "PublishHTTPInJsonFormatWithCustomMapping","data": ['toffees', 75.6]\}
 
         d. Click **Send**. If there is no error, the following messages appear in the terminal.
 

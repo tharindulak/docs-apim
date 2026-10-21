@@ -20,19 +20,19 @@ Follow the instructions below to enable log4j2 logs for a sample REST API (named
 
 1.  Open up the `log4j2.properties` file (stored in the `<MI_HOME>/conf` ) directory. 
 
-	:::warning
+    :::warning
 
-	Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
-	:::
+    :::
 
 2.  Let's define a new appender for the `TestAPI` API by adding the following section to the end of the file (starting in a new line).
 
-	:::note
+    :::note
 
-	   This configuration creates a log file named `TestAPI.log` in the folder `<MI_HOME>/repository/logs` folder.
+    This configuration creates a log file named `TestAPI.log` in the folder `<MI_HOME>/repository/logs` folder.
 
-	:::
+    :::
 
 	```bash
 	# API_APPENDER is set to be a DailyRollingFileAppender using a PatternLayout.

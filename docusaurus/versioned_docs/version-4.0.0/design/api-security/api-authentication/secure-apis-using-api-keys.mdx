@@ -32,12 +32,10 @@ When an API is invoked specifying an API key as the authentication method, the A
 
 - The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information, see [Import the public certificate into the client trust store.](#import) 
 
-     &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>The latter mentioned prerequisite is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
-     &lt;/html>
 
 ## Validation of API subscriptions
 
@@ -80,12 +78,10 @@ Create, publish and deploy an API that is secured with the API key security sche
 
 4. Select an application and select a throttling policy.
 
-      &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>API Keys can work with any application, which is either JWT or OAuth. </p>
       </div> 
-     &lt;/html>
 
 5. Click **Subscribe**.
 
@@ -153,12 +149,10 @@ Invoke the API using the API key. You can use either of the following methods to
 
 ### Importing the public certificate into the client trust store
 
-&lt;html>
 <div className="admonition note">
 <p className="admonition-title">Note</p>
 <p>Make sure to import the Developer Portal certificate to the APIM Gateway client-truststore under the same alias. </p>
 </div> 
-&lt;/html>
      
 Follow the instructions below to import the public certificate into the client trust store.
 

@@ -116,11 +116,11 @@ First, map the organizations in the Identity Server to API Manager.
 
 1. Log in to the Admin Portal at [https://localhost:9443/admin/](https://localhost:9443/admin/) using `orgadmin`. 
 
-	:::note
+    :::note
 
-	   You cannot use `admin/admin` for this step because the locally created admin user does not belong to any organization.
+    You cannot use `admin/admin` for this step because the locally created admin user does not belong to any organization.
 
-	:::
+    :::
 
 2. Go to the `Organizations` tab and select `Register Organization`. Use the organization IDs that you obtained during the organization registration step in WSO2 IS.
 
@@ -215,9 +215,11 @@ You can set APIs to be visible to users in all organizations, the current organi
 
     If the Identity Server is running on a **different host** and you encounter an issue with logout session removal, set `logoutSessionStateAppender` to an empty value in the following files.
 
-        &lt;AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
-        &lt;AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
-        &lt;AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
+    ```
+    <AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
+    <AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
+    <AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
+    ```
 
     :::
 

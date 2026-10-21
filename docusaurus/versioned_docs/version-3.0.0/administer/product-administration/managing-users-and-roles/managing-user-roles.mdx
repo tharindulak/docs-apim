@@ -20,18 +20,20 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 :::info
 
-    By default, all WSO2 products have the following roles configured: 
+```
+By default, all WSO2 products have the following roles configured: 
 
-    -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
-    -   **Internal/everyone** - This is a pre defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged in users.
-    -   **Internal/system** - This is another pre defined role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
-    -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
+-   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
+-   **Internal/everyone** - This is a pre defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged in users.
+-   **Internal/system** - This is another pre defined role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
+-   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
 
-    In addition to the above, the following roles exist by default.
+In addition to the above, the following roles exist by default.
 
-    1.  [Internal/creator](#creator-role)
-    2.  [Internal/publisher](#publisher-role)
-    3.  [Internal/subscriber](#subscriber-role)
+1.  [Internal/creator](#creator-role)
+2.  [Internal/publisher](#publisher-role)
+3.  [Internal/subscriber](#subscriber-role)
+```
 
 :::
 
@@ -54,7 +56,9 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
     :::tip
 
-        The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores](managing-user-stores/configuring-secondary-user-stores.mdx).
+    ```
+    The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores](/api-platform/api-manager/3.0.0/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+    ```
 
     :::
 
@@ -73,9 +77,11 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
     :::warning
 
 
-        In WSO2 API Manager 3.0.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
+    ```
+    In WSO2 API Manager 3.0.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
 
-        By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
+    By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
+    ```
 
     :::
 
@@ -155,7 +161,9 @@ These roles do not have any permissions assigned to it, but it is used to manage
 
 :::info
 
-    If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
+```
+If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
+```
 
 :::
 
@@ -186,7 +194,9 @@ If you have already updated the role names before the first startup of the produ
 
     :::info
 
-        The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
+    ```
+    The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
+    ```
 
     :::
 

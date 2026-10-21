@@ -11,7 +11,9 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
 :::note
 
-    Note that the Facebook application development UI might be slightly different from the demonstrated UIs in this tutorial due to the frequent updates in the Facebook Developer Portal.
+```
+Note that the Facebook application development UI might be slightly different from the demonstrated UIs in this tutorial due to the frequent updates in the Facebook Developer Portal.
+```
 
 :::
 
@@ -81,7 +83,9 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
     :::info
 
-        After the user authorizes the application, the authorization server redirects the user back to the application with access token or the authorization code in the URL. Since the redirected URL contains sensitive information, it is required to assure that the service does not redirect to arbitrary locations. The best way to ensure that the user is directed to the appropriate location is to define an **OAuth Redirect URL** as shown above.
+    ```
+    After the user authorizes the application, the authorization server redirects the user back to the application with access token or the authorization code in the URL. Since the redirected URL contains sensitive information, it is required to assure that the service does not redirect to arbitrary locations. The best way to ensure that the user is directed to the appropriate location is to define an **OAuth Redirect URL** as shown above.
+    ```
 
     :::
 
@@ -119,7 +123,9 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
 
     :::note
 
-        The **Scope** defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.
+    ```
+    The **Scope** defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.
+    ```
 
     :::
 
@@ -171,7 +177,9 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 
 :::note
 
-    You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](../../../install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.mdx#setup-an-e-mail-login).
+```
+You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/api-platform/api-manager/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setup-an-e-mail-login).
+```
 
 :::
 
@@ -194,7 +202,9 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 
 :::warning
 
-    Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.x.x.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
+```
+Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.x.x.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
+```
 
 :::
 
@@ -214,7 +224,9 @@ Identity Server has a dashboard which offers multiple options for users to maint
 
 :::note
 
-    Make sure that you have enabled user account association for federated users by setting `enable_for_federated_users` property to `true` as explained in [Associating User Accounts.](https://is.docs.wso2.com/en/5.10.0/learn/associating-user-accounts)
+```
+Make sure that you have enabled user account association for federated users by setting `enable_for_federated_users` property to `true` as explained in [Associating User Accounts.](https://is.docs.wso2.com/en/5.10.0/learn/associating-user-accounts)
+```
 
 :::
 

@@ -23,16 +23,18 @@ The following UI widget supports generating a PDF report of a specific year,mont
 The PDF report presents a table with the following information.
 
 
-            1) API Name
-            2) API Version
-            3) Application Name
-            4) Application Owner
-            5) Request Count
+```
+        1) API Name
+        2) API Version
+        3) Application Name
+        4) Application Owner
+        5) Request Count
+```
 
 ![Monthly Usage Summary](../../../../assets/img/learn/api-manager-analytics-monthly-usage-summary.png)
 
 
-##Customizing the Report
+## Customizing the Report
 
 The default implementation can be overridden and extended if your organization requires different data than the ones provided by the default report.
 This can be achieved by implementing the [ReportGenerator](https://github.com/wso2/analytics-apim/blob/master/components/org.wso2.analytics.apim.rest.api.report/src/main/java/org/wso2/analytics/apim/rest/api/report/api/ReportGenerator.java) interface.

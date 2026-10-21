@@ -13,12 +13,10 @@ WSO2 API Manager supports the use of self-contained and signed JWT formatted OAu
 
 The gateway itself validates the API requests that are authenticated using the JWT access tokens.
 
-&lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>By default, JWT access tokens are not stored or retained after generation, leading to the generation of a new token for each access token request. </p>
       </div> 
-&lt;/html>
 
 ## Prerequisites for JWT based tokens
 
@@ -32,12 +30,10 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
 
 -   The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information, see [Import the public certificate into the client trust store.](#import)
 
-      &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>The latter mentioned prerequisite is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
-     &lt;/html>
 
 ## Mandatory attributes of a JWT access token
 
@@ -95,14 +91,12 @@ Sign in to the Developer Portal.
    [![Add new application option](../../../../../../assets/_versions/4.3.0/img/learn/api-security/oauth2/access-token-types/add-new-application-option.png)](../../../../../../assets/_versions/4.3.0/img/learn/api-security/oauth2/access-token-types/add-new-application-option.png)
 
 3. Enter the application details. Let's create an application with the following details.
-   &lt;html>
       <table>
          <th>Field</th><th>Value</th>
          <tr><td>Application Name</td><td>TestApp</td></tr>
          <tr><td>Per Token Quota</td><td>10PerMin</td></tr>
          <tr><td>Description</td><td>Test App</td></tr>
       </table>
-   &lt;/html>
 
       [![Create new application](../../../../../../assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)](../../../../../../assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)
 

@@ -12,20 +12,20 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 ## Prerequisites:
 1. Set up Kafka as follows:
-	1. Create a folder called kafka and another folder called kafka-osgi.
-	2. Copy the following files from \{KafkaHome\}/libs to the kafka folder you just created:
+    1. Create a folder called kafka and another folder called kafka-osgi.
+    2. Copy the following files from \{KafkaHome\}/libs to the kafka folder you just created:
         * kafka_2.11-0.10.0.0.jar
         * kafka-clients-0.10.0.0.jar
         * metrics-core-2.2.0.jar
         * scala-library-2.11.8.jar
         * zkclient-0.8.jar
         * zookeeper-3.4.6.jar
-	3. Copy these same files to the \{WSO2SIHome\}/samples/sample-clients/lib folder.
-	4. Navigate to \{WSO2SIHome\}/bin and issue the following command:
+    3. Copy these same files to the \{WSO2SIHome\}/samples/sample-clients/lib folder.
+    4. Navigate to \{WSO2SIHome\}/bin and issue the following command:
         - For Linux: ./jartobundle.sh &lt;path/kafka> &lt;path/kafka-osgi>
-	    - For Windows: ./jartobundle.bat &lt;path/kafka> &lt;path/kafka-osgi>  
-	    If converted successfully, the following messages are shown on the terminal for each lib file:
-	    - INFO: Created the OSGi bundle &lt;kafka-lib-name>.jar for JAR file &lt;absolute_path>/kafka/&lt;kafka-lib-name>.jar
+        - For Windows: ./jartobundle.bat &lt;path/kafka> &lt;path/kafka-osgi>  
+        If converted successfully, the following messages are shown on the terminal for each lib file:
+        - INFO: Created the OSGi bundle &lt;kafka-lib-name>.jar for JAR file &lt;absolute_path>/kafka/&lt;kafka-lib-name>.jar
     5. Copy the OSGi-converted kafka libs from the kafka-osgi folder to \{WSO2SIHome\}/lib.
 2. Save this sample.
 3. If there is no syntax error, the following message is shown on the console:
@@ -41,10 +41,10 @@ sh config/server.properties
 ant -Dtype=avro -DisBinaryMessage=true
 5. Start the Siddhi application by clicking on 'Run'.
 6. If the Siddhi application starts successfully, the following messages are shown on the console:
-	    - PublishKafkaInCustomAvroFormat.siddhi - Started Successfully!
-	    - Kafka version : 0.10.0.0
-	    - Kafka commitId : 23c69d62a0cabf06
-	    - Kafka producer created.
+        - PublishKafkaInCustomAvroFormat.siddhi - Started Successfully!
+        - Kafka version : 0.10.0.0
+        - Kafka commitId : 23c69d62a0cabf06
+        - Kafka producer created.
 
 ## Testing the Sample:
 Send events through one or more of the following methods.

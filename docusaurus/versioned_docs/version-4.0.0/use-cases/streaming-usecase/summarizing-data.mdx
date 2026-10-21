@@ -221,7 +221,7 @@ To try out the example given above, follow the procedure below:
     define stream ProductionSummaryRetrievalStream (name string);
     
     @sink(type = 'log', prefix = "Production Summary",
-    	@map(type = 'text'))
+        @map(type = 'text'))
     define stream ProductionSummaryStream (name string, total double, average double);
     
     
@@ -229,12 +229,12 @@ To try out the example given above, follow the procedure below:
     define aggregation ProductionAggregation
     from ProductionStream
     select name, amount, sum(amount) as total, avg(amount) as average
-    	aggregate by timestamp every seconds...years;
+        aggregate by timestamp every seconds...years;
     
     @info(name = 'RetrievingAggregates')
     from ProductionSummaryRetrievalStream as b 
     join ProductionAggregation as a 
-    	on a.name == b.name
+        on a.name == b.name
     within "2020-10-12 00:00:00 +00:00", "2020-10-17 00:00:00 +00:00"
     per "days" 
     select a.name as name, a.total as total, a.average as average 
@@ -346,45 +346,45 @@ To try out the four sample queries given above, follow the steps below:
     
     
     @sink(type = 'log', prefix = "Four Minute Summary",
-    	@map(type = 'text'))
+        @map(type = 'text'))
     define stream TimeSlidingOutputStream (name string, pastFourMinTotal double, pastFourMinAvg double);
     
     @sink(type = 'log', prefix = "Three Production Run Summary",
-    	@map(type = 'passThrough'))
+        @map(type = 'passThrough'))
     define stream LengthSlidingOutputStream (name string, lastBatchTotal double, lastBatchAvg double);
     
     define stream ProductionStream (name string, amount double, timestamp long);
     
     @sink(type = 'log', prefix = "Four Minute Summary - Batch",
-    	@map(type = 'text'))
+        @map(type = 'text'))
     define stream TimeBatchOutputStream (name string, pastFourMinTotal double, pastFourMinAvg double);
     
     @sink(type = 'log', prefix = "Three Production Run Summary - Batch",
-    	@map(type = 'passThrough'))
+        @map(type = 'passThrough'))
     define stream LengthBatchOutputStream (name string, lastBatchTotal double, lastBatchAvg double);
     
     @info(name = 'query1')
     from ProductionStream#window.time(4 min) 
     select name, sum(amount) as pastFourMinTotal, avg(amount) as pastFourMinAvg 
-    	group by name 
+        group by name 
     insert into TimeSlidingOutputStream;
     
     @info(name = 'query2')
     from ProductionStream#window.timeBatch(4 min) 
     select name, sum(amount) as pastFourMinTotal, avg(amount) as pastFourMinAvg 
-    	group by name 
+        group by name 
     insert into TimeBatchOutputStream;
     
     @info(name = 'query3')
     from ProductionStream#window.length(3) 
     select name, sum(amount) as lastBatchTotal, avg(amount) as lastBatchAvg 
-    	group by name 
+        group by name 
     insert into LengthSlidingOutputStream;
     
     @info(name = 'query4')
     from ProductionStream#window.lengthBatch(3) 
     select name, sum(amount) as lastBatchTotal, avg(amount) as lastBatchAvg 
-    	group by name 
+        group by name 
     insert into LengthBatchOutputStream;
     ```
    

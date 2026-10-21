@@ -134,10 +134,10 @@ Siddhi Apps, which are deployed in the Worker profile of API Manager Analytics i
 
 The following subsections describe the table schema of each of the Aggregate tables that are present in the Statistics DB.
 
-###**ApiUserPerAppAgg**
+### **ApiUserPerAppAgg**
 This aggregation contains summary data from the request event stream and you can use it to obtain information about each API request.
 
-####ApiUserPerAppAgg Table Schema
+#### ApiUserPerAppAgg Table Schema
 This schema resembles the API_REQUEST_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -189,10 +189,10 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
 
 </details>
 
-###**ApiResPathPerApp**
+### **ApiResPathPerApp**
 This aggregation contains summarized data about API usage by resources and it is also derived from the request event stream.
 
-####ApiResPathPerApp Table Schema
+#### ApiResPathPerApp Table Schema
 This schema resembles the API_Resource_USAGE_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -243,10 +243,10 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
 
 </details>
 
-###**ApiPerDestinationAgg**
+### **ApiPerDestinationAgg**
 This aggregation contains summarized data of API destinations and is derived from the request event stream.
 
-####ApiPerDestinationAgg Table Schema
+#### ApiPerDestinationAgg Table Schema
 This schema resembles the API_DESTINATION_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -291,10 +291,10 @@ CREATE TABLE `ApiPerDestinationAgg_<granularity>` (
 
 </details>
 
-###**ApiVersionPerAppAgg**
+### **ApiVersionPerAppAgg**
 This aggregation contains summarized data about API usage and is also derived from the request event stream.
 
-####ApiVersionPerAppAgg Table Schema
+#### ApiVersionPerAppAgg Table Schema
 This schema resembles the API_VERSION_USAGE_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -344,10 +344,10 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
 </details>
 
 
-###**ApiExeTime**
+### **ApiExeTime**
 This aggregation contains information related to API invocation including timestamps and the time taken by the API at different stages of invocation such as service time, backend time etc. This is also derived from the request event stream.
 
-####ApiExeTime Table Schema
+#### ApiExeTime Table Schema
 This schema resembles the API_EXE_TIME_`<time>`_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -408,11 +408,11 @@ CREATE TABLE `ApiExeTime_<granularity>` (
 
 </details>
 
-###**ApiUserBrowserAgg**
+### **ApiUserBrowserAgg**
 
 This aggregation contains information regarding the user browser summary derived from the request event stream.
 
-####ApiUserBrowserAgg Table Schema
+#### ApiUserBrowserAgg Table Schema
 This schema resembles the API_REQ_USER_BROW_SUMMARY table from the previous Stat DB schema.
 
 ```sql
@@ -457,11 +457,11 @@ CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
 
 </details>
 
-###**APIM_ReqCountAgg**
+### **APIM_ReqCountAgg**
 
 This aggregation is derived from the throttle event stream and the request event stream and provides information regarding the throttled out counts and success counts for a particular API.
 
-####APIM_ReqCountAgg Table Schema
+#### APIM_ReqCountAgg Table Schema
 
 ```sql
 CREATE TABLE `APIM_ReqCountAgg_<granularity>` (
@@ -499,11 +499,11 @@ CREATE TABLE `APIM_ReqCountAgg_<granularity>` (
 
 </details>
 
-###**ApiLastAccessSummary**
+### **ApiLastAccessSummary**
 
 This table is not an aggregation. It contains information regarding the last access times of the APIs and is derived from the request event stream.
 
-###ApiLastAccessSummary Table Schema
+### ApiLastAccessSummary Table Schema
 
 This schema resembles the API_LAST_ACCESS_TIME_SUMMARY table from the previous Stat DB schema.
 
@@ -535,11 +535,11 @@ CREATE TABLE `ApiLastAccessSummary` (
 
 </details>
 
-###**GeoLocationAgg**
+### **GeoLocationAgg**
 
 This aggregation contains summarized information regarding the geolocation statistics of API requests and is derived from the request event stream.
 
-####GeoLocationAgg Table Schema
+#### GeoLocationAgg Table Schema
 
 This schema resembles the API_REQ_GEO_LOC_SUMMARY table from the previous Stat DB schema.
 
@@ -586,11 +586,11 @@ CREATE TABLE `GeoLocationAgg_<granularity>` (
 </details>
 
 
-###**ApiFaultyInvocationAgg**
+### **ApiFaultyInvocationAgg**
 
 This aggregation contains summarized data of the faulty API invocations and is derived from the fault event stream.
 
-####ApiFaultyInvocationAgg Table Schema
+#### ApiFaultyInvocationAgg Table Schema
 
 This schema resembles the API_FAULT_SUMMARY table from the previous Stat DB schema.
 

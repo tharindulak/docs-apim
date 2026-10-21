@@ -55,22 +55,21 @@ the sample and start from [here](publish-custom-analytics-attributes.mdx#build-t
 :::info
 
 
+- You need to add `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
+    1. Add the above .jar files to the local m2 manually.
+    ```code
+    mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
+    ```
+    2. Point local m2 repository in project pom
+    ```code
+    <repository>
+        <id> local-maven-repo </id>
+        <url> file://home/user/.m2/repository </url>
+    </repository>
+    ```
+    Follow the same URL pattern when providing the repository URL.
 
 :::
-
-	- You need to add `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
-        1. Add the above .jar files to the local m2 manually.
-        ```code
-        mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
-        ```
-        2. Point local m2 repository in project pom
-        ```code
-        <repository>
-            <id> local-maven-repo </id>
-            <url> file://home/user/.m2/repository </url>
-        </repository>
-        ```
-        Follow the same URL pattern when providing the repository URL.
 
 ### Implementing the required class
 

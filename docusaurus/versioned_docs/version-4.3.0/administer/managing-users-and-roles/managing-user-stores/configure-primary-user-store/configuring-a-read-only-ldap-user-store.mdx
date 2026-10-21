@@ -88,61 +88,63 @@ Note that these configurations will automatically applied to the `user-mgt.xml` 
 Given below is a sample for the LDAP/AD user store configuration in read-only mode. You can change the values to match your LDAP/AD in `deployment.toml` file. For descriptions on each of the properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Properties of User Stores](#ConfiguringaRead-OnlyLDAPUserStore-Properties%20used%20in%20Read-only%20LDAP%20user%20store%20manager).
 The configuration for the external read-only user store in the user-mgt.xml file looks as follows for the above configurations:
 
-    &lt;UserManager>
-      &lt;Realm>
-        &lt;UserStoreManager className="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">
-            &lt;Property name="IsBulkImportSupported">true&lt;/Property>
-            &lt;Property name="MaxUserNameListLength">100&lt;/Property>
-            &lt;Property name="defaultRealmName">WSO2.ORG&lt;/Property>
-            &lt;Property name="MultiAttributeSeparator">,&lt;/Property>
-            &lt;Property name="EmptyRolesAllowed">true&lt;/Property>
-            &lt;Property name="ConnectionPassword">admin&lt;/Property>
-            &lt;Property name="UserNameUniqueAcrossTenants">false&lt;/Property>
-            &lt;Property name="StoreSaltedPassword">true&lt;/Property>
-            &lt;Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager&lt;/Property>
-            &lt;Property name="UserSearchBase">ou=Users,dc=wso2,dc=org&lt;/Property>
-            &lt;Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))&lt;/Property>
-            &lt;Property name="ConnectionPoolingEnabled">false&lt;/Property>
-            &lt;Property name="StartTLSEnabled">false&lt;/Property>
-            &lt;Property name="CaseInsensitiveUsername">true&lt;/Property>
-            &lt;Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))&lt;/Property>
-            &lt;Property name="LDAPConnectionTimeout">5000&lt;/Property>
-            &lt;Property name="UserNameAttribute">uid&lt;/Property>
-            &lt;Property name="GroupNameAttribute">cn&lt;/Property>
-            &lt;Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]\{3,30\}$&lt;/Property>
-            &lt;Property name="WriteGroups">true&lt;/Property>
-            &lt;Property name="AnonymousBind">false&lt;/Property>
-            &lt;Property name="ConnectionName">uid=admin,ou=system&lt;/Property>
-            &lt;Property name="ConnectionURL">ldap://localhost:10390&lt;/Property>
-            &lt;Property name="RolenameJavaScriptRegEx">^[\S]\{3,30\}$&lt;/Property>
-            &lt;Property name="GroupSearchFilter">(objectClass=groupOfNames)&lt;/Property>
-            &lt;Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]\{3,30\}$&lt;/Property>
-            &lt;Property name="GroupEntryObjectClass">groupOfNames&lt;/Property>
-            &lt;Property name="PasswordJavaRegEx">^[\S]\{5,30\}$&lt;/Property>
-            &lt;Property name="EnableMaxUserLimitForSCIM">false&lt;/Property>
-            &lt;Property name="PasswordHashMethod">PLAIN_TEXT&lt;/Property>
-            &lt;Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test&lt;/Property>
-            &lt;Property name="ReadGroups">true&lt;/Property>
-            &lt;Property name="ReplaceEscapeCharactersAtUserLogin">true&lt;/Property>
-            &lt;Property name="ConnectionRetryDelay">120000&lt;/Property>
-            &lt;Property name="MembershipAttribute">member&lt;/Property>
-            &lt;Property name="UserEntryObjectClass">identityPerson&lt;/Property>
-            &lt;Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters&lt;/Property>
-            &lt;Property name="MaxRoleNameListLength">100&lt;/Property>
-            &lt;Property name="PasswordJavaScriptRegEx">^[\S]\{5,30\}$&lt;/Property>
-            &lt;Property name="BackLinksEnabled">false&lt;/Property>
-            &lt;Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated&lt;/Property>
-            &lt;Property name="UserRolesCacheEnabled">true&lt;/Property>
-            &lt;Property name="GroupNameListFilter">(objectClass=groupOfNames)&lt;/Property>
-            &lt;Property name="SCIMEnabled">true&lt;/Property>
-            &lt;Property name="PasswordDigest">SHA-256&lt;/Property>
-            &lt;Property name="UserNameListFilter">(objectClass=person)&lt;/Property>
-            &lt;Property name="UsernameJavaScriptRegEx">^[\S]\{3,30\}$&lt;/Property>
-            &lt;Property name="ReadOnly">false&lt;/Property>
-            &lt;Property name="kdcEnabled">false&lt;/Property>
-        &lt;/UserStoreManager>
-      &lt;/Realm>
-    &lt;/UserManager> 
+```
+<UserManager>
+  <Realm>
+    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">
+        <Property name="IsBulkImportSupported">true</Property>
+        <Property name="MaxUserNameListLength">100</Property>
+        <Property name="defaultRealmName">WSO2.ORG</Property>
+        <Property name="MultiAttributeSeparator">,</Property>
+        <Property name="EmptyRolesAllowed">true</Property>
+        <Property name="ConnectionPassword">admin</Property>
+        <Property name="UserNameUniqueAcrossTenants">false</Property>
+        <Property name="StoreSaltedPassword">true</Property>
+        <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
+        <Property name="UserSearchBase">ou=Users,dc=wso2,dc=org</Property>
+        <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
+        <Property name="ConnectionPoolingEnabled">false</Property>
+        <Property name="StartTLSEnabled">false</Property>
+        <Property name="CaseInsensitiveUsername">true</Property>
+        <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
+        <Property name="LDAPConnectionTimeout">5000</Property>
+        <Property name="UserNameAttribute">uid</Property>
+        <Property name="GroupNameAttribute">cn</Property>
+        <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+        <Property name="WriteGroups">true</Property>
+        <Property name="AnonymousBind">false</Property>
+        <Property name="ConnectionName">uid=admin,ou=system</Property>
+        <Property name="ConnectionURL">ldap://localhost:10390</Property>
+        <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
+        <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+        <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+        <Property name="GroupEntryObjectClass">groupOfNames</Property>
+        <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
+        <Property name="EnableMaxUserLimitForSCIM">false</Property>
+        <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
+        <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
+        <Property name="ReadGroups">true</Property>
+        <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property>
+        <Property name="ConnectionRetryDelay">120000</Property>
+        <Property name="MembershipAttribute">member</Property>
+        <Property name="UserEntryObjectClass">identityPerson</Property>
+        <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
+        <Property name="MaxRoleNameListLength">100</Property>
+        <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
+        <Property name="BackLinksEnabled">false</Property>
+        <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
+        <Property name="UserRolesCacheEnabled">true</Property>
+        <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
+        <Property name="SCIMEnabled">true</Property>
+        <Property name="PasswordDigest">SHA-256</Property>
+        <Property name="UserNameListFilter">(objectClass=person)</Property>
+        <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
+        <Property name="ReadOnly">false</Property>
+        <Property name="kdcEnabled">false</Property>
+    </UserStoreManager>
+  </Realm>
+</UserManager> 
+```
 
    1.  Update the connection details to match your user store. For example:
 

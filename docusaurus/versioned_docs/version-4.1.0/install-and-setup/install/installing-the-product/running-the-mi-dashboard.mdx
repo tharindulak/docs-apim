@@ -46,16 +46,15 @@ Follow the steps given below before you start.
 
 ## Configuring Single Sign-on with OpenID Connect
 
-:::note[Before you begin]
+<Prerequisites title="Before you begin">
 
+-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
+-	Upgrade Micro Integrator to version 4.0.0.5 or above to use File based User Store for Authorization.
+-       By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
+-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
+-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
-
-:::
-	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
-	-	Upgrade Micro Integrator to version 4.0.0.5 or above to use File based User Store for Authorization.
-	-       By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
-	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
-	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
+</Prerequisites>
 
 Follow the steps given below to connect the Micro Integrator Dashboard to your Identity provider.
 
@@ -72,9 +71,9 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 	sign_in_redirect_URL = "https://localhost:9743/sso"
 	```
 
-	Parameters used above are explained below.
+    Parameters used above are explained below.
 
-	<table><tbody><tr><th>{"Parameter"}</th><th>{"Desciption"}</th></tr><tr><td><code>{"enable"}</code></td><td>{"Use this parameter to enable Single Sign-On."}</td></tr><tr><td><code>{"client_id"}</code></td><td>{"The client ID generated from the Identity Provider."}</td></tr><tr><td><code>{"base_url"}</code></td><td>{"The URL of the Identity Provider."}</td></tr><tr><td><code>{"jwt_issuer"}</code></td><td>{"The Identity Provider's issuer identifier."}</td></tr><tr><td><code>{"resource_server_URLs"}</code></td><td>{"The URL of the Micro Integrator Dashboard."}</td></tr><tr><td><code>{"sign_in_redirect_URL"}</code></td><td>{"The Sign In redirect URL of the Micro Integrator Dashboard."}</td></tr></tbody></table>
+    <table><tbody><tr><th>{"Parameter"}</th><th>{"Desciption"}</th></tr><tr><td><code>{"enable"}</code></td><td>{"Use this parameter to enable Single Sign-On."}</td></tr><tr><td><code>{"client_id"}</code></td><td>{"The client ID generated from the Identity Provider."}</td></tr><tr><td><code>{"base_url"}</code></td><td>{"The URL of the Identity Provider."}</td></tr><tr><td><code>{"jwt_issuer"}</code></td><td>{"The Identity Provider's issuer identifier."}</td></tr><tr><td><code>{"resource_server_URLs"}</code></td><td>{"The URL of the Micro Integrator Dashboard."}</td></tr><tr><td><code>{"sign_in_redirect_URL"}</code></td><td>{"The Sign In redirect URL of the Micro Integrator Dashboard."}</td></tr></tbody></table>
 
 See the [complete list of parameters](../../../reference/config-catalog-mi-dashboard.mdx#single-sign-on) you can configure for the single sign-on.
 

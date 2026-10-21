@@ -172,9 +172,11 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     :::note
 
-        If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `<APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml` file and restart the server.
+    ```
+    If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `<APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml` file and restart the server.
 
-        `<!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
+    `<!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
+    ```
 
     :::
 

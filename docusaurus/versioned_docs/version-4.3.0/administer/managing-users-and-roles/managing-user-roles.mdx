@@ -37,16 +37,20 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
     :::tip
 
-        The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores](/api-platform/api-manager/4.3.0/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+    ```
+    The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores](/api-platform/api-manager/4.3.0/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+    ```
 
     :::
 
     :::warning
 
 
-        In WSO2 API Manager, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Admin Console](`https://localhost:9443/admin`) from **Settings** > **Advanced**.
+    ```
+    In WSO2 API Manager, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Admin Console](`https://localhost:9443/admin`) from **Settings** > **Advanced**.
 
-        By default, the scope-role mapping contains `Internal/creator`, `Internal/publisher`, `Internal/subscriber`, `Internal/analytics`, and `Internal/devops` as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in the `tenant-conf.json` file under the relevant scopes.
+    By default, the scope-role mapping contains `Internal/creator`, `Internal/publisher`, `Internal/subscriber`, `Internal/analytics`, and `Internal/devops` as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in the `tenant-conf.json` file under the relevant scopes.
+    ```
 
     :::
 
@@ -172,7 +176,9 @@ The following are the scopes that are allowed for each default Internal role und
 
 :::info
 
-    If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
+```
+If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
+```
 
 :::
 
@@ -208,7 +214,9 @@ The following steps guide you through updating the role names after you have use
 
     :::info
 
-        The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
+    ```
+    The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
+    ```
 
     :::
 

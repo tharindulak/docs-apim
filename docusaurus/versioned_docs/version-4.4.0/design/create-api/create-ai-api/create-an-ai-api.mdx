@@ -21,7 +21,10 @@ Follow the instructions below to create an AI API using the basic flow:
 
     Example: `https://localhost:9443/publisher`
 
-    <div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"The "}<b>{"Create API"}</b>{" button will only appear for a user who has the "}<code>{"creator"}</code>{" role permission."}</p></div>
+    <div className="admonition note">
+        <p className="admonition-title">Note</p>
+        <p>The <b>Create API</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+        </div>
 
 2. Click **Create API** and then click **AI API**.
 
@@ -31,7 +34,10 @@ Follow the instructions below to create an AI API using the basic flow:
 
     [![Select AI Service Provider and Version](../../../../../assets/img/learn/create-ai-api.png)](../../../../../assets/img/learn/create-ai-api.png)
 
-    <div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"The available "}<b>{"AI service providers and versions"}</b>{" will appear on relevant dropdowns. In adition to inbuild AI service vendors, you can also "}<a href={"/api-platform/api-manager/4.4.0/administer/ai-vendors/custom-ai-vendor/"}>{"configure custom AI service vendors"}</a>{"."}</p></div>
+    <div className="admonition note">
+    <p className="admonition-title">Note</p>
+    <p>The available <b>AI service providers and versions</b> will appear on relevant dropdowns. In adition to inbuild AI service vendors, you can also <a href='/api-platform/api-manager/4.4.0/administer/ai-vendors/custom-ai-vendor/'>configure custom AI service vendors</a>.</p>
+    </div>
 
 4. Configure AI API details. 
     
@@ -44,7 +50,13 @@ The overview page of the newly created API appears.
 ### Obtain API Key from AI Service Vendor {/* #step-2-obtain-api-key-from-ai-service-vendor */}
 
 
-<div className={"admonition example"}><p className={"admonition-title"}>{"Example: Mistral AI"}</p><p>{"Login to **Mistral AI** and go to **"}<a href={"https://console.mistral.ai/"}>{"Mistral AI Console."}</a>{"**"}</p><p>{"Click **API Keys** and create new key."}</p>{" [![Get Mistral API Key](../../../../../assets/img/learn/mistral-api-key.png){: style=\"width:90%\"}](../../../../../assets/img/learn/mistral-api-key.png)"}</div>
+<div className="admonition example">
+<p className="admonition-title">Example: Mistral AI</p>
+<p>Login to **Mistral AI** and go to **<a href='https://console.mistral.ai/'>Mistral AI Console.</a>**</p>
+<p>Click **API Keys** and create new key.</p>
+
+[![Get Mistral API Key](../../../../../assets/img/learn/mistral-api-key.png)](../../../../../assets/img/learn/mistral-api-key.png)
+</div>
 
 ### Configure Sandbox and Production Endpoint {/* #step-3-configure-sandbox-and-production-endpoint */}
 
@@ -54,7 +66,9 @@ The overview page of the newly created API appears.
 
     :::note
 
-        APIM supports three AI/LLM vendors by default. The supported authorization approach for each is mentioned below: 
+    ```
+    APIM supports three AI/LLM vendors by default. The supported authorization approach for each is mentioned below: 
+    ```
     - **MistralAI**: `Authorization` header
     - **AzureOpenAI**: `api-key` header
     - **OpenAI**: `Authorization` header

@@ -68,17 +68,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Retrieves a list of all users stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves a list of all users stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
@@ -102,32 +102,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a user by name</summary>
+    <details>
+    <summary>Search for a user by name</summary>
+
+    You can also search for a user by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a user by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/users?searchKey=read-only" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -139,17 +138,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users/{user_id}`
 
-	**Description**: Retrieves information related to a specified user stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves information related to a specified user stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
@@ -173,38 +172,37 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	:::note
+    :::note
 
+    When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
-
-	:::
-		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
+    :::
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
-	**Description**: Retrieves information related to user names (stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx) that match a specific pattern and user role.
+    **Description**: Retrieves information related to user names (stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx) that match a specific pattern and user role.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
 
     
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			count:2
@@ -221,9 +219,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Adds a user to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can create other users with admin access.
+    **Description**: Adds a user to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can create other users with admin access.
 
-	**Example**:
+    **Example**:
 
     First create the following JSON file with user details as shown below. Note that this new user is granted the admin role.
 
@@ -236,35 +234,34 @@ The management API has multiple resources to provide information regarding the d
     }
     ```
 
-	:::note
+    :::note
 
+    When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
 
+    We cannot add admin users to the secondary user stores. 
 
-	:::
-		When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
-
-		We cannot add admin users to the secondary user stores. 
+    :::
 
     Execute the following request and receive the response:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST -d @user "https://localhost:9164/management/users" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"userId":"user4",
@@ -276,30 +273,30 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can remove other users with admin access.
+    **Description**: Removes a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only admin users can remove other users with admin access.
 
-	**Example**:
+    **Example**:
 
     The following request deletes the `user1` from the user store:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X DELETE "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"userId":"user1",
@@ -307,28 +304,28 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	**Example**:
+    **Example**:
 
     The following request deletes `user1` from the secondary user store: 
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"userId":"user1",
@@ -340,11 +337,11 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Update the password of a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
+    **Description**: Update the password of a user from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
 
-	**Example**:
+    **Example**:
 
-	First create the following JSON file with user details as shown below. Here we are changing the password of user1.
+    First create the following JSON file with user details as shown below. Here we are changing the password of user1.
 
     ```json
     {
@@ -356,24 +353,24 @@ The management API has multiple resources to provide information regarding the d
 
     The following request update the password of the `user1` from the user store:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PATCH -d @user "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"userId":"user1",
@@ -385,17 +382,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles`
 
-	**Description**: Retrieves a list of all roles stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves a list of all roles stored in an [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/roles" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
@@ -419,32 +416,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a role by name</summary>
+    <details>
+    <summary>Search for a role by name</summary>
+
+    You can also search for a role by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a role by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/roles?searchKey=admin" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 2,
@@ -458,17 +454,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles/{role_name}`
 
-	**Description**: Retrieves information related to a specified role stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Retrieves information related to a specified role stored in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
@@ -491,22 +487,21 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	:::note
+    :::note
 
+    When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
+    When fetching hybrid roles, the `domain` query parameter should be set as `Internal` or `Application` accordingly.
 
-	:::
-		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
-		
-		When fetching hybrid roles, the `domain` query parameter should be set as `Internal` or `Application` accordingly.
+    :::
 
 ### ADD ROLES
 
 -	**Resource**: `/roles`
 
-	**Description**: Adds a role to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
+    **Description**: Adds a role to the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx).
 
-	**Example**:
+    **Example**:
 
     First create the following JSON file with role details as shown below.
 
@@ -517,35 +512,34 @@ The management API has multiple resources to provide information regarding the d
 	}
     ```
 
-	:::note
+    :::note
 
+    When adding roles to the primary user store, the `domain` can be ignored or set as `primary`.
 
+    When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
 
-	:::
-		When adding roles to the primary user store, the `domain` can be ignored or set as `primary`.
-
-        When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
+    :::
 
     Execute the following request and receive the response:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST -d @role "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"role": "wso2role",
@@ -557,30 +551,30 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a role from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). 
+    **Description**: Removes a role from the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). 
 
-	**Example**:
+    **Example**:
 
     The following request deletes the `wso2role` from the user store:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X DELETE "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"role": "wso2role",
@@ -588,20 +582,19 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	:::note
+    :::note
 
+    When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
 
-
-	:::
-		When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
+    :::
 
 ### ASSIGN / REVOKE Roles
 
 -	**Resource**: `/roles`
 
-	**Description**: Assign/remove set of roles to/from a given user in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). 
+    **Description**: Assign/remove set of roles to/from a given user in the [external user store](../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.mdx). 
 
-	**Example**:
+    **Example**:
 
     First create the following JSON file with role details as shown below.
 
@@ -614,37 +607,36 @@ The management API has multiple resources to provide information regarding the d
 	}
     ```
 
-	:::note
+    :::note
 
+    When the user belongs to the primary user store, `domain` can be ignored or set as `primary`.
 
+    Users in secondary user stores can have roles from that user store and hybrid roles only.
 
-	:::
-		When the user belongs to the primary user store, `domain` can be ignored or set as `primary`.
+    Users in secondary user stores cannot have the admin role.
 
-        Users in secondary user stores can have roles from that user store and hybrid roles only.
-
-		Users in secondary user stores cannot have the admin role.
+    :::
 
     Execute the following request and receive the response:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PUT -d @user "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"userId": "wso2user",
@@ -656,29 +648,29 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Retrieves a list of all deployed proxy services.
+    **Description**: Retrieves a list of all deployed proxy services.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/proxy-services" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"count": 1,
@@ -692,32 +684,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a proxy by name</summary>
+    <details>
+    <summary>Search for a proxy by name</summary>
+
+    You can also search for a proxy by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a proxy by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/proxy-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -733,9 +724,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services?proxyServiceName={proxyName}`
 
-	**Description**: Retrieves information related to a specified proxy.
+    **Description**: Retrieves information related to a specified proxy.
 
-	**Example**:
+    **Example**:
 	```bash
 	curl -X GET "https://localhost:9164/management/proxy-services?proxyServiceName=helloProxy" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
@@ -744,17 +735,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Activate and Deactivate a specified proxy service.
+    **Description**: Activate and Deactivate a specified proxy service.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X POST \
 			https://localhost:9164/management/proxy-services \
@@ -767,32 +758,32 @@ The management API has multiple resources to provide information regarding the d
 		```
 
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"Message":"Proxy service HelloWorld stopped successfully"}
 		```
-	
+    
 ### ENABLE/DISABLE MESSAGE TRACING for PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
 
-	**Description**: Enable or disable message tracing for a specified proxy service.
+    **Description**: Enable or disable message tracing for a specified proxy service.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X POST \
 			https://localhost:9164/management/proxy-services \
@@ -804,13 +795,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('HelloWorld')"}
 		```
@@ -819,28 +810,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: This operation provides you a list of available active and faulty Applications.
+    **Description**: This operation provides you a list of available active and faulty Applications.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/applications" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"totalCount": 2,
@@ -861,32 +852,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Carbon Application by name</summary>
+    <details>
+    <summary>Search for a Carbon Application by name</summary>
+
+    You can also search for a Carbon Application by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Carbon Application by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/applications?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -957,9 +947,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications?carbonAppName={appname}`
 
-	**Description**: Retrieves information related to a specified carbon application.
+    **Description**: Retrieves information related to a specified carbon application.
 
-	**Example**:
+    **Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
@@ -968,7 +958,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: Download a carbon application.
+    **Description**: Download a carbon application.
 
     **Example**:
     
@@ -985,28 +975,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints`
 
-	**Description**:  Retrieves a list of available endpoints.
+    **Description**:  Retrieves a list of available endpoints.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1023,32 +1013,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for an endpoint by name</summary>
+    <details>
+    <summary>Search for an endpoint by name</summary>
+
+    You can also search for an endpoint by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for an endpoint by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1062,35 +1051,35 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints?endpointName={endpointname}`
 
-	**Description**: Retrieves information related to a specified endpoint.
+    **Description**: Retrieves information related to a specified endpoint.
 
 
 ### ACTIVATE/DEACTIVATE ENDPOINTS
 
 -	**Resource**: `/endpoints`
 
-	**Description**: Activate or deactivate a specified endpoint.
+    **Description**: Activate or deactivate a specified endpoint.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST \https://localhost:9164/management/endpoints \ -H 'authorization: Bearer TOKEN -H 'content-type: application/json' \ -d '{"name": "HTTPEP", "status": "inactive"} -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"Message":"HTTPEP : is switched Off"}
 		```
@@ -1099,10 +1088,10 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/endpoints`
 
-	**Description**: Enable or disable message tracing for a specified endpoint.
+    **Description**: Enable or disable message tracing for a specified endpoint.
 
-	**Example**:
-	
+    **Example**:
+    
     <Tabs>
     <TabItem value="tab-0" label="Request">
 
@@ -1121,43 +1110,43 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('HTTPEP')"}
 		```
-	
+    
 ### GET APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Retrieves a list of available APIs.
+    **Description**: Retrieves a list of available APIs.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/apis" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1174,32 +1163,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for an API by name</summary>
+    <details>
+    <summary>Search for an API by name</summary>
+
+    You can also search for an API by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for an API by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/apis?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1213,15 +1201,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis?apiName={api}`
 
-	**Description**: Retrieves information related to a specified API.
+    **Description**: Retrieves information related to a specified API.
 
 ### ENABLE/DISABLE MESSAGING TRACING for APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Enable or disable message tracing for a specified API.
+    **Description**: Enable or disable message tracing for a specified API.
 
-	**Example**:
+    **Example**:
 
     <Tabs>
     <TabItem value="tab-0" label="Request">
@@ -1241,43 +1229,43 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('helloApi')"}
 		```
-	
+    
 ### GET SEQUENCES
 
 -	**Resource**: `/sequences`
 
-	**Description**: Retrieves a list of available sequences.
+    **Description**: Retrieves a list of available sequences.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/sequences" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 3,
@@ -1302,32 +1290,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Sequence by name</summary>
+    <details>
+    <summary>Search for a Sequence by name</summary>
+
+    You can also search for a Sequence by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Sequence by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/sequences?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 2,
@@ -1346,16 +1333,16 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/sequences?sequenceName={sequence}`
 
-	**Description**: Retrieves information related to a specified sequence.
+    **Description**: Retrieves information related to a specified sequence.
 
 
 ### ENABLE/DISABLE MESSAGE TRACING for SEQUENCES
 
 -	**Resource**: `/sequences`
 
-	**Description**: Enable or disable message tracing for a specified sequence.
+    **Description**: Enable or disable message tracing for a specified sequence.
 
-	**Example**:
+    **Example**:
 
     <Tabs>
     <TabItem value="tab-0" label="Request">
@@ -1375,43 +1362,43 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('helloSequence')"}
 		```
-	
+    
 ### GET LOCAL ENTRIES
 
 -	**Resource**: `/local-entries`
 
-	**Description**: Retrieves a list of available local entries.
+    **Description**: Retrieves a list of available local entries.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/local-entries" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1428,32 +1415,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Local Entry by name</summary>
+    <details>
+    <summary>Search for a Local Entry by name</summary>
+
+    You can also search for a Local Entry by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Local Entry by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/local-entries?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 2,
@@ -1471,34 +1457,34 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/local-entries?name={entryName}`
 
-	**Description**: Retrieves information related to a specified entry.
+    **Description**: Retrieves information related to a specified entry.
 
 ### GET TASKS
 
 -	**Resource**: `/tasks`
 
-	**Description**: Retrieves a list of available tasks.
+    **Description**: Retrieves a list of available tasks.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/tasks" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 1,
@@ -1510,32 +1496,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Task by name</summary>
+    <details>
+    <summary>Search for a Task by name</summary>
+
+    You can also search for a Task by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Task by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/tasks?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1547,34 +1532,34 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/tasks?taskName={taskName}`
 
-	**Description**: Retrieves information related to a specified task.
+    **Description**: Retrieves information related to a specified task.
 
 ### GET MESSAGE STORES
 
 -	**Resource**: `/message-stores`
 
-	**Description**: Retrieves a list of available message stores.
+    **Description**: Retrieves a list of available message stores.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/message-stores" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1593,32 +1578,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Message Store by name</summary>
+    <details>
+    <summary>Search for a Message Store by name</summary>
+
+    You can also search for a Message Store by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Message Store by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/message-stores?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1633,34 +1617,34 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/message-stores?name={messageStore}`
 
-	**Description**: Retrieves information related to a specified message store.
+    **Description**: Retrieves information related to a specified message store.
 
 ### GET MESSAGE PROCESSORS   
 
 -	**Resource**: `/message-processors`
 
-	**Description**: Retrieves a list of available message processors.
+    **Description**: Retrieves a list of available message processors.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/message-processors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1679,32 +1663,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Message Processor by name</summary>
+    <details>
+    <summary>Search for a Message Processor by name</summary>
+
+    You can also search for a Message Processor by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Message Processor by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/message-processors?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1718,15 +1701,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/message-processors?name={messageProcessors}`
 
-	**Description**: Retrieves information related to a specified message processor.
+    **Description**: Retrieves information related to a specified message processor.
 
 ### ACTIVATE/DEACTIVATE MESSAGE PROCESSORS
 
 -	**Resource**: `/message-processors`
 
-	**Description**: Used to activate or deactivate a specific message processor.
+    **Description**: Used to activate or deactivate a specific message processor.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X POST \
@@ -1743,28 +1726,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/inbound-endpoints`
 
-	**Description**: Retrieves a list of available inbound endpoints.
+    **Description**: Retrieves a list of available inbound endpoints.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 1,
@@ -1777,32 +1760,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for an Inbound Endpoint by name</summary>
+    <details>
+    <summary>Search for an Inbound Endpoint by name</summary>
+
+    You can also search for an Inbound Endpoint by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for an Inbound Endpoint by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/inbound-endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1817,15 +1799,15 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/inbound-endpoints?inboundEndpointName={inboundEndpoint}`
 
-	**Description**: Retrieves information related to a specified inbound endpoint.
+    **Description**: Retrieves information related to a specified inbound endpoint.
 
 ### ENABLE/DISABLE MESSAGE TRACING for INBOUND ENDPOINTS
 
 -	**Resource**: `/inbound-endpoints`
 
-	**Description**: Enable or disable message tracing for a specified inbound-endpoint.
+    **Description**: Enable or disable message tracing for a specified inbound-endpoint.
 
-	**Example**:
+    **Example**:
 
     <Tabs>
     <TabItem value="tab-0" label="Request">
@@ -1845,43 +1827,43 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('HTTPIEP')"}
 		```
-	
+    
 ### GET CONNECTORS
 
 -	**Resource**: `/connectors`
 
-	**Description**: Retrieves a list of available connectors.
+    **Description**: Retrieves a list of available connectors.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/connectors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 2,
@@ -1902,32 +1884,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Connector by name</summary>
+    <details>
+    <summary>Search for a Connector by name</summary>
+
+    You can also search for a Connector by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Connector by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/connectors?searchKey=csv" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -1944,28 +1925,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates`
 
-	**Description**: Retrieves a list of available templates.
+    **Description**: Retrieves a list of available templates.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/templates" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"sequenceTemplateList": [
@@ -1981,32 +1962,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Template by name</summary>
+    <details>
+    <summary>Search for a Template by name</summary>
+
+    You can also search for a Template by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Template by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/templates?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -2025,30 +2005,30 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates?type=TYPE`
 
-	**Description**: Retrieves a list of available templates of a given type. Supported template types are as follows.
-	1. endpoint
-	2. sequence
+    **Description**: Retrieves a list of available templates of a given type. Supported template types are as follows.
+    1. endpoint
+    2. sequence
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/templates?type=sequence" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 1,
@@ -2062,29 +2042,29 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates?type={type}&name={template}`
 
-	**Description**: Retrieves information related to a specific template. However this requires the template type to be included in the
-	request as a query parameter in addition to the template name.
+    **Description**: Retrieves information related to a specific template. However this requires the template type to be included in the
+    request as a query parameter in addition to the template name.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/templates?type=sequence&name=testSequenceTemplate" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"Parameters": [],
@@ -2097,9 +2077,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/templates`
 
-	**Description**: Enable or disable message tracing for a specified sequence template.
+    **Description**: Enable or disable message tracing for a specified sequence template.
 
-	**Example**:
+    **Example**:
 
     <Tabs>
     <TabItem value="tab-0" label="Request">
@@ -2120,43 +2100,43 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"message":"Enabled tracing for ('testSequenceTemplate')"}
 		```
-	
+    
 ### GET SERVER INFORMATION
 
 -	**Resource**: `/server`
 
-	**Description**: Retrieves information related to the micro integrator server instance.
+    **Description**: Retrieves information related to the micro integrator server instance.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/server" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"productVersion": "1.1.0",
@@ -2176,17 +2156,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance forcefully.
+    **Description**: Shutdown the micro integrator server instance forcefully.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X PATCH \
 			https://localhost:9164/management/server \
@@ -2197,13 +2177,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"Message":"The server will start to shutdown."
@@ -2214,17 +2194,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance gracefully.
+    **Description**: Shutdown the micro integrator server instance gracefully.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X PATCH \
 			https://localhost:9164/management/server \
@@ -2235,13 +2215,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"Message":"The server will start to shutdown gracefully."
@@ -2252,17 +2232,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance forcefully.
+    **Description**: Restart the micro integrator server instance forcefully.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X PATCH \
 			https://localhost:9164/management/server \
@@ -2273,13 +2253,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"Message":"The server will start to restart."
@@ -2290,17 +2270,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance gracefully.
+    **Description**: Restart the micro integrator server instance gracefully.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 			curl -X PATCH \
 			https://localhost:9164/management/server \
@@ -2311,13 +2291,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"Message":"The server will start to restart gracefully."
@@ -2328,28 +2308,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-services`
 
-	**Description**: Retrieves a list of all data services deployed.
+    **Description**: Retrieves a list of all data services deployed.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/data-services" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count": 1,
@@ -2363,32 +2343,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```
 
-	<details>
-	<summary>Search for a Data Service by name</summary>
+    <details>
+    <summary>Search for a Data Service by name</summary>
+
+    You can also search for a Data Service by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Data Service by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/data-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 2,
@@ -2402,9 +2381,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-services?dataServiceName={dataservice}`
 
-	**Description**: Retrieves information related to a specific data service.
+    **Description**: Retrieves information related to a specific data service.
 
-	**Example**:
+    **Example**:
 
 	```bash
 	curl -X GET "https://localhost:9164/management/data-services?dataServiceName=StudentDataService" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -2413,58 +2392,57 @@ The management API has multiple resources to provide information regarding the d
 ### GET DATA SOURCES
 -	**Resource**: `/data-sources`
 
-	**Description**: Retrieves a list of all data sources deployed.
+    **Description**: Retrieves a list of all data sources deployed.
 
-	**Example**:
-	
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    **Example**:
+    
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
 		```
-	
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
 		```
 
-	<details>
-	<summary>Search for a Data Source by name</summary>
+    <details>
+    <summary>Search for a Data Source by name</summary>
+
+    You can also search for a Data Source by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Data Source by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/data-sources?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -2477,28 +2455,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-sources?name={datasource}`
 
-	**Description**: Retrieves information related to a specific data source.
+    **Description**: Retrieves information related to a specific data source.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
-	
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
@@ -2515,28 +2493,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging?loggerName={logger}`
 
-	**Description**: Retrieves information related to a specific logger.
+    **Description**: Retrieves information related to a specific logger.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/logging?loggerName=org-apache-coyote" -H "accept: application/json" -H 	      "Authorization: Bearer Token" -k
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"loggerName": "org-apache-coyote",
@@ -2545,32 +2523,31 @@ The management API has multiple resources to provide information regarding the d
 			}
 		```
 
-	<details>
-	<summary>Search for a Logger by name</summary>
+    <details>
+    <summary>Search for a Logger by name</summary>
+
+    You can also search for a Logger by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Logger by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/logging?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 1,
@@ -2586,17 +2563,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging`
 
-	**Description**: Updates the log level of root logger.
+    **Description**: Updates the log level of root logger.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PATCH \
 			https://localhost:9164/management/logging \
@@ -2608,13 +2585,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully updated rootLogger.level to WARN"
@@ -2625,17 +2602,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/logging`
 
-	**Description**: Updates the log level of a specific logger.
+    **Description**: Updates the log level of a specific logger.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PATCH \
 			https://localhost:9164/management/logging \
@@ -2647,34 +2624,34 @@ The management API has multiple resources to provide information regarding the d
 			}' -k
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully updated logger.org-apache-hadoop-hive.level to DEBUG"
 		}
 		```
-	
+    
 ### ADD NEW LOGGER
 
 -	**Resource**: `/logging`
 
-	**Description**: Add a new logger.
+    **Description**: Add a new logger.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PATCH \
 			https://localhost:9164/management/logging \
@@ -2687,45 +2664,45 @@ The management API has multiple resources to provide information regarding the d
 				}' -k
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"message":"Successfully added logger for ('synapse-api') with level DEBUG for class org.apache.synapse.rest.API"
 		}
 		```
-	
+    
 ### GET CORRELATION LOGGING CONFIGURATION STATUS
 
 -	**Resource**: `/configs?configName=correlation`
 
-	**Description**: Retrieves correlation log configuration status.
+    **Description**: Retrieves correlation log configuration status.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/configs?configName=correlation" -H "accept: application/json" -H "Authorization: Bearer Token" -k
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{   
 			"configName": "correlation",
@@ -2735,32 +2712,31 @@ The management API has multiple resources to provide information regarding the d
 		}
 		```	
 
-	<details>
-	<summary>Search for a log files by name</summary>
+    <details>
+    <summary>Search for a log files by name</summary>
+
+    You can also search for a log file by name. To do that, use the following example cURL command.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a log file by name. To do that, use the following example cURL command.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"count": 3,
@@ -2782,17 +2758,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/configs`
 
-	**Description**: Enable or disable correlation logging in a running server.
+    **Description**: Enable or disable correlation logging in a running server.
 
-	**Example**:
+    **Example**:
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PUT \
 			"https://localhost:9164/management/configs/" \
@@ -2803,13 +2779,13 @@ The management API has multiple resources to provide information regarding the d
 			}' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{   
 			"message": "Successfully Updated Correlation Logs Status"
@@ -2821,28 +2797,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/count`
 
-	**Description**: Retrieves the transaction count for the current month.
+    **Description**: Retrieves the transaction count for the current month.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/transactions/count" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"Month": 6,
@@ -2853,28 +2829,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/count?year={year}&month={month}`
 
-	**Description**: Retrieves the transaction count for the specified year and month.
+    **Description**: Retrieves the transaction count for the specified year and month.
 
     **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/transactions/count?year=2020&month=5" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"Month": 5,
@@ -2887,28 +2863,28 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/report?start={start}&end={end}`
 
-	**Description**: Retrieves the transaction report for the specified period. Generates the transaction report at the `<MI_HOME>/tmp` directory.
+    **Description**: Retrieves the transaction report for the specified period. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01&end=2020-05" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 		"TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
@@ -2917,9 +2893,9 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/transactions/report?start={start}`
 
-	**Description**: Retrieves the transaction report for data starting from the specified date. Generates the transaction report at the `<MI_HOME>/tmp` directory.
+    **Description**: Retrieves the transaction report for data starting from the specified date. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
-	**Example**:
+    **Example**:
 
     <Tabs>
     <TabItem value="tab-0" label="Request">
@@ -2949,17 +2925,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources?path={registry path}`
 
-	**Description**: Retrieves files and folders under the given parent folder with their media type and properties.
+    **Description**: Retrieves files and folders under the given parent folder with their media type and properties.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET \ 
 		"https://localhost:9164/management/registry-resources?path=registry/config/testFolder" \
@@ -2967,13 +2943,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count":2,
@@ -3001,17 +2977,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources?path={registry path}&expand={true}`
 
-	**Description**: Retrieves a nested JSON containing all the files and folders under the given parent folder.
+    **Description**: Retrieves a nested JSON containing all the files and folders under the given parent folder.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET \ 
 		"https://localhost:9164/management/registry-resources?path=registry/config/testFolder&expand=true" \
@@ -3019,13 +2995,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"name":"testFolder",
@@ -3057,17 +3033,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/content?path={registry path}`
 
-	**Description**: Retrieves content of a registry as text.
+    **Description**: Retrieves content of a registry as text.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
@@ -3075,13 +3051,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```xml
 		<?xml version="1.0" encoding="UTF-8"?>
 		<endpoint name="sampleEP" xmlns="http://ws.apache.org/ns/synapse">
@@ -3097,32 +3073,31 @@ The management API has multiple resources to provide information regarding the d
 		</endpoint>
 		```
 
-	<details>
-	<summary>Search for a Registry Resource by name</summary>
+    <details>
+    <summary>Search for a Registry Resource by name</summary>
+
+    You can also search for a Registry Resource by name. To do that, use the following example cURL command. A nested search is possible here to find files inside directories.
+
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-	</details>
-		You can also search for a Registry Resource by name. To do that, use the following example cURL command. A nested search is possible here to find files inside directories.
+    </TabItem>
+    </Tabs>
 
-		<Tabs>
-		<TabItem value="tab-0" label="Request">
-
-
-
-		</TabItem>
-		</Tabs>
+    </details>
 			```bash
 			curl -X GET "https://localhost:9164/management/registry-resources?path=registry/config&searchKey=test-text" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
 			```
 
-		<Tabs>
-		<TabItem value="tab-0" label="Response">
+        <Tabs>
+        <TabItem value="tab-0" label="Response">
 
 
 
-		</TabItem>
-		</Tabs>
+        </TabItem>
+        </Tabs>
 			```json
 			{
 				"list": {
@@ -3146,28 +3121,27 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/content?path={registry path}&mediaType={media type}`
 
-	**Description**: Adds a new registry resource.
+    **Description**: Adds a new registry resource.
 
-	:::note
+    :::note
 
+    Only admin users can add new registry resources.
 
+    Use `multipart/form-data` as in `Request 2` to add binary files as registry resources.
 
-	:::
-		Only admin users can add new registry resources.
+    Change `Content-Type` header according to the payload.
 
-		Use `multipart/form-data` as in `Request 2` to add binary files as registry resources.
-		
-		Change `Content-Type` header according to the payload.
+    :::
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request 1">
-
+    <Tabs>
+    <TabItem value="tab-0" label="Request 1">
 
 
-  	</TabItem>
-  	</Tabs>
+
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
@@ -3188,13 +3162,13 @@ The management API has multiple resources to provide information regarding the d
 		</endpoint>' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request 2">
+    <Tabs>
+    <TabItem value="tab-0" label="Request 2">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf&mediaType=application/pdf" \
@@ -3204,13 +3178,13 @@ The management API has multiple resources to provide information regarding the d
 		-F 'file=@samplePdf.pdf' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully added the registry resource"
@@ -3221,28 +3195,27 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/content?path={registry path}`
 
-	**Description**: Modifies the content of an existing registry resource.
+    **Description**: Modifies the content of an existing registry resource.
 
-	:::note
+    :::note
 
+    Only admin users can modify registry resources.
 
+    Change `Content-Type` header according to the payload.
 
-	:::
-		Only admin users can modify registry resources.
-		
-		Change `Content-Type` header according to the payload.
+    Changes done to the registry resources will be updated to the cache after the predefined `cachableDuration` time period.
 
-		Changes done to the registry resources will be updated to the cache after the predefined `cachableDuration` time period.
+    :::
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request 1">
-
+    <Tabs>
+    <TabItem value="tab-0" label="Request 1">
 
 
-  	</TabItem>
-  	</Tabs>
+
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PUT \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
@@ -3263,13 +3236,13 @@ The management API has multiple resources to provide information regarding the d
 		</endpoint>' -k -i
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Request 2">
+    <Tabs>
+    <TabItem value="tab-0" label="Request 2">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X PUT \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf" \
@@ -3279,13 +3252,13 @@ The management API has multiple resources to provide information regarding the d
 		-F 'file=updatedPdf.pdf' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully modified the registry resource"
@@ -3296,24 +3269,23 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/content?path={registry path}`
 
-	**Description**: Deletes a registry resource.
+    **Description**: Deletes a registry resource.
 
-	:::note
+    :::note
 
+    Only admin users can delete registry resources.
 
+    :::
 
-	:::
-		Only admin users can delete registry resources.
+    **Example**:
 
-	**Example**:
-
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
-
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
-  	</TabItem>
-  	</Tabs>
+
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X DELETE \ 
 		"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
@@ -3321,13 +3293,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully deleted the registry resource"
@@ -3337,18 +3309,18 @@ The management API has multiple resources to provide information regarding the d
 ### GET PROPERTIES OF A REGISTRY RESOURCE
 
 -	**Resource**: `/registry-resources/properties?path={registry path}`
-	
-	**Description**: Retrieves all the properties of a registry resource.
+    
+    **Description**: Retrieves all the properties of a registry resource.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET \ 
 		"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
@@ -3356,13 +3328,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"count":2,
@@ -3382,17 +3354,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/properties?path={registry path}&name={property name}`
 
-	**Description**: Retrieves the value of a property.
+    **Description**: Retrieves the value of a property.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET \ 
 		"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
@@ -3400,13 +3372,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"prop1":"val1"
@@ -3417,26 +3389,25 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/properties?path={registry path}`
 
-	**Description**: Adds properties to a registry resource. If the input payload consists an existing property name, property value will be modified.
+    **Description**: Adds properties to a registry resource. If the input payload consists an existing property name, property value will be modified.
 
-	:::note
+    :::note
 
+    Only admin users can add properties to a registry resource.
 
+    New properties should be in a JSON array with JSON objects for each property.
 
-	:::
-		Only admin users can add properties to a registry resource.
+    :::
 
-		New properties should be in a JSON array with JSON objects for each property.
+    **Example**:
 
-	**Example**:
-
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
-
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
-  	</TabItem>
-  	</Tabs>
+
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X POST \ 
 		"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
@@ -3455,13 +3426,13 @@ The management API has multiple resources to provide information regarding the d
 		]' -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully added the registry property"
@@ -3472,24 +3443,23 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/properties?path={registry path}&name={property name}`
 
-	**Description**: Deletes a property from a registry resource.
+    **Description**: Deletes a property from a registry resource.
 
-	:::note
+    :::note
 
+    Only admin users can delete properties from a registry resource.
 
+    :::
 
-	:::
-		Only admin users can delete properties from a registry resource.
+    **Example**:
 
-	**Example**:
-
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
-
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
-  	</TabItem>
-  	</Tabs>
+
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X DELETE\
 		"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
@@ -3497,13 +3467,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"message": "Successfully deleted the registry property"
@@ -3514,17 +3484,17 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/registry-resources/properties?path={registry path}`
 
-	**Description**: Retrieves the media type of a registry resource.
+    **Description**: Retrieves the media type of a registry resource.
 
-	**Example**:
+    **Example**:
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Request">
+    <Tabs>
+    <TabItem value="tab-0" label="Request">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```bash
 		curl -X GET\ 
 		"https://localhost:9164/management/registry-resources/metadata?path=registry/config/testFolder/test-text.txt" \
@@ -3532,13 +3502,13 @@ The management API has multiple resources to provide information regarding the d
 		-H "Authorization: Bearer TOKEN" -k -i
 		```
 
-  	<Tabs>
-  	<TabItem value="tab-0" label="Response">
+    <Tabs>
+    <TabItem value="tab-0" label="Response">
 
 
 
-  	</TabItem>
-  	</Tabs>
+    </TabItem>
+    </Tabs>
 		```json
 		{
 			"name":"test-text.txt",

@@ -768,12 +768,10 @@ This section involves setting up the Gateway node and enabling it to work with t
 
 3. The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
 
-     &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
-     &lt;/html> 
 
 4. If you need to enable JSON Web Token (JWT),  you have to enable it in all Gateway and Key Manager components.
     For more information on configuring JWT, see [Generating JSON Web Token](../../../learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.mdx).

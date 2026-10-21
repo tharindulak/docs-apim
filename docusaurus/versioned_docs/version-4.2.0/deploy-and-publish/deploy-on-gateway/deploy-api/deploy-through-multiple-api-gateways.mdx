@@ -73,7 +73,9 @@ https_endpoint = "https://localhost:8245"
 
 :::tip
 
-    If you have multiple Gateways that support one type of key (e.g., when there are two Gateways that support the production keys, as seen in the above code snippet), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API **Try Out** tab, which is in the Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
+```
+If you have multiple Gateways that support one type of key (e.g., when there are two Gateways that support the production keys, as seen in the above code snippet), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API **Try Out** tab, which is in the Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
+```
 
 :::
 
@@ -209,12 +211,10 @@ Carry out the following instructions in the **second** and the **third** instanc
     
     For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
-     &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
-     &lt;/html>
      
 6.  Follow the steps given below to configure High Availability (HA) for the API-M Gateway:
 

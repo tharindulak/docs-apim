@@ -57,10 +57,12 @@ The following table describes above configuration.
 
 :::note
 
-    - `mgwServiceName` only need to be defined if service mesh enabled in Consul.
-    - `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br />
-    
-    - If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to `true`, the certificate and private key have to be signed by the same CA that the Consul agents' certificates are signed.
+```
+- `mgwServiceName` only need to be defined if service mesh enabled in Consul.
+- `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br>
+
+- If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to `true`, the certificate and private key have to be signed by the same CA that the Consul agents' certificates are signed.
+```
 
 :::
 
@@ -142,10 +144,12 @@ paths:
 
 :::info
 
-    - Choreo Connect takes one `pollInterval` amount of time to update the upstreams' configuration after being updated in Consul service catalog.<br />
-    - At the initial start of the Adapter component, the requests that come to the Choreo Connect during are served via the `default_host` until the Adapter gets configuration from a Consul client. <br />
-    - Choreo Connect supports both API level and Resource level endpoints for Consul service discovery.<br />
-    - If multiple upstreams are discovered through Consul for the same service name, requests are ***Load Balanced*** to the upstreams.
-    <br />
+```
+- Choreo Connect takes one `pollInterval` amount of time to update the upstreams' configuration after being updated in Consul service catalog.<br>
+- At the initial start of the Adapter component, the requests that come to the Choreo Connect during are served via the `default_host` until the Adapter gets configuration from a Consul client. <br>
+- Choreo Connect supports both API level and Resource level endpoints for Consul service discovery.<br>
+- If multiple upstreams are discovered through Consul for the same service name, requests are ***Load Balanced*** to the upstreams.
+<br>
+```
 
 :::

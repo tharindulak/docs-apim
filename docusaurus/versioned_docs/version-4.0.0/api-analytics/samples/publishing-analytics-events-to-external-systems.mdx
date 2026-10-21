@@ -27,24 +27,28 @@ This section will cover how to configure the `pom.xml`, class implementations an
 
 Add wso2-nexus repository to `pom.xml`,
 
-    &lt;repository>
-        &lt;id>wso2-nexus&lt;/id>
-        &lt;name>WSO2 internal Repository&lt;/name>
-        &lt;url>https://maven.wso2.org/nexus/content/groups/wso2-public/&lt;/url>
-        &lt;releases>
-            &lt;enabled>true&lt;/enabled>
-            &lt;updatePolicy>daily&lt;/updatePolicy>
-            &lt;checksumPolicy>ignore&lt;/checksumPolicy>
-        &lt;/releases>
-    &lt;/repository>
+```
+<repository>
+    <id>wso2-nexus</id>
+    <name>WSO2 internal Repository</name>
+    <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+    <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+    </releases>
+</repository>
+```
 
 Add dependency,
 
-    &lt;dependency>
-        &lt;groupId>org.wso2.am.analytics.publisher&lt;/groupId>
-        &lt;artifactId>org.wso2.am.analytics.publisher.client&lt;/artifactId>
-        &lt;version>1.0.1&lt;/version>
-    &lt;/dependency>
+```
+<dependency>
+    <groupId>org.wso2.am.analytics.publisher</groupId>
+    <artifactId>org.wso2.am.analytics.publisher.client</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
 
 ### Implementing Required Classes
 
@@ -70,7 +74,9 @@ Implementation of this class should look something similar to [this](https://git
 
 Build the project using,
 
-    mvn clean install
+```
+mvn clean install
+```
 
 ## Configuring the Sample
 
@@ -220,7 +226,9 @@ Log data is available in `enforcer_analytics.log`
 
 In case of a failure with the above command, use below to set up assets,
 
-    filebeat -e
+```
+filebeat -e
+```
 
 [Start](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#start) Filebeat
 

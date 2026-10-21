@@ -1967,6 +1967,11 @@
               "type": "doc",
               "id": "api-gateway/platform-gateway/gateway-registration-and-deployment",
               "label": "Gateway Registration and Deployment"
+            },
+            {
+              "type": "doc",
+              "id": "api-gateway/platform-gateway/bottom-up-api-deployment",
+              "label": "Bottom-Up API Deployment"
             }
           ]
         },

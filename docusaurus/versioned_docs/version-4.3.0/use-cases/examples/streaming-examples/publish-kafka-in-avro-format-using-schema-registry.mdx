@@ -12,7 +12,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 ## Prerequisites:
 1. Set up Kafka as follows:
-	1. Create a folder called Kafka and another folder called kafka-osgi.
+    1. Create a folder called Kafka and another folder called kafka-osgi.
     2. Copy the following files from \{KafkaHome\}/libs to the Kafka folder you just created:
         * kafka_2.11_2.2.0.jar
         * kafka_clients_2.2.0.jar
@@ -30,7 +30,7 @@ If converted successfully, the following messages are shown on the terminal for 
 2. Download confluent-5.2.1 from https://www.confluent.io/download/ and unzip.
 3. Save this sample.
 4. If there is no syntax error, the following message is shown on the console:
-	        * -Siddhi App PublishKafkaInAvroFormatUsingSchemaRegistry successfully deployed.
+            * -Siddhi App PublishKafkaInAvroFormatUsingSchemaRegistry successfully deployed.
 
 ## Executing the Sample:
 1. Navigate to \{KafkaHome\} and start the zookeeper node using,
@@ -44,10 +44,10 @@ curl -X POST -H "Content-Type: application/json" --data '\{ "schema": "\{ \"type
 5. Navigate to \{WSO2SIHome\}/samples/sample-clients/kafka-avro-consumer and run the 'ant' command without arguments.
 6. Start the Siddhi application by clicking on 'Run'.
 7. If the Siddhi application starts successfully, the following messages are shown on the console:
-	    - PublishKafkaInAvroFormatUsingSchemaRegistry.siddhi - Started Successfully!
-	    - Kafka version : 2.2.0
-	    - Kafka commitId : 05fcfde8f69b0349
-	    - Kafka producer created.
+        - PublishKafkaInAvroFormatUsingSchemaRegistry.siddhi - Started Successfully!
+        - Kafka version : 2.2.0
+        - Kafka commitId : 05fcfde8f69b0349
+        - Kafka producer created.
 
 ## Testing the Sample:
 Send events through one or more of the following methods.

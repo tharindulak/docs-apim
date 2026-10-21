@@ -32,12 +32,11 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 
 :::note
 
+[``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable) can be used to set resource attributes such as `deployment.environment` and `service.name`. This can be done in one of the following ways:
 
+- Via `deployment.toml`.
 
 :::
-	[``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable) can be used to set resource attributes such as `deployment.environment` and `service.name`. This can be done in one of the following ways:
-
-	- Via `deployment.toml`.
 
 		```toml
 		[[apim.open_telemetry.resource_attributes]]
@@ -49,25 +48,25 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 		value = "Production"
 		```
 
-	- Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
+    - Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
 
 	    ```
 		export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=Production,service.name=MyService
 	    ```
 
-	When a resource attribute is given via both the `deployment.toml` and the `OTEL_RESOURCE_ATTRIBUTES` environment variable, the value of the attribute given via the environment variable will replace the value given via `deployment.toml`.
+    When a resource attribute is given via both the `deployment.toml` and the `OTEL_RESOURCE_ATTRIBUTES` environment variable, the value of the attribute given via the environment variable will replace the value given via `deployment.toml`.
 
 ## Enabling Jaeger Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-	<Tabs>
-	<TabItem value="tab-0" label="Format">
+    <Tabs>
+    <TabItem value="tab-0" label="Format">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true
@@ -76,13 +75,13 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 		remote_tracer.port = "<port-of-jaeger-endpoint>"
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Example">
+    <Tabs>
+    <TabItem value="tab-0" label="Example">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true
@@ -93,22 +92,22 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 
 2. Start the server.
 
- 	After you invoke the APIs you will see the tracing data in Jaeger as follow:
+    After you invoke the APIs you will see the tracing data in Jaeger as follow:
 
-	[![Distributed tracing jaeger](../../../../assets/img/administer/opentelemetry-jaeger.png)](../../../../assets/img/administer/opentelemetry-jaeger.png)
+    [![Distributed tracing jaeger](../../../../assets/img/administer/opentelemetry-jaeger.png)](../../../../assets/img/administer/opentelemetry-jaeger.png)
 
 
 ## Enabling Zipkin Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-	<Tabs>
-	<TabItem value="tab-0" label="Format">
+    <Tabs>
+    <TabItem value="tab-0" label="Format">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true
@@ -117,13 +116,13 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 		remote_tracer.port = "<port-of-zipkin-endpoint>"
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Example">
+    <Tabs>
+    <TabItem value="tab-0" label="Example">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true
@@ -134,7 +133,7 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 
 2. Start the server.
 
- 	After you invoke the APIs you will see the tracing data in Zipkin as follow:
+    After you invoke the APIs you will see the tracing data in Zipkin as follow:
 
     [![Distributed tracing zipkin](../../../../assets/img/administer/opentelemetry-zipkin.png)](../../../../assets/img/administer/opentelemetry-zipkin.png)
 
@@ -151,7 +150,7 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 
 2. Start the server.
 
-	After you invoke the APIs you will be able to see tracing data in the `wso2-apimgt-open-tracing.log` in the `<API-M_HOME>/repository/logs` folder.
+    After you invoke the APIs you will be able to see tracing data in the `wso2-apimgt-open-tracing.log` in the `<API-M_HOME>/repository/logs` folder.
 
 
 ```log
@@ -173,13 +172,13 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 
 - Copy the following configuration into the `deployment.toml` file.
 
-	<Tabs>
-	<TabItem value="tab-0" label="Format">
+    <Tabs>
+    <TabItem value="tab-0" label="Format">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true
@@ -191,13 +190,13 @@ When adding configurations that start with `apim.` (such as `[apim.open_telemetr
 		value = "<key-value-of-the-header>"
 		```
 
-	<Tabs>
-	<TabItem value="tab-0" label="Example">
+    <Tabs>
+    <TabItem value="tab-0" label="Example">
 
 
 
-	</TabItem>
-	</Tabs>
+    </TabItem>
+    </Tabs>
 		```toml
 		[apim.open_telemetry]
 		remote_tracer.enable = true

@@ -775,12 +775,10 @@ This section involves setting up the Gateway node and enabling it to work with t
      
 6.  The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
 
-     &lt;html>
       <div className="admonition note">
       <p className="admonition-title">Note</p>
       <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
-     &lt;/html>
 
 7.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
                 

@@ -43,13 +43,77 @@ Sign in to the Publisher.
 
 2.  Click **CREATE API**, go to **Streaming API**, and Click **SSE API**.
 
-    <div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"The "}<b>{"CREATE"}</b>{" button will only appear for a user who has the "}<code>{"creator"}</code>{" role permission."}</p></div>
+    <div className="admonition note">
+      <p className="admonition-title">Note</p>
+      <p>The <b>CREATE</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+      </div>
 
     [![Design New Streaming API](../../../../../assets/_versions/4.1.0/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../../../assets/_versions/4.1.0/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter API details.
 
-     <table><colgroup><col /><col /><col /></colgroup><tbody><tr><th colSpan={"2"}><b>{"Field"}</b></th><th><b>{"Sample value"}</b></th></tr><tr><td colSpan={"2"} className={"confluenceTd"}>{"Name"}</td><td className={"confluenceTd"}>{"ServerSentEvents"}</td></tr><tr><td colSpan={"2"} className={"confluenceTd"}>{"Context"}</td><td className={"confluenceTd"}><div className={"content-wrapper"}><p><code>{"/events"}</code></p><div><div className={"confluence-information-macro-body"}><p>{"The API context is used by the Gateway to identify the API. Therefore, the API context must be unique. This context is the API's root context when invoking the API through the Gateway."}</p></div><div className={"confluence-information-macro confluence-information-macro-tip"}><span className={"aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"}></span><div className={"confluence-information-macro-body"}><p>{"You can define the API's version as a parameter of its context by adding the "}<code>{"{version}"}</code>{" into the context. For example, "}<code>{"{version}/event"}</code>{". The API Manager assigns the actual version of the API to the "}<code>{"{version}"}</code>{" parameter internally. For example, "}<code>{"https://localhost:8243/1.0.0/event"}</code>{". Note that the version appears before the context, allowing you to group your APIs based on the versions."}</p></div></div></div></div></td></tr><tr><td colSpan={"2"} className={"confluenceTd"}>{"Version"}</td><td colSpan={"1"} className={"confluenceTd"}>{"1.0.0"}</td></tr><tr><td colSpan={"2"} className={"confluenceTd"}>{"Protocol"}</td><td colSpan={"1"} className={"confluenceTd"}><p>{"SSE"}</p></td></tr><tr><td colSpan={"2"} className={"confluenceTd"}>{"Endpoint"}</td><td colSpan={"1"} className={"confluenceTd"}><code>{"http://localhost:8080"}</code><p>{"You need to have a Server Sent Events server running for this purpose locally"}</p></td></tr></tbody></table>
+     <table>
+         <colgroup>
+             <col />
+             <col />
+             <col />
+         </colgroup>
+         <tbody>
+             <tr>
+                 <th colSpan="2"><b>Field</b></th>
+                 <th ><b>Sample
+          value</b></th>
+             </tr>
+             <tr>
+                 <td colSpan="2" className="confluenceTd">Name</td>
+                 <td className="confluenceTd">ServerSentEvents</td>
+             </tr>
+             <tr>
+                 <td colSpan="2" className="confluenceTd">Context</td>
+                 <td className="confluenceTd">
+                     <div className="content-wrapper">
+                         <p>
+                             <code>/events</code>
+                         </p>
+                         <div>
+                             <div className="confluence-information-macro-body">
+                                 <p>The API context is used by the Gateway to identify the API.
+          Therefore, the API context must be unique. This context is the API's root context when invoking the API through
+          the Gateway.</p>
+                             </div>
+                             <div className="confluence-information-macro confluence-information-macro-tip">
+                                 <span className="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
+                                 <div className="confluence-information-macro-body">
+                                     <p>You can define the API's version as a parameter of its context by
+          adding the <code>\{version\}</code> into the context. For example, <code>\{version\}/event</code>. The API Manager
+          assigns the actual version of the API to the <code>\{version\}</code> parameter internally. For example,
+                                         <code>https://localhost:8243/1.0.0/event</code>. Note that the version appears before the context, allowing you to
+          group your APIs based on the versions.</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td colSpan="2" className="confluenceTd">Version</td>
+                 <td colSpan="1" className="confluenceTd">1.0.0</td>
+             </tr>
+             <tr>
+                 <td colSpan="2" className="confluenceTd">Protocol</td>
+                 <td colSpan="1" className="confluenceTd">
+                     <p>SSE</p>
+                 </td>
+             </tr>
+             <tr>
+                 <td colSpan="2" className="confluenceTd">Endpoint</td>
+                 <td colSpan="1" className="confluenceTd">
+                     <code>http://localhost:8080</code>
+                     <p>You need to have a Server Sent Events server running for this purpose locally</p>
+                 </td>
+             </tr>
+         </tbody>
+     </table>
 
      <a href="/api-platform/api-manager/assets/img/design/create-api/streaming-api/create-sse-api-form.png"><img src="/api-platform/api-manager/assets/img/design/create-api/streaming-api/create-sse-api-form.png" width="80%" alt="SE Create API Page" /></a>
 

@@ -17,60 +17,60 @@ you must change the default ports to avoid port conflicts.
 By default, the Micro Integrator is **internally** configured with a port offset of 10. Listed below are the ports that are effective in the Micro Integrator by default (due to the internal port offset of 10).
 
 <table>
-	<tr>
-		<th>
-			Default Port
-		</th>
-		<th>
-			Description
-		</th>
-	</tr>
-	<tr>
-		<td>
-			<code>8290</code>
-		</td>
-		<td>
-			The port of the HTTP Passthrough transport.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<code>8253</code>
-		</td>
-		<td>
-			The port of the HTTPS Passthrough transport.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<code>9201</code>
-		</td>
-		<td>
-			The HTTP port of the <a href="/api-platform/api-manager/4.0.0/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.
-			<b>Configuring the default HTTP port</b>
-			If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.
-			<div>
-				<code>[mediation]</code>
-				<code>internal_http_api_port = http_port </code>
-			</div>
-			<b>Note</b>: With the default internal port offset, the effective port will be <code>http_port + 10</code>.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<code>9164</code>
-		</td>
-		<td>
-			The HTTPS port of the <a href="/api-platform/api-manager/4.0.0/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.
-			<b>Configuring the default HTTPS port</b>
-			If required, you can manually change the HTTPS port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.
-			<div>
-				<code>[mediation]</code>
-				<code>internal_https_api_port = https_port </code>
-			</div>
-			<b>Note</b>: With the default internal port offset, the effective port will be <code>https_port + 10</code>.
-		</td>
-	</tr>
+    <tr>
+        <th>
+            Default Port
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <code>8290</code>
+        </td>
+        <td>
+            The port of the HTTP Passthrough transport.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8253</code>
+        </td>
+        <td>
+            The port of the HTTPS Passthrough transport.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>9201</code>
+        </td>
+        <td>
+            The HTTP port of the <a href="/api-platform/api-manager/4.0.0/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.
+            <b>Configuring the default HTTP port</b>
+            If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.
+            <div>
+                <code>[mediation]</code>
+                <code>internal_http_api_port = http_port </code>
+            </div>
+            <b>Note</b>: With the default internal port offset, the effective port will be <code>http_port + 10</code>.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>9164</code>
+        </td>
+        <td>
+            The HTTPS port of the <a href="/api-platform/api-manager/4.0.0/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.
+            <b>Configuring the default HTTPS port</b>
+            If required, you can manually change the HTTPS port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.
+            <div>
+                <code>[mediation]</code>
+                <code>internal_https_api_port = https_port </code>
+            </div>
+            <b>Note</b>: With the default internal port offset, the effective port will be <code>https_port + 10</code>.
+        </td>
+    </tr>
 </table>
 
 ### Changing default MI ports
@@ -79,14 +79,13 @@ There are two ways to manually offset the [default ports](#default-ports).
 
 :::tip
 
-
+-	The internal offset of 10 is overriden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:
+    - `8290` -> `8283` (8290 - 10 + 3)
+    - `8253` -> `8246` (8253 - 10 + 3)
+    - `9164` -> `9157` (9164 - 10 + 3)
+-	Note that if you manually set an offset of 10 using the following method, you will get the same [default ports](#default-ports).
 
 :::
-	-	The internal offset of 10 is overriden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:
-		- `8290` -> `8283` (8290 - 10 + 3)
-		- `8253` -> `8246` (8253 - 10 + 3)
-		- `9164` -> `9157` (9164 - 10 + 3)
-	-	Note that if you manually set an offset of 10 using the following method, you will get the same [default ports](#default-ports).
 
 -   Pass the port offset to the server during startup.
 
@@ -110,53 +109,53 @@ There are two ways to manually offset the [default ports](#default-ports).
 By default, EI Analytics is **internally** configured with a port offset of 1. Listed below are the ports that are effective in EI Analytics by default (due to the internal port offset of 1).
 
 <table>
-	<tr>
-		<th>
-			Default Port
-		</th>
-		<th>
-			Description
-		</th>
-	</tr>
-	<tr>
-    	<td>
-    		<code>9645</code>
-    	</td>
-    	<td>
-    		The port of the EI Analytics Portal.
-    	</td>
+    <tr>
+        <th>
+            Default Port
+        </th>
+        <th>
+            Description
+        </th>
     </tr>
-	<tr>
-		<td>
-			<code>9091</code>
-		</td>
-		<td>
-			The HTTP port of the management API of EI Analytics.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<code>9444</code>
-		</td>
-		<td>
-			The HTTPS port of the management API of EI Analytics.
-		</td>
-	</tr>    
-	<tr>
-    	<td>
-    		<code>7712</code>
-    	</td>
-    	<td>
-    		Thrift SSL port (for the secure transport) on which the client is authenticated when accessing EI Analytics.
-    	</td>
+    <tr>
+        <td>
+            <code>9645</code>
+        </td>
+        <td>
+            The port of the EI Analytics Portal.
+        </td>
     </tr>
-	<tr>
-    	<td>
-    		<code>7612</code>
-    	</td>
-    	<td>
-    		Thrift TCP port on which EI Analytics receives events from clients
-    	</td>
+    <tr>
+        <td>
+            <code>9091</code>
+        </td>
+        <td>
+            The HTTP port of the management API of EI Analytics.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>9444</code>
+        </td>
+        <td>
+            The HTTPS port of the management API of EI Analytics.
+        </td>
+    </tr>    
+    <tr>
+        <td>
+            <code>7712</code>
+        </td>
+        <td>
+            Thrift SSL port (for the secure transport) on which the client is authenticated when accessing EI Analytics.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>7612</code>
+        </td>
+        <td>
+            Thrift TCP port on which EI Analytics receives events from clients
+        </td>
     </tr>
 </table>
 
@@ -166,7 +165,9 @@ If required, you can manually change the HTTP/HTTPS ports in the <code>deploymen
 
 :::note
 
-	With the default internal port offset, the effective port will be <code>https_port + 1</code>.
+```
+With the default internal port offset, the effective port will be <code>https_port + 1</code>.
+```
 
 :::
 

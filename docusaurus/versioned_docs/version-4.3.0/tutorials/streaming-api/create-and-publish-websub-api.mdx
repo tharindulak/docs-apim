@@ -31,11 +31,39 @@ Sign in to the Publisher.
 
     [![Design New Streaming API](../../../../assets/_versions/4.3.0/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../../assets/_versions/4.3.0/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
-    <div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"The "}<b>{"CREATE"}</b>{" button will only appear for a user who has the "}<code>{"creator"}</code>{" role permission."}</p></div>
+    <div className="admonition note">
+      <p className="admonition-title">Note</p>
+      <p>The <b>CREATE</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+      </div>
 
 3.  Enter the details of the new WebSub/WebHook API.
 
-     <table><thead><tr><th><b>{"Field"}</b></th><th><b>{"Sample value"}</b></th></tr></thead><tbody><tr><td>{"Name"}</td><td>{"RepoWatcher"}</td></tr><tr><td>{"Context"}</td><td>{"/repo-watcher"}</td></tr><tr><td>{"Version"}</td><td>{"1.0.0"}</td></tr><tr><td>{"Protocol"}</td><td>{"WebSub"}</td></tr></tbody></table>
+     <table>
+     <thead>
+     <tr>
+     <th><b>Field</b></th>
+     <th><b>Sample value</b></th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+     <td>Name</td>
+     <td>RepoWatcher</td>
+     </tr>
+     <tr>
+     <td>Context</td>
+     <td>/repo-watcher</td>
+     </tr>
+     <tr>
+     <td>Version</td>
+     <td>1.0.0</td>
+     </tr>
+     <tr>
+     <td>Protocol</td>
+     <td>WebSub</td>
+     </tr>
+     </tbody>
+     </table>
 
 4.  Click **CREATE**. 
 
@@ -104,7 +132,10 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 ### Add a WebHook to your GitHub Repository {/* #step-3---add-a-webhook-to-your-github-repository */}
 
-<div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"You can use an existing GitHub repository of yours, or create a new one for this purpose."}</p></div>
+<div className="admonition note">
+     <p className="admonition-title">Note</p>
+     <p>You can use an existing GitHub repository of yours, or create a new one for this purpose.</p>
+</div>
 
 1. Go to **Settings** of your GitHub repository.
 
@@ -126,7 +157,40 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
       
            Provide the following values.
 
-          <table><thead><tr><th><b>{"Field"}</b></th><th><b>{"Value"}</b></th></tr></thead><tbody><tr><td>{"Payload URL"}</td><td><code>{"http://3b1"}<strong><em>{"*"}</em></strong>{"c9.ngrok.io/repo-watcher/1.0.0/webhooks_events_receiver_resource?topic=/issues"}</code><p>{"This is obtained by replacing "}<code>{"https://{GATEWAY_HOST}:9021"}</code>{" part of the "}<strong>{"/issues"}</strong>{" topic's "}<b>{"Callback URL"}</b>{", with the forwarding HTTP URL from ngrock (For example, "}<code>{"http://3b1"}<strong><em>{"*"}</em></strong>{"c9.ngrok.io"}</code>{")."}</p></td></tr><tr><td>{"Content type"}</td><td>{"application/json"}</td></tr><tr><td>{"Secret"}</td><td><code><code>{"[generated_secret]"}</code></code><p>{"This is the secret you obtained from the "}<b>{"Subscription Configuration"}</b>{" section of the WebSub/WebHook API's "}<b>{"Topics"}</b>{"."}</p></td></tr><tr><td>{"Which events would you like to trigger this WebHook?"}</td><td><p>{"Select "}<b>{"Let me select individual events"}</b>{", and check "}<b>{"Issues"}</b>{"."}</p></td></tr></tbody></table>
+          <table>
+          <thead>
+          <tr>
+          <th><b>Field</b></th>
+          <th><b>Value</b></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>Payload URL</td>
+          <td>
+          <code>http://3b1*******c9.ngrok.io/repo-watcher/1.0.0/webhooks_events_receiver_resource?topic=/issues</code>
+          <p>This is obtained by replacing <code>https://\{GATEWAY_HOST\}:9021</code> part of the **/issues** topic's <b>Callback URL</b>, with the forwarding HTTP URL from ngrock (For example, <code>http://3b1*******c9.ngrok.io</code>). </p>
+          </td>
+          </tr>
+          <tr>
+          <td>Content type</td>
+          <td>application/json</td>
+          </tr>
+          <tr>
+          <td>Secret</td>
+          <td>
+          <code>`[generated_secret]`</code>
+          <p>This is the secret you obtained from the <b>Subscription Configuration</b> section of the WebSub/WebHook API's <b>Topics</b>.</p>
+          </td>
+          </tr>
+          <tr>
+          <td>Which events would you like to trigger this WebHook?</td>
+          <td>
+          <p>Select <b>Let me select individual events</b>, and check <b>Issues</b>.</p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
 
           [![GitHub Select Event Type](../../../../assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)](../../../../assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)
 
@@ -189,7 +253,12 @@ Sign in to the Developer Portal.
     
            This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
-           <div className={"admonition note"}><p className={"admonition-title"}>{"Note"}</p><p>{"You can use any application (e.g., JWT or OAuth) to subscribe to the API."}</p></div>
+           <div className="admonition note">
+           <p className="admonition-title">Note</p>
+           <p> 
+           You can use any application (e.g., JWT or OAuth) to subscribe to the API.
+           </p>
+           </div>
 
            [![Key Generation Wizard](../../../../assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)](../../../../assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 

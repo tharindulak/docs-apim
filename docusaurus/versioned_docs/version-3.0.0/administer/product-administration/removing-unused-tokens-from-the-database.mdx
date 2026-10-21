@@ -91,7 +91,7 @@ We recommend you to test the database dump before the cleanup task as the cleanu
     -   [**MySQL**](#schedule-task-for-mysql)
     -   [**SQL Server**](#schedule-task-for-sql-server)
     
-####Schedule task for MySQL
+#### Schedule task for MySQL
 ```sql
 USE 'WSO2AM_DB';
 DROP EVENT IF EXISTS 'cleanup_tokens_event';
@@ -104,7 +104,7 @@ CREATE EVENT 'cleanup_tokens_event'
 SET GLOBAL event_scheduler = ON;
 
 ```
-####Schedule task for SQL Server
+#### Schedule task for SQL Server
 
 ```sql
 USE WSO2AM_DB ;  

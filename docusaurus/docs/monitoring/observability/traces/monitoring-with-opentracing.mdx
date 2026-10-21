@@ -35,21 +35,18 @@ For more information, see [OpenTracer Configurations](../../../reference/config-
     ```
 
     </TabItem>
+    <TabItem value="tab-1" label="Example">
+
+    ```toml
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "jaeger"
+    remote_tracer.properties.hostname = "localhost"
+    remote_tracer.properties.port = "6831"
+    ```
+
+    </TabItem>
     </Tabs>
-
-	<Tabs>
-	<TabItem value="tab-0" label="Example">
-
-	   ```toml
-	   [apim.open_tracer]
-	   remote_tracer.enable = true
-	   remote_tracer.name = "jaeger"
-	   remote_tracer.properties.hostname = "localhost"
-	   remote_tracer.properties.port = "6831"
-	   ```
-
-	</TabItem>
-	</Tabs>
 
 2. Start the server.
 
@@ -73,21 +70,18 @@ For more information, see [OpenTracer Configurations](../../../reference/config-
     ```
 
     </TabItem>
+    <TabItem value="tab-1" label="Example">
+
+    ```toml
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "zipkin"
+    remote_tracer.properties.hostname = "localhost"
+    remote_tracer.properties.port = "9411"
+    ```
+
+    </TabItem>
     </Tabs>
-
-	<Tabs>
-	<TabItem value="tab-0" label="Example">
-
-	   ```toml
-	   [apim.open_tracer]
-	   remote_tracer.enable = true
-	   remote_tracer.name = "zipkin"
-	   remote_tracer.properties.hostname = "localhost"
-	   remote_tracer.properties.port = "9411"
-	   ```
-
-	</TabItem>
-	</Tabs>
 
 2. Start the server.
 

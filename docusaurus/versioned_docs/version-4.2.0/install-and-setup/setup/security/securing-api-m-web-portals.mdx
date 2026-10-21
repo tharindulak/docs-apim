@@ -81,12 +81,10 @@ You can bypass the `Client Secret` in the Devportal and the Publisher web portal
 
 2. On the left side, select `Service Providers` and `List`.
 
-    &lt;html>
         <div className="admonition note">
             <p className="admonition-title">Note</p>
             <p>When you attempt to log in to Devportal or Publisher, a service provider will be created for that portal. You can view those service providers in the above `list`. For example, apim_devportal for Devportal.</p>
         </div>
-    &lt;/html>
 
 3. Edit the service provider you need to change (Devportal or Publisher) and select `Inbound Authentication Configuration`.
 
@@ -96,12 +94,10 @@ You can bypass the `Client Secret` in the Devportal and the Publisher web portal
 
 6. Select `PKCE Mandatory` and `Allow authentication without the client secret` from the form.
 
-    &lt;html>
         <div className="admonition note">
             <p className="admonition-title">Note</p>
             <p>Make sure to select both options. It's not recommended to bypass Client Secret without making PKCE mandatory, otherwise it will not work.</p>
         </div>
-    &lt;/html>
 
 7. Click `Update`.
 
